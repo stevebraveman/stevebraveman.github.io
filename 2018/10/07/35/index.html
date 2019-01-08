@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://stevebraveman.github.io/2018/10/07/35/">
+    
+    
+    <title>-期望-递推- [洛谷 P1291][SHOI2002]百事世界杯之旅 | Steve_braveman | 技不如人，也绝不甘拜下风！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#00BFFF">
+    
+    
+    <meta name="keywords" content="洛谷,递推,期望">
+    <meta name="description" content="具有恶心输出的期望题">
+<meta name="keywords" content="洛谷,递推,期望">
+<meta property="og:type" content="article">
+<meta property="og:title" content="-期望-递推- [洛谷 P1291][SHOI2002]百事世界杯之旅">
+<meta property="og:url" content="http://yoursite.com/2018/10/07/35/index.html">
+<meta property="og:site_name" content="Steve_braveman">
+<meta property="og:description" content="具有恶心输出的期望题">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-03T13:04:57.109Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="-期望-递推- [洛谷 P1291][SHOI2002]百事世界杯之旅">
+<meta name="twitter:description" content="具有恶心输出的期望题">
+    
+        <link rel="alternate" type="application/atom+xml" title="Steve_braveman" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/icon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Steve_braveman</h5>
+          <a href="mailto:2313617280@qq.com" title="2313617280@qq.com" class="mail">2313617280@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/link"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-address-card"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/stevebraveman" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">-期望-递推- [洛谷 P1291][SHOI2002]百事世界杯之旅</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">-期望-递推- [洛谷 P1291][SHOI2002]百事世界杯之旅</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-07T12:06:19.000Z" itemprop="datePublished" class="page-time">
+  2018-10-07
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入格式"><span class="post-toc-number">2.</span> <span class="post-toc-text">输入格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出格式"><span class="post-toc-number">3.</span> <span class="post-toc-text">输出格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入样例"><span class="post-toc-number">4.</span> <span class="post-toc-text">输入样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出样例"><span class="post-toc-number">5.</span> <span class="post-toc-text">输出样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">6.</span> <span class="post-toc-text">Solution</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Code"><span class="post-toc-number">7.</span> <span class="post-toc-text">Code</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-35"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">-期望-递推- [洛谷 P1291][SHOI2002]百事世界杯之旅</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-07 20:06:19" datetime="2018-10-07T12:06:19.000Z"  itemprop="datePublished">2018-10-07</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>“……在2002年6月之前购买的百事任何饮料的瓶盖上都会有一个百事球星的名字。只要凑齐所有百事球星的名字，就可参加百事世界杯之旅的抽奖活动，获得球星背包，随声听，更克赴日韩观看世界杯。还不赶快行动！”<br><a id="more"></a><br>你关上电视，心想：假设有n个不同的球星名字，每个名字出现的概率相同，平均需要买几瓶饮料才能凑齐所有的名字呢？</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>整数n（2≤n≤33），表示不同球星名字的个数。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出凑齐所有的名字平均需要买的饮料瓶数。如果是一个整数，则直接输出，否则应该直接按照分数格式输出，例如五又二十分之三应该输出为（复制到记事本）： $5 \frac{3}{20}$</p>
+<p>第一行是分数部分的分子，第二行首先是整数部分，然后是由减号组成的分数线，第三行是分母。减号的个数应等于分母的为数。分子和分母的首位都与第一个减号对齐。</p>
+<p>分数必须是不可约的。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><p>2</p>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><p>3</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>首先，我们可以用 $f[n][k]$ 来表示一共有 $n$ 个球星还剩下 $k$ 个球星没有收集到，依此我们可以推出一个方程：<br>$$ f[n][k]=\frac{(n-k) \times f[n][k]}{n}+\frac{k \times f[n][k-1]}{n}+1$$<br>然后经过一些变换：<br>$$ f[n][k]=f[n][k]+\frac{n}{k} $$<br>但这样计算太麻烦了，所以又经过一系列玄学操作，就变成了：<br>$$n\sum^n_{k=1}\frac{1}{k}$$<br><del>（虽然还是很难计算）</del><br>以上，就是对本题的推导。<br>最后，我还要说一句：<br>$$\text{我从未见过有如此毒瘤的输出！}$$<br>光是是输出就调了好长时间。<br><del>如果是输出小数的话我早就A了</del></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a , ll b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> gcd(b , a % b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">lcm</span><span class="params">(ll a , ll b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a * b / gcd(a , b);</span><br><span class="line">&#125;</span><br><span class="line">ll n , ans , ws1 = <span class="number">0</span> , ws2 = <span class="number">0</span> , fm = <span class="number">1</span> , fz = <span class="number">0</span> , yfz = <span class="number">1</span> , d = <span class="number">0</span> , k , r;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld"</span> , &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span> ; i &lt;= n ; i++) &#123;</span><br><span class="line">        fz = fz * i + fm * n;</span><br><span class="line">        fm *= i;</span><br><span class="line">        r = gcd(fm , fz);</span><br><span class="line">        fm /= r;</span><br><span class="line">        fz /= r;</span><br><span class="line">    &#125;</span><br><span class="line">    r = fz / fm;</span><br><span class="line">    <span class="keyword">if</span> (fm == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld"</span> , fz);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        ll y = r;</span><br><span class="line">        <span class="keyword">while</span> (y != <span class="number">0</span>) &#123;</span><br><span class="line">            y /= <span class="number">10</span>;</span><br><span class="line">            ws1++;</span><br><span class="line">        &#125;</span><br><span class="line">        ll fmn = fm;</span><br><span class="line">        <span class="keyword">while</span> (fmn != <span class="number">0</span>) &#123;</span><br><span class="line">            fmn /= <span class="number">10</span>;</span><br><span class="line">            ws2++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (ll i = <span class="number">1</span> ; i &lt;= ws1 ; i++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld"</span> , fz % fm);</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld"</span> , r);</span><br><span class="line">        <span class="keyword">for</span> (ll i = <span class="number">1</span> ; i &lt;= ws2 ; i++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"-"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">for</span> (ll i = <span class="number">1</span> ; i &lt;= ws1 ; i++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld"</span> , fm);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-03T13:04:57.109Z" itemprop="dateUpdated">2018-12-03 21:04:57</time>
+</span><br>
+
+
+        
+        作者：Steve_braveman 转载请注明出处
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Steve_braveman">
+            Steve_braveman
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/期望/">期望</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/洛谷/">洛谷</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递推/">递推</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/08/36/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">-矩阵运算-递推- [洛谷 P1349]广义斐波那契数列</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/05/34/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">-RMQ-ST表- [洛谷 P1198][JSOI2008]最大数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "ScgqWfpm056nb60SiohtcEzm-gzGzoHsz",
+            appKey: "lwQ7kydGLATAApXwBjMWkf0g",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "7"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Steve_braveman &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '你干什么去了？ ๑乛◡乛๑';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '你果然还是回来了o(*￣▽￣*)o';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":350},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

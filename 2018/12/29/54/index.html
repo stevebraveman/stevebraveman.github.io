@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://stevebraveman.github.io/2018/12/29/54/">
+    
+    
+    <title>-网络流-最小割- [洛谷 P4001][BJOI2006]狼抓兔子 | Steve_braveman | 技不如人，也绝不甘拜下风！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#00BFFF">
+    
+    
+    <meta name="keywords" content="洛谷,网络流,最小割">
+    <meta name="description" content="题目描述现在小朋友们最喜欢的”喜羊羊与灰太狼”,话说灰太狼抓羊不到，但抓兔子还是比较在行的，而且现在的兔子还比较笨，它们只有两个窝，现在你做为狼王，面对下面这样一个网格的地形：">
+<meta name="keywords" content="洛谷,网络流,最小割">
+<meta property="og:type" content="article">
+<meta property="og:title" content="-网络流-最小割- [洛谷 P4001][BJOI2006]狼抓兔子">
+<meta property="og:url" content="http://yoursite.com/2018/12/29/54/index.html">
+<meta property="og:site_name" content="Steve_braveman">
+<meta property="og:description" content="题目描述现在小朋友们最喜欢的”喜羊羊与灰太狼”,话说灰太狼抓羊不到，但抓兔子还是比较在行的，而且现在的兔子还比较笨，它们只有两个窝，现在你做为狼王，面对下面这样一个网格的地形：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/img/lztz.png">
+<meta property="og:updated_time" content="2018-12-29T08:47:44.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="-网络流-最小割- [洛谷 P4001][BJOI2006]狼抓兔子">
+<meta name="twitter:description" content="题目描述现在小朋友们最喜欢的”喜羊羊与灰太狼”,话说灰太狼抓羊不到，但抓兔子还是比较在行的，而且现在的兔子还比较笨，它们只有两个窝，现在你做为狼王，面对下面这样一个网格的地形：">
+<meta name="twitter:image" content="http://yoursite.com/img/lztz.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Steve_braveman" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/icon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Steve_braveman</h5>
+          <a href="mailto:2313617280@qq.com" title="2313617280@qq.com" class="mail">2313617280@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/link"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-address-card"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/stevebraveman" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">-网络流-最小割- [洛谷 P4001][BJOI2006]狼抓兔子</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">-网络流-最小割- [洛谷 P4001][BJOI2006]狼抓兔子</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-29T08:31:00.000Z" itemprop="datePublished" class="page-time">
+  2018-12-29
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入格式"><span class="post-toc-number">2.</span> <span class="post-toc-text">输入格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出格式"><span class="post-toc-number">3.</span> <span class="post-toc-text">输出格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入样例"><span class="post-toc-number">4.</span> <span class="post-toc-text">输入样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出样例"><span class="post-toc-number">5.</span> <span class="post-toc-text">输出样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">6.</span> <span class="post-toc-text">Solution</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Code"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">Code</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-54"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">-网络流-最小割- [洛谷 P4001][BJOI2006]狼抓兔子</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-29 16:31:00" datetime="2018-12-29T08:31:00.000Z"  itemprop="datePublished">2018-12-29</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>现在小朋友们最喜欢的”喜羊羊与灰太狼”,话说灰太狼抓羊不到，但抓兔子还是比较在行的，而且现在的兔子还比较笨，它们只有两个窝，现在你做为狼王，面对下面这样一个网格的地形：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/img/lztz.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<a id="more"></a>
+<p>左上角点为(1,1),右下角点为(N,M)(上图中N=3,M=4).有以下三种类型的道路</p>
+<p>1:(x,y)&lt;==&gt;(x+1,y)</p>
+<p>2:(x,y)&lt;==&gt;(x,y+1)</p>
+<p>3:(x,y)&lt;==&gt;(x+1,y+1)</p>
+<p>道路上的权值表示这条路上最多能够通过的兔子数，道路是无向的. 左上角和右下角为兔子的两个窝，开始时所有的兔子都聚集在左上角(1,1)的窝里，现在它们要跑到右下角(N,M)的窝中去，狼王开始伏击这些兔子.当然为了保险起见，如果一条道路上最多通过的兔子数为K，狼王需要安排同样数量的K只狼，才能完全封锁这条道路，你需要帮助狼王安排一个伏击方案，使得在将兔子一网打尽的前提下，参与的狼的数量要最小。因为狼还要去找喜羊羊麻烦。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行为N,M.表示网格的大小，N,M均小于等于1000.</p>
+<p>接下来分三部分</p>
+<p>第一部分共N行，每行M-1个数，表示横向道路的权值.</p>
+<p>第二部分共N-1行，每行M个数，表示纵向道路的权值.</p>
+<p>第三部分共N-1行，每行M-1个数，表示斜向道路的权值.</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一个整数，表示参与伏击的狼的最小数量.</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><p>3 4<br>5 6 4<br>4 3 1<br>7 5 3<br>5 6 7 8<br>8 7 6 5<br>5 5 5<br>6 6 6</p>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><p>14</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>这道题显然最小割。</p>
+<p><del>于是这道题就变成板子题了</del></p>
+<p><del>但是代码放在BZOJ上过不去，请忽略</del></p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 10000100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2000000000</span></span><br><span class="line"><span class="keyword">namespace</span> STman &#123;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">char</span> <span class="title">gc</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">ifdef</span> ONLINE_JUDGE</span></span><br><span class="line">            <span class="keyword">static</span> <span class="keyword">char</span> now[<span class="number">1</span> &lt;&lt; <span class="number">16</span>], *S, *T;</span><br><span class="line">            <span class="keyword">if</span> (T == S) &#123;T = (S = now) + fread(now, <span class="number">1</span>, <span class="number">1</span> &lt;&lt; <span class="number">16</span>, <span class="built_in">stdin</span>); <span class="keyword">if</span> (T == S) <span class="keyword">return</span> EOF;&#125;</span><br><span class="line">            <span class="keyword">return</span> *S++;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">else</span> </span></span><br><span class="line">            <span class="keyword">return</span> getchar();</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(Tp &amp;x)</span> </span>&#123;</span><br><span class="line">        Tp f = <span class="number">1</span>;x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> k = gc();</span><br><span class="line">        <span class="keyword">while</span> (k &lt; <span class="string">'0'</span> || k &gt; <span class="string">'9'</span>) &#123;<span class="keyword">if</span> (k == <span class="string">'-'</span>) f = <span class="number">-1</span>;k = gc();&#125;</span><br><span class="line">        <span class="keyword">while</span> (k &gt;= <span class="string">'0'</span> &amp;&amp; k &lt;= <span class="string">'9'</span>) &#123;x = x * <span class="number">10</span> + k - <span class="string">'0'</span>;k = gc();&#125;</span><br><span class="line">        x = x * f;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(Tp x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">'-'</span>) , x = -x;</span><br><span class="line">        <span class="keyword">if</span> (x &gt; <span class="number">9</span>) write(x / <span class="number">10</span>);</span><br><span class="line">        <span class="built_in">putchar</span>(x % <span class="number">10</span> + <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Tp <span class="title">max</span><span class="params">(Tp a , Tp b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (a &gt; b) <span class="keyword">return</span> a;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Tp <span class="title">min</span><span class="params">(Tp a , Tp b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (a &lt; b) <span class="keyword">return</span> a;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Tp &amp;a , Tp &amp;b)</span> </span>&#123;</span><br><span class="line">        Tp t = a;</span><br><span class="line">        a = b;</span><br><span class="line">        b = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Tp <span class="title">abs</span><span class="params">(Tp &amp;a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (a &lt; <span class="number">0</span>) <span class="keyword">return</span> -a;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">sp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="number">32</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">et</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> STman;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> v, nx, w;</span><br><span class="line">&#125;e[MAXN];</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"><span class="keyword">int</span> head[MAXN], ecnt = <span class="number">1</span>, n, m, x, dep[MAXN], cur[MAXN], r, k;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">g</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (i - <span class="number">1</span>) * m + j;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> f, <span class="keyword">int</span> t, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    e[++ecnt] = (Edge) &#123;t, head[f], w&#125;;</span><br><span class="line">    head[f] = ecnt;</span><br><span class="line">    e[++ecnt] = (Edge) &#123;f, head[t], w&#125;;</span><br><span class="line">    head[t] = ecnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(dep, <span class="number">0</span>, <span class="keyword">sizeof</span>(dep));</span><br><span class="line">    <span class="keyword">while</span> (!q.empty()) q.pop();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n * m; i++) &#123;</span><br><span class="line">        cur[i] = head[i];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    dep[s] = <span class="number">1</span>;</span><br><span class="line">    q.push(s);</span><br><span class="line">    <span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = head[v]; i; i = e[i].nx) &#123;</span><br><span class="line">            <span class="keyword">int</span> to = e[i].v;</span><br><span class="line">            <span class="keyword">if</span> (dep[to] == <span class="number">0</span> &amp;&amp; e[i].w &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                dep[to] = dep[v] + <span class="number">1</span>;</span><br><span class="line">                q.push(to);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dep[t] &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> t, <span class="keyword">int</span> l)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!l || u == t) <span class="keyword">return</span> l;</span><br><span class="line">    <span class="keyword">int</span> fl = <span class="number">0</span> , f;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = cur[u]; i; i = e[i].nx) &#123;</span><br><span class="line">        cur[u] = i;</span><br><span class="line">        <span class="keyword">int</span> to = e[i].v;</span><br><span class="line">        <span class="keyword">if</span> (dep[to] == dep[u] + <span class="number">1</span> &amp;&amp; (f = dfs(to, t, min(l, e[i].w)))) &#123;</span><br><span class="line">            fl += f;</span><br><span class="line">            l -= f;</span><br><span class="line">            e[i ^ <span class="number">1</span>].w += f;</span><br><span class="line">            e[i].w -= f;</span><br><span class="line">            <span class="keyword">if</span> (!l) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Dinic</span><span class="params">(<span class="keyword">int</span> s , <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxf = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (bfs(s , t)) &#123;</span><br><span class="line">        maxf += dfs(s , t , INF);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxf;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    read(n), read(m);</span><br><span class="line">    r = g(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    k = g(n, m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; m; j++) &#123;</span><br><span class="line">            read(x);</span><br><span class="line">            add(g(i, j), g(i, j + <span class="number">1</span>), x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            read(x);</span><br><span class="line">            add(g(i, j), g(i + <span class="number">1</span>, j), x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; m; j++) &#123;</span><br><span class="line">            read(x);</span><br><span class="line">            add(g(i, j), g(i + <span class="number">1</span>, j + <span class="number">1</span>), x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    write(Dinic(r, k));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-12-29T08:47:44.398Z" itemprop="dateUpdated">2018-12-29 16:47:44</time>
+</span><br>
+
+
+        
+        作者：Steve_braveman 转载请注明出处
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Steve_braveman">
+            Steve_braveman
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最小割/">最小割</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/洛谷/">洛谷</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/06/55/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">-网络流-最小割- [洛谷 P2057][SHOI2007]善意的投票</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/12/28/53/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">-数论-扩展欧几里得-BSGS- [BZOJ 2242][SDOI2011]计算器</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "ScgqWfpm056nb60SiohtcEzm-gzGzoHsz",
+            appKey: "lwQ7kydGLATAApXwBjMWkf0g",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "7"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Steve_braveman &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '你干什么去了？ ๑乛◡乛๑';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '你果然还是回来了o(*￣▽￣*)o';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":350},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
