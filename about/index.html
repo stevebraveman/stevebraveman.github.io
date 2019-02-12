@@ -23,18 +23,18 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="一个非常蒻的蒟蒻 喜欢玩CSGO和Minecraft的OIer NOIp2018已爆炸，NOIp2019再来！ 自己选择的路，跪着也要走完，宁可笑着流泪，也不哭着后悔. ——佚名">
+    <meta name="description" content="一个非常蒻的蒟蒻 喜欢玩CSGO和Minecraft的OIer NOIp2018已爆炸，NOIp2019再来！    var xhr = new XMLHttpRequest();   xhr.open(&apos;get&apos;, &apos;https://v1.hitokoto.cn&apos;);   xhr.onreadystatechange = function () {     if (xhr.readyState">
 <meta property="og:type" content="website">
 <meta property="og:title" content="关于我">
 <meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Steve_braveman">
-<meta property="og:description" content="一个非常蒻的蒟蒻 喜欢玩CSGO和Minecraft的OIer NOIp2018已爆炸，NOIp2019再来！ 自己选择的路，跪着也要走完，宁可笑着流泪，也不哭着后悔. ——佚名">
+<meta property="og:description" content="一个非常蒻的蒟蒻 喜欢玩CSGO和Minecraft的OIer NOIp2018已爆炸，NOIp2019再来！    var xhr = new XMLHttpRequest();   xhr.open(&apos;get&apos;, &apos;https://v1.hitokoto.cn&apos;);   xhr.onreadystatechange = function () {     if (xhr.readyState">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/img/123.jpg">
-<meta property="og:updated_time" content="2019-01-07T11:48:04.125Z">
+<meta property="og:updated_time" content="2019-02-12T10:57:33.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="一个非常蒻的蒟蒻 喜欢玩CSGO和Minecraft的OIer NOIp2018已爆炸，NOIp2019再来！ 自己选择的路，跪着也要走完，宁可笑着流泪，也不哭着后悔. ——佚名">
+<meta name="twitter:description" content="一个非常蒻的蒟蒻 喜欢玩CSGO和Minecraft的OIer NOIp2018已爆炸，NOIp2019再来！    var xhr = new XMLHttpRequest();   xhr.open(&apos;get&apos;, &apos;https://v1.hitokoto.cn&apos;);   xhr.onreadystatechange = function () {     if (xhr.readyState">
 <meta name="twitter:image" content="http://yoursite.com/img/123.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="Steve_braveman" href="/atom.xml">
@@ -152,8 +152,19 @@
             <p>一个非常蒻的蒟蒻</p>
 <p>喜欢玩<code>CSGO</code>和<code>Minecraft</code>的OIer</p>
 <p>NOIp2018已爆炸，NOIp2019再来！</p>
-<p>自己选择的路，跪着也要走完，宁可笑着流泪，也不哭着后悔.</p>
-<p>——佚名</p>
+<script>
+  var xhr = new XMLHttpRequest();
+  xhr.open('get', 'https://v1.hitokoto.cn');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      var data = JSON.parse(xhr.responseText);
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = data.hitokoto;
+    }
+  }
+  xhr.send();
+</script>
+
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
