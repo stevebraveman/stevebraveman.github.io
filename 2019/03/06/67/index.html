@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="Steve_braveman">
 <meta property="og:description" content="注：错误代码都是用我的码风写的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-06T03:49:24.476Z">
+<meta property="og:updated_time" content="2019-03-06T10:31:17.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="-其它- STman常犯的SB错误合集[不定期更新]">
 <meta name="twitter:description" content="注：错误代码都是用我的码风写的">
@@ -170,7 +170,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1"><span class="post-toc-number">1.</span> <span class="post-toc-text">1</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2"><span class="post-toc-number">2.</span> <span class="post-toc-text">2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3"><span class="post-toc-number">3.</span> <span class="post-toc-text">3</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4"><span class="post-toc-number">4.</span> <span class="post-toc-text">4</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5"><span class="post-toc-number">5.</span> <span class="post-toc-text">5</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6"><span class="post-toc-number">6.</span> <span class="post-toc-text">6</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1"><span class="post-toc-number">1.</span> <span class="post-toc-text">1</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2"><span class="post-toc-number">2.</span> <span class="post-toc-text">2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3"><span class="post-toc-number">3.</span> <span class="post-toc-text">3</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4"><span class="post-toc-number">4.</span> <span class="post-toc-text">4</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#5"><span class="post-toc-number">5.</span> <span class="post-toc-text">5</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#6"><span class="post-toc-number">6.</span> <span class="post-toc-text">6</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#7"><span class="post-toc-number">7.</span> <span class="post-toc-text">7</span></a></li></ol>
         </nav>
     </aside>
 
@@ -202,6 +202,7 @@
 <h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mian</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 曾经常犯，现在不怎么犯了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="5"><a href="#5" class="headerlink" title="5"></a>5</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a, b, c;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, a, b, c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="6"><a href="#6" class="headerlink" title="6"></a>6</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (fa[x] = x) <span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> fa[x] = find(fa[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="7"><a href="#7" class="headerlink" title="7"></a>7</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, &amp;a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -209,7 +210,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-06T03:49:24.476Z" itemprop="dateUpdated">2019-03-06 11:49:24</time>
+    最后更新时间：<time datetime="2019-03-06T10:31:17.228Z" itemprop="dateUpdated">2019-03-06 18:31:17</time>
 </span><br>
 
 
