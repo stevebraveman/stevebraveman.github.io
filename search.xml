@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[68]]></title>
+    <url>%2F2019%2F03%2F06%2F68%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[-其它- STman常犯的SB错误合集[不定期更新]]]></title>
     <url>%2F2019%2F03%2F06%2F67%2F</url>
     <content type="text"><![CDATA[注：错误代码都是用我的码风写的 11234int min(int a, int b) &#123; if (a &lt; b) return b; else return b;&#125; 212345for (int i = 1; i &lt;= n; i++) &#123; for (int i = 1; i &lt;= m; i++) &#123; &#125;&#125; 3123456789void build(int l, int r, int p) &#123; if (l == r) &#123; b[p] = a[l]; &#125; int m = (l + r) &gt;&gt; 1; build(l, m, ls(p)); build(m + 1, r, rs(p)); pd(p);&#125; 4123int mian() &#123; // 曾经常犯，现在不怎么犯了&#125; 51234int a, b, c;int main() &#123; scanf("%d%d%d", a, b, c);&#125; 61234int find(int x) &#123; if (fa[x] = x) return x; else return fa[x] = find(fa[x]);&#125; 7123int main() &#123; printf("%d", &amp;a);&#125;]]></content>
