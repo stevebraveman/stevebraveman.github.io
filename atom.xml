@@ -531,9 +531,9 @@
     </summary>
     
     
-      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
-    
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="DFS" scheme="http://yoursite.com/tags/DFS/"/>
     
       <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
     
