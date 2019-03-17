@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://yoursite.com/img/slpf1.png">
 <meta property="og:image" content="http://yoursite.com/img/slpf2.png">
 <meta property="og:image" content="http://yoursite.com/img/slpf2.png">
-<meta property="og:updated_time" content="2019-03-16T06:44:27.614Z">
+<meta property="og:updated_time" content="2019-03-17T12:44:08.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="-树链剖分-算法讲解- 树链剖分详解">
 <meta name="twitter:description" content="如果有个题目，要求你在数列上区间求和，支持修改。 那么这道题就是很简单的线段树板子题，对吧？ 但是，这个世界是残酷的。为了不让题目那么简单，邪恶的出题人会把序列上的转换到树上，使题目难度增加一倍甚至几倍。 这样一看，完了，线段树可处理不了树上的操作啊，顿时感到人生苦短，失去了活下去的勇气。 那么，一个神奇的而又强大的东西——树链剖分可以解决上述问题。">
@@ -264,6 +264,14 @@
 <p><code>if (dep[x] &gt; dep[y]) swap(x, y);</code> 这句话就是为了处理当x,y跳到了同一条链上的时候该如何处理（也就是求出两点的LCA）。</p>
 <p>于是我们也可以上述程序写出求LCA的程序：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">while</span> (top[x] != top[y]) &#123;</span><br><span class="line">		<span class="keyword">if</span> (dep[top[x]] &lt; dep[top[y]]) swap(x, y);</span><br><span class="line">		x = fa[top[x]];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (dep[x] &gt; dep[y]) swap(x, y);</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后，说一些关于树链剖分时间复杂度的问题。</p>
+<p>树链剖分的复杂度真的很优秀，查询一次最坏复杂度是 $\log n$，而大多数情况下跑不满。同机房的Juan_fen对树链剖分的时间复杂度做出了证明：</p>
+<blockquote>
+<p>任何一个点到根节点至多经过$\log$条轻边。</p>
+</blockquote>
+<blockquote>
+<p>因为每个点如果经过一条轻边走向他的父亲，那么他的父亲的siz就至少是这个节点的2倍，所以最多经过log条轻边</p>
+</blockquote>
 <p>终于，树链剖分完毕！</p>
 <p>下面是几道例题：</p>
 <p><a href="https://www.luogu.org/problemnew/show/P2146" target="_blank" rel="noopener">[NOI2015]软件包管理器</a></p>
@@ -278,7 +286,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-16T06:44:27.614Z" itemprop="dateUpdated">2019-03-16 14:44:27</time>
+    最后更新时间：<time datetime="2019-03-17T12:44:08.284Z" itemprop="dateUpdated">2019-03-17 20:44:08</time>
 </span><br>
 
 
