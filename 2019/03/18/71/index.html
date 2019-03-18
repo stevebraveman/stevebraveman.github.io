@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <link rel="canonical" href="https://stevebraveman.github.io/2019/03/18/71/">
+    
+    
+    <title>-数论-卷积- 关于积性函数的汇总以及常用的卷积 | Steve_braveman | 技不如人，也绝不甘拜下风！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#00BFFF">
+    
+    
+    <meta name="keywords" content="数论,卷积">
+    <meta name="description" content="积性函数的定义对于一个函数 $f(x)$，有互质的两数 $a,b$，如果函数具有 $f(a b) = f(a) f(b)$的性质，那么此类型的函数被称为积性函数。 完全积性函数：若一个积性函数 $f(x)$，具有 $f(x ^ k) = f^k(x)$，那么此函数成为完全积性函数。 常见的积性函数1.$\varphi (x)$：欧拉函数，表示小于 $x$ 且与 $x$ 互质的数的个数。 2.$\m">
+<meta name="keywords" content="数论,卷积">
+<meta property="og:type" content="article">
+<meta property="og:title" content="-数论-卷积- 关于积性函数的汇总以及常用的卷积">
+<meta property="og:url" content="http://yoursite.com/2019/03/18/71/index.html">
+<meta property="og:site_name" content="Steve_braveman">
+<meta property="og:description" content="积性函数的定义对于一个函数 $f(x)$，有互质的两数 $a,b$，如果函数具有 $f(a b) = f(a) f(b)$的性质，那么此类型的函数被称为积性函数。 完全积性函数：若一个积性函数 $f(x)$，具有 $f(x ^ k) = f^k(x)$，那么此函数成为完全积性函数。 常见的积性函数1.$\varphi (x)$：欧拉函数，表示小于 $x$ 且与 $x$ 互质的数的个数。 2.$\m">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-18T08:49:20.527Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="-数论-卷积- 关于积性函数的汇总以及常用的卷积">
+<meta name="twitter:description" content="积性函数的定义对于一个函数 $f(x)$，有互质的两数 $a,b$，如果函数具有 $f(a b) = f(a) f(b)$的性质，那么此类型的函数被称为积性函数。 完全积性函数：若一个积性函数 $f(x)$，具有 $f(x ^ k) = f^k(x)$，那么此函数成为完全积性函数。 常见的积性函数1.$\varphi (x)$：欧拉函数，表示小于 $x$ 且与 $x$ 互质的数的个数。 2.$\m">
+    
+        <link rel="alternate" type="application/atom+xml" title="Steve_braveman" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/icon.png">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Steve_braveman</h5>
+          <a href="mailto:2313617280@qq.com" title="2313617280@qq.com" class="mail">2313617280@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/link"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-address-card"></i>
+                关于
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/stevebraveman" target="_blank" >
+                <i class="icon icon-lg icon-github-alt"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2313617280&website=www.oicqzone.com" target="_blank" >
+                <i class="icon icon-lg icon-qq"></i>
+                QQ
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">-数论-卷积- 关于积性函数的汇总以及常用的卷积</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">-数论-卷积- 关于积性函数的汇总以及常用的卷积</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-18T05:48:02.000Z" itemprop="datePublished" class="page-time">
+  2019-03-18
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#积性函数的定义"><span class="post-toc-number">1.</span> <span class="post-toc-text">积性函数的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常见的积性函数"><span class="post-toc-number">2.</span> <span class="post-toc-text">常见的积性函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些积性函数常用的性质"><span class="post-toc-number">3.</span> <span class="post-toc-text">一些积性函数常用的性质</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些常用的卷积"><span class="post-toc-number">4.</span> <span class="post-toc-text">一些常用的卷积</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-71"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">-数论-卷积- 关于积性函数的汇总以及常用的卷积</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-18 13:48:02" datetime="2019-03-18T05:48:02.000Z"  itemprop="datePublished">2019-03-18</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="积性函数的定义"><a href="#积性函数的定义" class="headerlink" title="积性函数的定义"></a>积性函数的定义</h2><p>对于一个函数 $f(x)$，有互质的两数 $a,b$，如果函数具有 $f(a b) = f(a) f(b)$的性质，那么此类型的函数被称为<strong>积性函数</strong>。</p>
+<p><strong>完全积性函数</strong>：若一个积性函数 $f(x)$，具有 $f(x ^ k) = f^k(x)$，那么此函数成为完全积性函数。</p>
+<h2 id="常见的积性函数"><a href="#常见的积性函数" class="headerlink" title="常见的积性函数"></a>常见的积性函数</h2><p>1.$\varphi (x)$：欧拉函数，表示小于 $x$ 且与 $x$ 互质的数的个数。</p>
+<p>2.$\mu (x)$：莫比乌斯函数，关于非平方数的质因子数目的函数。</p>
+<p>莫比乌斯函数这样计算：</p>
+<p>$\mu(x) = 1, (x = 1)$<br>$\mu(x) = (-1) ^ k, (x = p_1p_2p_3…p_k)$<br>$\mu(x) = 0 ,\texttt{其他情况}$</p>
+<p>3.$d(x)$：约数个数函数，表示 $x$ 的约数个数。</p>
+<p>4.$\sigma(x)$：约数个数和函数，表示 $x$ 的各约数之和。</p>
+<p>5.$I(x)$：不变函数，此函数的值恒为1，此函数是完全积性函数</p>
+<p>6.$\epsilon(x)$：（不知道叫什么名字），此函数的计算方式为：若 $x = 1$，$\epsilon(x) = 1$，若 $x &gt; 1$，$\epsilon(x) = 0$，此函数为完全积性函数。</p>
+<p>7.$id(x)$：单位函数，计算方式为 $id(x) = x$ ，此函数为完全积性函数。</p>
+<p>8.$idk(x)$：幂函数，计算方式为 $idk(x) = x ^ k$，此函数为完全积性函数。</p>
+<p>9.$\lambda(x)$：刘维尔函数，计算方式：设 $\Omega(x)$ 为 $x$ 的质因子的数目，则 $\lambda(x) = (-1) ^ {\Omega(x)}$</p>
+<h2 id="一些积性函数常用的性质"><a href="#一些积性函数常用的性质" class="headerlink" title="一些积性函数常用的性质"></a>一些积性函数常用的性质</h2><p>1.</p>
+<p>$$\sum_{d | n} \mu(d) = 1 (n = 1)$$<br>$$\sum_{d | n} \mu(d) = 0 (n &gt; 1)$$</p>
+<p>2.</p>
+<p>$$\sum_{d^2 | n} \mu(\frac{n}{d^2}) = \lambda(n)$$</p>
+<p>3.</p>
+<p>$$\sum_{d | n}\frac{\mu(d)}{d} = \frac{\varphi(n)}{n}$$</p>
+<p>4.</p>
+<p>$$\sum_{d | n} \varphi(n) = n$$</p>
+<h2 id="一些常用的卷积"><a href="#一些常用的卷积" class="headerlink" title="一些常用的卷积"></a>一些常用的卷积</h2><p>1.$I * \varphi = id$</p>
+<p>2.$\mu * I = \epsilon$</p>
+<p>3.$id * \mu = \varphi$</p>
+<p>4.$\mu * d = I$</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-18T08:49:20.527Z" itemprop="dateUpdated">2019-03-18 16:49:20</time>
+</span><br>
+
+
+        
+        作者：Steve_braveman 转载请注明出处
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Steve_braveman">
+            Steve_braveman
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/卷积/">卷积</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/16/70/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">-树链剖分-算法讲解- 树链剖分详解</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "ScgqWfpm056nb60SiohtcEzm-gzGzoHsz",
+            appKey: "lwQ7kydGLATAApXwBjMWkf0g",
+            avatar: "mm",
+            placeholder: "Deep Dark Fantasy",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "7"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Steve_braveman &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '你干什么去了？ ๑乛◡乛๑';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '你果然还是回来了o(*￣▽￣*)o';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":350},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<head>
+	<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+	<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+	<script type="text/javascript" src="/js/firework.js"></script>
+</head>
