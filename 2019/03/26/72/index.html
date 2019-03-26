@@ -13,26 +13,28 @@
     
     
     
-    <link rel="canonical" href="https://stevebraveman.github.io/">
+    <link rel="canonical" href="https://stevebraveman.github.io/2019/03/26/72/">
     
     
-    <title>Steve_braveman | 技不如人，也绝不甘拜下风！</title>
+    <title>-数论-杜教筛- [BZOJ 4916]神犇和蒟蒻 | Steve_braveman | 技不如人，也绝不甘拜下风！</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#00BFFF">
     
     
-    <meta name="keywords" content="">
-    <meta name="description" content="Hs is VERY VEGETABLE!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Steve_braveman">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="keywords" content="BZOJ,数论,杜教筛">
+    <meta name="description" content="题目描述Link Solution第一个根本不用筛，答案永远都是1 现在来解决第二个： 我们先把 $\varphi(x ^ 2)$ 化简一下 我们知道，欧拉函数是这样计算的： $$\varphi(x) = x \prod \frac{p_i - 1}{p_i}$$ 所以设 $x = p_1 ^ {a_1} p_2 ^ {a_2} p_3 ^ {a_3}…p_i ^ {a_i}$ 所以有 $$x ^">
+<meta name="keywords" content="BZOJ,数论,杜教筛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="-数论-杜教筛- [BZOJ 4916]神犇和蒟蒻">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/72/index.html">
 <meta property="og:site_name" content="Steve_braveman">
-<meta property="og:description" content="Hs is VERY VEGETABLE!">
+<meta property="og:description" content="题目描述Link Solution第一个根本不用筛，答案永远都是1 现在来解决第二个： 我们先把 $\varphi(x ^ 2)$ 化简一下 我们知道，欧拉函数是这样计算的： $$\varphi(x) = x \prod \frac{p_i - 1}{p_i}$$ 所以设 $x = p_1 ^ {a_1} p_2 ^ {a_2} p_3 ^ {a_3}…p_i ^ {a_i}$ 所以有 $$x ^">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-26T12:51:18.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Steve_braveman">
-<meta name="twitter:description" content="Hs is VERY VEGETABLE!">
+<meta name="twitter:title" content="-数论-杜教筛- [BZOJ 4916]神犇和蒟蒻">
+<meta name="twitter:description" content="题目描述Link Solution第一个根本不用筛，答案永远都是1 现在来解决第二个： 我们先把 $\varphi(x ^ 2)$ 化简一下 我们知道，欧拉函数是这样计算的： $$\varphi(x) = x \prod \frac{p_i - 1}{p_i}$$ 所以设 $x = p_1 ^ {a_1} p_2 ^ {a_2} p_3 ^ {a_3}…p_i ^ {a_i}$ 所以有 $$x ^">
     
         <link rel="alternate" type="application/atom+xml" title="Steve_braveman" href="/atom.xml">
     
@@ -48,7 +50,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu"  >
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -67,7 +69,7 @@
     <div class="scroll-wrap flex-col">
       <ul class="nav">
         
-            <li class="waves-block waves-effect active">
+            <li class="waves-block waves-effect">
               <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
                 主页
@@ -127,7 +129,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Steve_braveman</div>
+        <div class="flex-col header-title ellipsis">-数论-杜教筛- [BZOJ 4916]神犇和蒟蒻</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -142,13 +144,17 @@
         
     </div>
 </header>
-<header class="content-header index-header">
+<header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Steve_braveman</h1>
+        <h1 class="title">-数论-杜教筛- [BZOJ 4916]神犇和蒟蒻</h1>
         <h5 class="subtitle">
             
-                技不如人，也绝不甘拜下风！
+                <time datetime="2019-03-26T12:17:10.000Z" itemprop="datePublished" class="page-time">
+  2019-03-26
+</time>
+
+
             
         </h5>
     </div>
@@ -158,170 +164,37 @@
 
 </header>
 
+
 <div class="container body-wrap">
-
-    <ul class="post-list">
     
-        <li class="post-list-item fade">
-            <article id="post-67"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-03-06 11:42:09" datetime="2019-03-06T03:42:09.000Z"  itemprop="datePublished">2019-03-06</time>
-
-        
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">2.</span> <span class="post-toc-text">Solution</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Solution-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Solution</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
 
 
-    </div>
+<article id="post-72"
+  class="post-article article-type-post fade" itemprop="blogPost">
 
-    
+    <div class="post-card">
+        <h1 class="post-card-title">-数论-杜教筛- [BZOJ 4916]神犇和蒟蒻</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-26 20:17:10" datetime="2019-03-26T12:17:10.000Z"  itemprop="datePublished">2019-03-26</time>
 
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/03/06/67/">-其它- STman常犯的SB错误合集[不定期更新]</a>
-    </h3>
-  
-
+            
 
 
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>注：错误代码都是用我的码风写的</p>
-    
-
-        <a href="/2019/03/06/67/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其它/">其它</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-42"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-11-08 15:00:36" datetime="2018-11-08T07:00:36.000Z"  itemprop="datePublished">2018-11-08</time>
-
-        
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
 
 
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/11/08/42/">-其它- Steve_braveman的专用namespace</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><del>这个代码主要就是在平常装逼的</del></p>
-<p><del>后天都要NOIp了我却还在研究这东西估计NOIp要凉</del></p>
-<p>支持各种整型读入，各种整型的大小比较，但是不能在变量类型不同的两个变量间比较。<br>
-    
-
-        <a href="/2018/11/08/42/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其它/">其它</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-1"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-08-21 10:26:00" datetime="2018-08-21T02:26:00.000Z"  itemprop="datePublished">2018-08-21</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/08/21/1/">新家</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>旧博客<a href="https://www.cnblogs.com/Steve-bm/" target="_blank" rel="noopener">地址</a></p>
-
-    
-
-        <a href="/2018/08/21/1/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-72"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-03-26 20:17:10" datetime="2019-03-26T12:17:10.000Z"  itemprop="datePublished">2019-03-26</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/03/26/72/">-数论-杜教筛- [BZOJ 4916]神犇和蒟蒻</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://lydsy.com/JudgeOnline/problem.php?id=4916" target="_blank" rel="noopener">Link</a></p>
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://lydsy.com/JudgeOnline/problem.php?id=4916" target="_blank" rel="noopener">Link</a></p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>第一个根本不用筛，答案永远都是1</p>
 <p>现在来解决第二个：</p>
 <p>我们先把 $\varphi(x ^ 2)$ 化简一下</p>
@@ -340,310 +213,104 @@
 <p>因为 $id = f * id$</p>
 <p>所以 $$g(n) = \sum_{i = 1} ^ n i ^ 2 - \sum_{i = 1} ^ n i \cdot \varphi(\lfloor \frac{n}{i} \rfloor)$$</p>
 <h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tr1/unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 5001000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 1000000007</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">tr1::<span class="built_in">unordered_map</span>&lt;ll, ll&gt; ans2;</span><br><span class="line"><span class="keyword">int</span> p[MAXN], phi[MAXN], tot, t, n;</span><br><span class="line">ll pre2[MAXN], kk, tt;</span><br><span class="line"><span class="keyword">bool</span> chk[MAXN];</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b, ll m)</span> </span>&#123;</span><br><span class="line">    ll res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) res = (res * a) % m;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a = (a * a) % m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res % m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getshai</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    phi[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    chk[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= MAXN; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!chk[i]) &#123;</span><br><span class="line">            p[++tot] = i;</span><br><span class="line">            phi[i] = i - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot &amp;&amp; i * p[j] &lt;= MAXN; j++) &#123;</span><br><span class="line">            chk[i * p[j]] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (i % p[j]) &#123;</span><br><span class="line">                phi[i * p[j]] = phi[i] * phi[p[j]];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                phi[i * p[j]] = p[j] * phi[i];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= MAXN; i++) &#123;</span><br><span class="line">        pre2[i] = pre2[i - <span class="number">1</span>] + (ll)(phi[i] * i) % MOD;</span><br><span class="line">        pre2[i] %= MOD;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">sum</span><span class="params">(ll a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a * (a + <span class="number">1</span>) % MOD * (<span class="number">2</span> * a + <span class="number">1</span>) % MOD * kk % MOD;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">getphi</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt;= MAXN) <span class="keyword">return</span> pre2[x];</span><br><span class="line">    <span class="keyword">if</span> (ans2[x]) <span class="keyword">return</span> ans2[x];</span><br><span class="line">    ll ans = sum(x);</span><br><span class="line">    <span class="keyword">for</span> (re ll l = <span class="number">2</span>, r; l &lt;= x; l = r + <span class="number">1</span>) &#123;</span><br><span class="line">        r = x / (x / l);</span><br><span class="line">        ans -= <span class="number">1L</span>L * (r - l + <span class="number">1L</span>L) * (l + r) % MOD * tt % MOD * getphi(x / l);</span><br><span class="line">        ans += MOD;</span><br><span class="line">        ans %= MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans2[x] = ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    getshai();</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    kk = qpow(<span class="number">6</span>, MOD - <span class="number">2</span>, MOD);</span><br><span class="line">    tt = qpow(<span class="number">2</span>, MOD - <span class="number">2</span>, MOD);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"1"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld"</span>, getphi((ll)n));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-    
+        </div>
 
-        <a href="/2019/03/26/72/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-26T12:51:18.621Z" itemprop="dateUpdated">2019-03-26 20:51:18</time>
+</span><br>
+
+
+        
+        作者：Steve_braveman 转载请注明出处
+        
     </div>
     
-    <div class="post-footer">
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Steve_braveman">
+            Steve_braveman
+        </a>
+    </footer>
+</blockquote>
+
         
+
+
+        <div class="post-footer">
+            
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BZOJ/">BZOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/杜教筛/">杜教筛</a></li></ul>
 
-    </div>
-    
-</article>
 
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-71"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-03-18 13:48:02" datetime="2019-03-18T05:48:02.000Z"  itemprop="datePublished">2019-03-18</time>
-
-        
+            
 
 
+        </div>
     </div>
 
     
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/03/18/71/">-数论-卷积- 关于积性函数的汇总以及常用的卷积</a>
-    </h3>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="积性函数的定义"><a href="#积性函数的定义" class="headerlink" title="积性函数的定义"></a>积性函数的定义</h2><p>对于一个函数 $f(x)$，有互质的两数 $a,b$，如果函数具有 $f(a b) = f(a) f(b)$的性质，那么此类型的函数被称为<strong>积性函数</strong>。</p>
-<p><strong>完全积性函数</strong>：若一个积性函数 $f(x)$，具有 $f(x ^ k) = f^k(x)$，那么此函数成为完全积性函数。</p>
-    
-
-        <a href="/2019/03/18/71/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/卷积/">卷积</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-70"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-03-16 08:02:38" datetime="2019-03-16T00:02:38.000Z"  itemprop="datePublished">2019-03-16</time>
-
-        
-
-
-    </div>
-
-    
-
-
   
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/03/16/70/">-树链剖分-算法讲解- 树链剖分详解</a>
-    </h3>
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/18/71/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">-数论-卷积- 关于积性函数的汇总以及常用的卷积</h4>
+      </a>
+    </div>
   
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>如果有个题目，要求你在数列上区间求和，支持修改。</p>
-<p>那么这道题就是很简单的线段树板子题，对吧？</p>
-<p>但是，这个世界是残酷的。为了不让题目那么简单，邪恶的出题人会把序列上的转换到树上，使题目难度增加一倍甚至几倍。</p>
-<p>这样一看，完了，线段树可处理不了树上的操作啊<del>，顿时感到人生苦短，失去了活下去的勇气</del>。</p>
-<p>那么，一个神奇的而又强大的东西——树链剖分可以解决上述问题。</p>
-    
-
-        <a href="/2019/03/16/70/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/树链剖分/">树链剖分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法讲解/">算法讲解</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-69"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-03-13 20:47:44" datetime="2019-03-13T12:47:44.000Z"  itemprop="datePublished">2019-03-13</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/03/13/69/">-图论-最短路- [洛谷 P2243]电路维修</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/P2243" target="_blank" rel="noopener">Link</a></p>
-    
-
-        <a href="/2019/03/13/69/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/洛谷/">洛谷</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-68"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-03-06 19:09:38" datetime="2019-03-06T11:09:38.000Z"  itemprop="datePublished">2019-03-06</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/03/06/68/">-二分- [洛谷 P3939]数颜色</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/P3939" target="_blank" rel="noopener">Link</a></p>
-    
-
-        <a href="/2019/03/06/68/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/洛谷/">洛谷</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-66"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-03-05 21:54:16" datetime="2019-03-05T13:54:16.000Z"  itemprop="datePublished">2019-03-05</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/03/05/66/">-分块-数论- [CF920F]SUM and REPLACE</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个数组$a_i$​，$D(x)$为$x$的约数个数</p>
-<p>两种操作：</p>
-<p>1.将$[l,r]$的$a_i$替换为$D(a_i)$</p>
-<p>2.输出$\sum^r_{i=l}a_i$</p>
-    
-
-        <a href="/2019/03/05/66/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codeforces/">Codeforces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分块/">分块</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数论/">数论</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-65"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2019-03-05 21:46:56" datetime="2019-03-05T13:46:56.000Z"  itemprop="datePublished">2019-03-05</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/03/05/65/">-网络流-最小割- [洛谷 P2777][网络流24题]方格取数问题</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>none!</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个有 m*n 个方格的棋盘中，每个方格中有一个正整数。现要从方格中取数，使任意 2 个数所在方格没有公共边，且取出的数的总和最大。试设计一个满足要求的取数算法。对于给定的方格棋盘，按照取数要求编程找出总和最大的数。</p>
-    
-
-        <a href="/2019/03/05/65/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最小割/">最小割</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/洛谷/">洛谷</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流/">网络流</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络流24题/">网络流24题</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-    </ul>
-
-    
-<nav id="page-nav">
-    <div class="inner">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
-    </div>
 </nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "ScgqWfpm056nb60SiohtcEzm-gzGzoHsz",
+            appKey: "lwQ7kydGLATAApXwBjMWkf0g",
+            avatar: "mm",
+            placeholder: "Deep Dark Fantasy",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "7"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
 
 
 </div>
