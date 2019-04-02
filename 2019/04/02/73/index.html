@@ -13,28 +13,28 @@
     
     
     
-    <link rel="canonical" href="https://stevebraveman.github.io/2018/08/21/10/">
+    <link rel="canonical" href="https://stevebraveman.github.io/2019/04/02/73/">
     
     
-    <title>-DFS- [洛谷 P1025][NOIp 2001]数的划分 | Steve_braveman | 技不如人，也绝不甘拜下风！</title>
+    <title>-DP-贪心- [洛谷 5275]思路题(ak) | Steve_braveman | 技不如人，也绝不甘拜下风！</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#00BFFF">
     
     
-    <meta name="keywords" content="DFS,洛谷">
-    <meta name="description" content="一道DFS题">
-<meta name="keywords" content="DFS,洛谷">
+    <meta name="keywords" content="洛谷,DP,贪心">
+    <meta name="description" content="题目描述Link">
+<meta name="keywords" content="洛谷,DP,贪心">
 <meta property="og:type" content="article">
-<meta property="og:title" content="-DFS- [洛谷 P1025][NOIp 2001]数的划分">
-<meta property="og:url" content="http://yoursite.com/2018/08/21/10/index.html">
+<meta property="og:title" content="-DP-贪心- [洛谷 5275]思路题(ak)">
+<meta property="og:url" content="http://yoursite.com/2019/04/02/73/index.html">
 <meta property="og:site_name" content="Steve_braveman">
-<meta property="og:description" content="一道DFS题">
+<meta property="og:description" content="题目描述Link">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-03T13:02:35.287Z">
+<meta property="og:updated_time" content="2019-04-02T09:54:40.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="-DFS- [洛谷 P1025][NOIp 2001]数的划分">
-<meta name="twitter:description" content="一道DFS题">
+<meta name="twitter:title" content="-DP-贪心- [洛谷 5275]思路题(ak)">
+<meta name="twitter:description" content="题目描述Link">
     
         <link rel="alternate" type="application/atom+xml" title="Steve_braveman" href="/atom.xml">
     
@@ -136,7 +136,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">-DFS- [洛谷 P1025][NOIp 2001]数的划分</div>
+        <div class="flex-col header-title ellipsis">-DP-贪心- [洛谷 5275]思路题(ak)</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -154,11 +154,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">-DFS- [洛谷 P1025][NOIp 2001]数的划分</h1>
+        <h1 class="title">-DP-贪心- [洛谷 5275]思路题(ak)</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-08-21T04:17:38.000Z" itemprop="datePublished" class="page-time">
-  2018-08-21
+                <time datetime="2019-04-02T09:47:08.000Z" itemprop="datePublished" class="page-time">
+  2019-04-02
 </time>
 
 
@@ -177,18 +177,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入格式"><span class="post-toc-number">2.</span> <span class="post-toc-text">输入格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出格式"><span class="post-toc-number">3.</span> <span class="post-toc-text">输出格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入样例"><span class="post-toc-number">4.</span> <span class="post-toc-text">输入样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出样例"><span class="post-toc-number">5.</span> <span class="post-toc-text">输出样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">6.</span> <span class="post-toc-text">Solution</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Code"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">Code</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">2.</span> <span class="post-toc-text">Solution</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Code"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Code</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-10"
+<article id="post-73"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">-DFS- [洛谷 P1025][NOIp 2001]数的划分</h1>
+        <h1 class="post-card-title">-DP-贪心- [洛谷 5275]思路题(ak)</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-08-21 12:17:38" datetime="2018-08-21T04:17:38.000Z"  itemprop="datePublished">2018-08-21</time>
+            <time class="post-time" title="2019-04-02 17:47:08" datetime="2019-04-02T09:47:08.000Z"  itemprop="datePublished">2019-04-02</time>
 
             
 
@@ -201,15 +201,10 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>将整数 $n$ 分成$k$份，且每份不能为空，任意两个方案不相同(不考虑顺序)。<br><a id="more"></a><br>例如： $n=7$ ， $k=3$ ，下面三种分法被认为是相同的。</p>
-<p>$1,1,5$;<br>$1,5,1$;<br>$5,1,1$;</p>
-<p>问有多少种不同的分法。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>$n$,$k$ $(6&lt;n≤200,2≤k≤6)$</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>$1$ 个整数，即不同的分法。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><p>7 3</p>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><p>4</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>这道题十分简单，就是裸的DFS，代码也只有十多行，不过需要一个小小的剪枝。</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">10001</span>]=&#123;<span class="number">1</span>&#125;,n,tot,k;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span>,<span class="keyword">int</span>,<span class="keyword">int</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;k;</span><br><span class="line">	dfs(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;tot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t,<span class="keyword">int</span> p)</span></span>&#123;<span class="comment">//一共三个参数，分别是：当前拆分出来的数、数的总和、分的第几份</span></span><br><span class="line">	<span class="keyword">if</span>(p==k)&#123;</span><br><span class="line">		<span class="keyword">if</span>(t==n) tot++;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=s;t+i*(k-p)&lt;=n;i++)&#123;<span class="comment">//剪枝</span></span><br><span class="line">		dfs(i,t+i,p+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/P5275" target="_blank" rel="noopener">Link</a></p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>这道题的做法就是先按照a的大小排序，然后将此题转换为LIS问题，得用 $O(n \log n)​$ 的算法</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100010</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">num</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> a, b, id;</span><br><span class="line">&#125;a[MAXN];</span><br><span class="line"><span class="keyword">int</span> n, d[MAXN], g[MAXN], top, k[MAXN], len;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(num a, num b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.b &gt; b.b || ((a.b == b.b) &amp;&amp; a.a &lt; b.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i].a);</span><br><span class="line">		a[i].id = i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i].b);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">std</span>::sort(a + <span class="number">1</span>, a + <span class="number">1</span> + n, cmp);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (a[i].a &gt;= d[top]) d[++top] = a[i].a, g[a[i].id] = top;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">int</span> j = <span class="built_in">std</span>::upper_bound(d + <span class="number">1</span>, d + <span class="number">1</span> + top, a[i].a) - d;</span><br><span class="line">			d[j] = a[i].a;</span><br><span class="line">			g[a[i].id] = j;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, top);</span><br><span class="line">	len = top;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = n; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">		<span class="keyword">if</span> (g[a[i].id] == len)&#123;</span><br><span class="line">			k[len--] = a[i].id;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (len &lt; <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= top; i++) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>, k[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -218,7 +213,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-03T13:02:35.287Z" itemprop="dateUpdated">2018-12-03 21:02:35</time>
+    最后更新时间：<time datetime="2019-04-02T09:54:40.141Z" itemprop="dateUpdated">2019-04-02 17:54:40</time>
 </span><br>
 
 
@@ -240,7 +235,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/洛谷/">洛谷</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/洛谷/">洛谷</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
 
 
             
@@ -250,21 +245,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/08/21/11/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">-其它- 几种常见的排序</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/08/21/9/" id="post-next" class="post-nav-link">
+      <a href="/2019/03/26/72/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">-递推- [洛谷 P1096][NOIp 2007]Hanoi双塔问题</h4>
+        <h4 class="title">-数论-杜教筛- [BZOJ 4916]神犇和蒟蒻</h4>
       </a>
     </div>
   
