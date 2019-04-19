@@ -1,28 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html  lang="zh">
 <head>
-    
-
-    
-
-    
-
-
-
     <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://stevebraveman.github.io/2018/08/21/17/">
-    
-    
-    <title>-队列- [洛谷 P1540][NOIp 2010]机器翻译 | Steve_braveman | 技不如人，也绝不甘拜下风！</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#00BFFF">
-    
-    
-    <meta name="keywords" content="洛谷,队列">
+<title>-队列- [洛谷 P1540][NOIp 2010]机器翻译 - Steve_braveman</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
     <meta name="description" content="队列练习题">
 <meta name="keywords" content="洛谷,队列">
 <meta property="og:type" content="article">
@@ -31,176 +15,154 @@
 <meta property="og:site_name" content="Steve_braveman">
 <meta property="og:description" content="队列练习题">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="og:updated_time" content="2018-12-03T13:02:07.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="-队列- [洛谷 P1540][NOIp 2010]机器翻译">
 <meta name="twitter:description" content="队列练习题">
-    
-        <link rel="alternate" type="application/atom+xml" title="Steve_braveman" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/icon.png">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
-    <!-- custom head -->
+
+
+
+
+
+
+<link rel="icon" href="/img/icon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
     
 
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
 </head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">Steve_braveman</h5>
-          <a href="mailto:2313617280@qq.com" title="2313617280@qq.com" class="mail">2313617280@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/link"  >
-                <i class="icon icon-lg icon-link"></i>
-                友链
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-address-card"></i>
-                关于
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/stevebraveman" target="_blank" >
-                <i class="icon icon-lg icon-github-alt"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2313617280&website=www.oicqzone.com" target="_blank" >
-                <i class="icon icon-lg icon-qq"></i>
-                QQ
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://www.luogu.org/blog/HotoChino/post-chao-yu-ctz-chu-ban-she-post" target="_blank" >
-                <i class="icon icon-lg icon-thumbs-up"></i>
-                潮学
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">-队列- [洛谷 P1540][NOIp 2010]机器翻译</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/img/icon.png" alt="-队列- [洛谷 P1540][NOIp 2010]机器翻译" height="28">
+            
             </a>
         </div>
-        
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">-队列- [洛谷 P1540][NOIp 2010]机器翻译</h1>
-        <h5 class="subtitle">
+        <div class="navbar-menu">
             
-                <time datetime="2018-08-21T05:09:08.000Z" itemprop="datePublished" class="page-time">
-  2018-08-21
-</time>
-
-
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+                <a class="navbar-item"
+                href="/link">友情链接</a>
+                
+                <a class="navbar-item"
+                href="https://www.luogu.org/blog/HotoChino/post-chao-yu-ctz-chu-ban-she-post">潮学</a>
+                
+            </div>
             
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">2.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入格式"><span class="post-toc-number">3.</span> <span class="post-toc-text">输入格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出格式"><span class="post-toc-number">4.</span> <span class="post-toc-text">输出格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入样例"><span class="post-toc-number">5.</span> <span class="post-toc-text">输入样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出样例"><span class="post-toc-number">6.</span> <span class="post-toc-text">输出样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#说明"><span class="post-toc-number">7.</span> <span class="post-toc-text">说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">8.</span> <span class="post-toc-text">Solution</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Code"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">Code</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-
-
-<article id="post-17"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">-队列- [洛谷 P1540][NOIp 2010]机器翻译</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-08-21 13:09:08" datetime="2018-08-21T05:09:08.000Z"  itemprop="datePublished">2018-08-21</time>
-
-            
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-08-21T05:09:08.000Z">2018-08-21</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 805 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                -队列- [洛谷 P1540][NOIp 2010]机器翻译
+            
+        </h1>
+        <div class="content">
             <h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>小晨的电脑上安装了一个机器翻译软件，他经常用这个软件来翻译英语文章。<br><a id="more"></a></p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>这个翻译软件的原理很简单，它只是从头到尾，依次将每个英文单词用对应的中文含义来替换。对于每个英文单词，软件会先在内存中查找这个单词的中文含义，如果内存中有，软件就会用它进行翻译；如果内存中没有，软件就会在外存中的词典内查找，查出单词的中文含义然后翻译，并将这个单词和译义放入内存，以备后续的查找和翻译。<br>假设内存中有 $M$ 个单元，每单元能存放一个单词和译义。每当软件将一个新单词存入内存前，如果当前内存中已存入的单词数不超过 $M-1$ ，软件会将新单词存入一个未使用的内存单元；若内存中已存入 $M$ 个单词，软件会清空最早进入内存的那个单词，腾出单元来，存放新单词。<br>假设一篇英语文章的长度为 $N$ 个单词。给定这篇待译文章，翻译软件需要去外存查找多少次词典？假设在翻译开始前，内存中没有任何单词。</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>共 $2$ 行。每行中两个数之间用一个空格隔开。<br>第一行为两个正整数 $M,N$ ，代表内存容量和文章的长度。<br>第二行为 $N$ 个非负整数，按照文章的顺序，每个数（大小不超过 $1000$ ）代表一个英文单词。文章中两个单词是同一个单词，当且仅当它们对应的非负整数相同。</p>
@@ -210,146 +172,449 @@
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>每个测试点 $1s$<br>对于 $10%$ 的数据有 $M=1,N≤5$ 。<br>对于 $100%$ 的数据有$ 0≤M≤100,0≤N≤10000$ 。<br>整个查字典过程如下：每行表示一个单词的翻译，冒号前为本次翻译后的内存状况：<br>空：内存初始状态为空。<br>1． $1$ ：查找单词$1$并调入内存。<br>2． $1 2$ ：查找单词 $2$ 并调入内存。<br>3． $1 2$ ：在内存中找到单词 $1$ 。<br>4． $1 2 5$ ：查找单词 $5$ 并调入内存。<br>5． $2 5 4$ ：查找单词 $4$ 并调入内存替代单词 $1$ 。<br>6． $2 5 4$ ：在内存中找到单词 $4$ 。<br>7． $5 4 1$ ：查找单词1并调入内存替代单词 $2$ 。<br>共计查了 55 次词典。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>没什么说的，就是队列模板题。</p>
 <p><em><strong>注意：千万不要把查找和找到搞混了！</strong></em></p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> q[<span class="number">1005</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> chk=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> head=<span class="number">1</span>,tail=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;m&gt;&gt;n;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>||m==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;x;</span><br><span class="line">        <span class="keyword">bool</span> flag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=head;j&lt;=tail;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(q[j]==x)&#123;</span><br><span class="line">                flag=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(tail-head+<span class="number">1</span>==m)&#123;</span><br><span class="line">            head++;</span><br><span class="line">            tail++;</span><br><span class="line">            chk++;</span><br><span class="line">            q[tail]=x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            tail++;</span><br><span class="line">            chk++;</span><br><span class="line">            q[tail]=x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;chk&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> n,m;</span><br><span class="line"><span class="hljs-keyword">int</span> q[<span class="hljs-number">1005</span>]=&#123;<span class="hljs-number">0</span>&#125;;</span><br><span class="line"><span class="hljs-keyword">int</span> chk=<span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> head=<span class="hljs-number">1</span>,tail=<span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    <span class="hljs-built_in">cin</span>&gt;&gt;m&gt;&gt;n;</span><br><span class="line">    <span class="hljs-keyword">if</span>(n==<span class="hljs-number">0</span>||m==<span class="hljs-number">0</span>)&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> x;</span><br><span class="line">        <span class="hljs-built_in">cin</span>&gt;&gt;x;</span><br><span class="line">        <span class="hljs-keyword">bool</span> flag=<span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=head;j&lt;=tail;j++)&#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(q[j]==x)&#123;</span><br><span class="line">                flag=<span class="hljs-number">1</span>;</span><br><span class="line">                <span class="hljs-keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span>(flag)&#123;</span><br><span class="line">            <span class="hljs-keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span>(tail-head+<span class="hljs-number">1</span>==m)&#123;</span><br><span class="line">            head++;</span><br><span class="line">            tail++;</span><br><span class="line">            chk++;</span><br><span class="line">            q[tail]=x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span>&#123;</span><br><span class="line">            tail++;</span><br><span class="line">            chk++;</span><br><span class="line">            q[tail]=x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-built_in">cout</span>&lt;&lt;chk&lt;&lt;<span class="hljs-built_in">endl</span>;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
         
-<span class="post-time">
-    最后更新时间：<time datetime="2018-12-03T13:02:07.525Z" itemprop="dateUpdated">2018-12-03 21:02:07</time>
-</span><br>
-
-
-        
-        作者：Steve_braveman 转载请注明出处
-        
-    </div>
-    
-    <footer>
-        <a href="http://yoursite.com">
-            <img src="/img/avatar.jpg" alt="Steve_braveman">
-            Steve_braveman
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/洛谷/">洛谷</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/队列/">队列</a></li></ul>
-
-
-            
-
-
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/洛谷/">洛谷</a>, <a class="has-link-grey -link" href="/tags/队列/">队列</a>
+                </div>
+            </div>
         </div>
+        
+        
+        
     </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/08/21/19/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">-图论-最小生成树- [洛谷 P1546][USACO]最短网络</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/08/21/16/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">-图论-最小生成树- [BZOJ 1083][SCOI 2005]繁忙的都市</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "ScgqWfpm056nb60SiohtcEzm-gzGzoHsz",
-            appKey: "lwQ7kydGLATAApXwBjMWkf0g",
-            avatar: "mm",
-            placeholder: "Deep Dark Fantasy",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "7"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
 </div>
 
-        <footer class="footer">
-	<div class="top">
-		
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
 
 
-		<p>
-			
-				<span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-			
-			<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-		</p>
-	</div>
-	
-	<div class="bottom">
-		<p><span>Steve_braveman &copy; 2018 - 2019</span>
-			<span>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/08/21/18/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">-DP- [洛谷 P1091][NOIp 2004]合唱队形</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/08/21/16/">
+                <span class="level-item">-图论-最小生成树- [BZOJ 1083][SCOI 2005]繁忙的都市</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'ScgqWfpm056nb60SiohtcEzm-gzGzoHsz',
+        app_key: 'lwQ7kydGLATAApXwBjMWkf0g',
+        placeholder: 'Deep Dark Fantasy'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/img/avatar.jpg" alt="Steve_braveman">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Steve_braveman
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        技不如人，也绝不甘拜下风！
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>SD DY SLYZ</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        74
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        48
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/stevebraveman" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="http://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2313617280&amp;website=www.oicqzone.com">
+                
+                <i class="fab fa-qq"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/BSGS/" style="font-size: 10px;">BSGS</a> <a href="/tags/BZOJ/" style="font-size: 18.18px;">BZOJ</a> <a href="/tags/CodeVS/" style="font-size: 10px;">CodeVS</a> <a href="/tags/Codeforces/" style="font-size: 10px;">Codeforces</a> <a href="/tags/DFS/" style="font-size: 11.82px;">DFS</a> <a href="/tags/DP/" style="font-size: 13.64px;">DP</a> <a href="/tags/LCA/" style="font-size: 10.91px;">LCA</a> <a href="/tags/LCT/" style="font-size: 10px;">LCT</a> <a href="/tags/RMQ/" style="font-size: 10.91px;">RMQ</a> <a href="/tags/SPOJ/" style="font-size: 10px;">SPOJ</a> <a href="/tags/ST表/" style="font-size: 10.91px;">ST表</a> <a href="/tags/二分/" style="font-size: 11.82px;">二分</a> <a href="/tags/二分图/" style="font-size: 16.36px;">二分图</a> <a href="/tags/其它/" style="font-size: 14.55px;">其它</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/前缀和/" style="font-size: 10.91px;">前缀和</a> <a href="/tags/单调队列/" style="font-size: 10px;">单调队列</a> <a href="/tags/卷积/" style="font-size: 10px;">卷积</a> <a href="/tags/图论/" style="font-size: 17.27px;">图论</a> <a href="/tags/奇技淫巧/" style="font-size: 10.91px;">奇技淫巧</a> <a href="/tags/容斥/" style="font-size: 10px;">容斥</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/并查集/" style="font-size: 13.64px;">并查集</a> <a href="/tags/强连通分量/" style="font-size: 12.73px;">强连通分量</a> <a href="/tags/扩展欧几里得/" style="font-size: 10px;">扩展欧几里得</a> <a href="/tags/数论/" style="font-size: 19.09px;">数论</a> <a href="/tags/整体二分/" style="font-size: 10px;">整体二分</a> <a href="/tags/最大匹配/" style="font-size: 14.55px;">最大匹配</a> <a href="/tags/最大流/" style="font-size: 15.45px;">最大流</a> <a href="/tags/最小割/" style="font-size: 11.82px;">最小割</a> <a href="/tags/最小生成树/" style="font-size: 11.82px;">最小生成树</a> <a href="/tags/最短路/" style="font-size: 10.91px;">最短路</a> <a href="/tags/期望/" style="font-size: 10px;">期望</a> <a href="/tags/杜教筛/" style="font-size: 10px;">杜教筛</a> <a href="/tags/树状数组/" style="font-size: 10.91px;">树状数组</a> <a href="/tags/树链剖分/" style="font-size: 11.82px;">树链剖分</a> <a href="/tags/欧拉定理/" style="font-size: 10px;">欧拉定理</a> <a href="/tags/洛谷/" style="font-size: 20px;">洛谷</a> <a href="/tags/矩阵运算/" style="font-size: 10px;">矩阵运算</a> <a href="/tags/算法讲解/" style="font-size: 10px;">算法讲解</a> <a href="/tags/线段树/" style="font-size: 12.73px;">线段树</a> <a href="/tags/网络流/" style="font-size: 19.09px;">网络流</a> <a href="/tags/网络流24题/" style="font-size: 11.82px;">网络流24题</a> <a href="/tags/莫比乌斯反演/" style="font-size: 10px;">莫比乌斯反演</a> <a href="/tags/贪心/" style="font-size: 11.82px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/递推/" style="font-size: 13.64px;">递推</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">28</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">28</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+	<div class="container">
+		<div class="level">
+			<div class="level-start has-text-centered-mobile">
+				<p class="is-size-7">
+				&copy; 2019 Steve_braveman&nbsp;
+				Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+						href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
 				
-				Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-			</span>
-		</p>
-		<p><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script>
+				</p>
+			</div>
+			<div class="level-end">
+			
+				<div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+				
+				
+				<p class="control">
+					<a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+						
+						<i class="fab fa-creative-commons"></i>
+						
+					</a>
+				</p>
+				
+				<p class="control">
+					<a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+						
+						<i class="fab fa-creative-commons-by"></i>
+						
+					</a>
+				</p>
+				
+				</div>
+			
+			</div>
+			<p><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script>
 			var now = new Date(); 
 			function createtime() { 
 				var grt= new Date("08/21/2018 15:00:00");//此处修改你的建站时间或者网站上线时间 
@@ -361,100 +626,144 @@
 				seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
 				snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
 				document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
-				document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+				document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
 			} 
 			setInterval("createtime()",250);
 		</script>
 		</p>
+
+		</div>
 	</div>
 </footer>
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
 
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
 
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
 
-</script>
+    
+    
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '你干什么去了？ ๑乛◡乛๑';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '你果然还是回来了o(*￣▽￣*)o';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
         }
     });
-})();
+});
 </script>
 
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
 
 
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+    <script type="text/javascript" src="/js/hitokoto.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":350},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<head>
-	<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
-	<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-	<script type="text/javascript" src="/js/firework.js"></script>
-</head>

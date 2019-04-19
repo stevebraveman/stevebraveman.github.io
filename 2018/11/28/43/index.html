@@ -1,28 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html  lang="zh">
 <head>
-    
-
-    
-
-    
-
-
-
     <meta charset="utf-8">
-    
-    
-    
-    <link rel="canonical" href="https://stevebraveman.github.io/2018/11/28/43/">
-    
-    
-    <title>-二分图-最大匹配- [洛谷 P2319][HNOI2006]超级英雄 | Steve_braveman | 技不如人，也绝不甘拜下风！</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#00BFFF">
-    
-    
-    <meta name="keywords" content="洛谷,二分图,最大匹配">
+<title>-二分图-最大匹配- [洛谷 P2319][HNOI2006]超级英雄 - Steve_braveman</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+
     <meta name="description" content="匈匈匈匈牙利？！">
 <meta name="keywords" content="洛谷,二分图,最大匹配">
 <meta property="og:type" content="article">
@@ -31,176 +15,154 @@
 <meta property="og:site_name" content="Steve_braveman">
 <meta property="og:description" content="匈匈匈匈牙利？！">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="og:updated_time" content="2018-12-03T13:05:46.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="-二分图-最大匹配- [洛谷 P2319][HNOI2006]超级英雄">
 <meta name="twitter:description" content="匈匈匈匈牙利？！">
-    
-        <link rel="alternate" type="application/atom+xml" title="Steve_braveman" href="/atom.xml">
-    
-    <link rel="shortcut icon" href="/img/icon.png">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
-    <!-- custom head -->
+
+
+
+
+
+
+<link rel="icon" href="/img/icon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
     
 
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
 </head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">Steve_braveman</h5>
-          <a href="mailto:2313617280@qq.com" title="2313617280@qq.com" class="mail">2313617280@qq.com</a>
-        </hgroup>
-      </div>
-    </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                归档
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/link"  >
-                <i class="icon icon-lg icon-link"></i>
-                友链
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-address-card"></i>
-                关于
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/stevebraveman" target="_blank" >
-                <i class="icon icon-lg icon-github-alt"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2313617280&website=www.oicqzone.com" target="_blank" >
-                <i class="icon icon-lg icon-qq"></i>
-                QQ
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://www.luogu.org/blog/HotoChino/post-chao-yu-ctz-chu-ban-she-post" target="_blank" >
-                <i class="icon icon-lg icon-thumbs-up"></i>
-                潮学
-              </a>
-            </li>
-        
-      </ul>
-    </div>
-  </div>
-</aside>
-
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">-二分图-最大匹配- [洛谷 P2319][HNOI2006]超级英雄</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/img/icon.png" alt="-二分图-最大匹配- [洛谷 P2319][HNOI2006]超级英雄" height="28">
+            
             </a>
         </div>
-        
-        
-    </div>
-</header>
-<header class="content-header post-header">
-
-    <div class="container fade-scale">
-        <h1 class="title">-二分图-最大匹配- [洛谷 P2319][HNOI2006]超级英雄</h1>
-        <h5 class="subtitle">
+        <div class="navbar-menu">
             
-                <time datetime="2018-11-28T10:40:07.000Z" itemprop="datePublished" class="page-time">
-  2018-11-28
-</time>
-
-
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+                <a class="navbar-item"
+                href="/link">友情链接</a>
+                
+                <a class="navbar-item"
+                href="https://www.luogu.org/blog/HotoChino/post-chao-yu-ctz-chu-ban-she-post">潮学</a>
+                
+            </div>
             
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-    <aside class="post-widget">
-        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
-            <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">1.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入格式："><span class="post-toc-number">2.</span> <span class="post-toc-text">输入格式：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出格式"><span class="post-toc-number">3.</span> <span class="post-toc-text">输出格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入样例"><span class="post-toc-number">4.</span> <span class="post-toc-text">输入样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出样例"><span class="post-toc-number">5.</span> <span class="post-toc-text">输出样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Solution"><span class="post-toc-number">6.</span> <span class="post-toc-text">Solution</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Code"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">Code</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-
-
-<article id="post-43"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">-二分图-最大匹配- [洛谷 P2319][HNOI2006]超级英雄</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-11-28 18:40:07" datetime="2018-11-28T10:40:07.000Z"  itemprop="datePublished">2018-11-28</time>
-
-            
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
         </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-11-28T10:40:07.000Z">2018-11-28</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 677 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                -二分图-最大匹配- [洛谷 P2319][HNOI2006]超级英雄
+            
+        </h1>
+        <div class="content">
             <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>现在电视台有一种节目叫做超级英雄，大概的流程就是每位选手到台上回答主持人的几个问题，然后根据回答问题的多少获得不同数目的奖品或奖金。主持人问题准备了若干道题目，只有当选手正确回答一道题后，才能进入下一题，否则就被淘汰。为了增加节目的趣味性并适当降低难度，主持人总提供给选手几个“锦囊妙计”，比如求助现场观众，或者去掉若干个错误答案（选择题）等等。<br><a id="more"></a><br>这里，我们把规则稍微改变一下。假设主持人总共有m道题，选手有n种不同的“锦囊妙计”。主持人规定，每道题都可以从两种“锦囊妙计”中选择一种，而每种“锦囊妙计”只能用一次。我们又假设一道题使用了它允许的锦囊妙计后，就一定能正确回答，顺利进入下一题。现在我来到了节目现场，可是我实在是太笨了，以至于一道题也不会做，每道题只好借助使用“锦囊妙计”来通过。如果我事先就知道了每道题能够使用哪两种“锦囊妙计”，那么你能告诉我怎样选择才能通过最多的题数吗？</p>
 <h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入的第一行是两个正整数 $n$ 和 $m$ $(0&lt;n&lt;1001,0&lt;m&lt;1001)$,表示总共有 n 种“锦囊妙计”，编号为 $0…n−1$，总共有 $m$ 个问题。</p>
 <p>以下的 $m$ 行，每行两个数，分别表示第 $m$ 个问题可以使用的“锦囊妙计”的编号。</p>
@@ -211,145 +173,448 @@
 <h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><p>4<br>3<br>2<br>0<br>4</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>最近学了一下二分图匹配，找了几道题目练练手。。。。</p>
 <p>这道题可以很容易看出是一道二分图最大匹配的一道题，但是有一个地方需要注意，我们需要在答不出题的情况下直接退出循环。</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100010</span></span><br><span class="line"><span class="keyword">namespace</span> STman &#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(Tp &amp;x)</span> </span>&#123;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">define</span> C getchar()</span></span><br><span class="line">        Tp f = <span class="number">1</span>;x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">char</span> k = C;</span><br><span class="line">        <span class="keyword">while</span> (k &lt; <span class="string">'0'</span> || k &gt; <span class="string">'9'</span>) &#123;<span class="keyword">if</span> (k == <span class="string">'-'</span>) f = <span class="number">-1</span>; k = C;&#125;</span><br><span class="line">        <span class="keyword">while</span> (k &gt;= <span class="string">'0'</span> &amp;&amp; k &lt;= <span class="string">'9'</span>) &#123;x = x * <span class="number">10</span> + k - <span class="string">'0'</span>; k = C;&#125;</span><br><span class="line">        x = x * f;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">undef</span> C</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(Tp x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">'-'</span>) , x = -x;</span><br><span class="line">        <span class="keyword">if</span> (x &gt; <span class="number">9</span>) write(x / <span class="number">10</span>);</span><br><span class="line">        <span class="built_in">putchar</span>(x % <span class="number">10</span> + <span class="string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Tp <span class="title">max</span><span class="params">(Tp a, Tp b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (a &gt; b) <span class="keyword">return</span> a;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Tp <span class="title">min</span><span class="params">(Tp a, Tp b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (a &lt; b) <span class="keyword">return</span> a;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Tp &amp;a, Tp &amp;b)</span> </span>&#123;</span><br><span class="line">        Tp t = a;</span><br><span class="line">        a = b;</span><br><span class="line">        b = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Tp <span class="title">abs</span><span class="params">(Tp &amp;a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (a &lt; <span class="number">0</span>) <span class="keyword">return</span> -a;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">sp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="number">32</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">et</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> STman;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> v, nx;</span><br><span class="line">&#125;e[MAXN];</span><br><span class="line"><span class="keyword">int</span> head[MAXN], ecnt, n, m, mtch[MAXN], ans[MAXN], x, y, tot;</span><br><span class="line"><span class="keyword">bool</span> vis[MAXN];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> f, <span class="keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">    e[++ecnt] = (Edge) &#123;t, head[f]&#125;;</span><br><span class="line">    head[f] = ecnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Hungary</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = head[k]; i; i = e[i].nx) &#123;</span><br><span class="line">        <span class="keyword">int</span> to = e[i].v;</span><br><span class="line">        <span class="keyword">if</span> (!vis[to]) &#123;</span><br><span class="line">            vis[to] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (!mtch[to] || Hungary(mtch[to])) &#123;</span><br><span class="line">                mtch[to] = k;</span><br><span class="line">                ans[k] = to;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    read(n), read(m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        read(x), read(y);</span><br><span class="line">        add(i, x);</span><br><span class="line">        add(i, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        <span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">        <span class="keyword">if</span> (Hungary(i)) &#123;</span><br><span class="line">            tot++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    write(tot), et();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= tot; i++) &#123;</span><br><span class="line">        write(ans[i]), et();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXN 100010</span></span><br><span class="line"><span class="hljs-keyword">namespace</span> STman &#123;</span><br><span class="line">    <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">read</span><span class="hljs-params">(Tp &amp;x)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> C getchar()</span></span><br><span class="line">        Tp f = <span class="hljs-number">1</span>;x = <span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">char</span> k = C;</span><br><span class="line">        <span class="hljs-keyword">while</span> (k &lt; <span class="hljs-string">'0'</span> || k &gt; <span class="hljs-string">'9'</span>) &#123;<span class="hljs-keyword">if</span> (k == <span class="hljs-string">'-'</span>) f = <span class="hljs-number">-1</span>; k = C;&#125;</span><br><span class="line">        <span class="hljs-keyword">while</span> (k &gt;= <span class="hljs-string">'0'</span> &amp;&amp; k &lt;= <span class="hljs-string">'9'</span>) &#123;x = x * <span class="hljs-number">10</span> + k - <span class="hljs-string">'0'</span>; k = C;&#125;</span><br><span class="line">        x = x * f;</span><br><span class="line">        <span class="hljs-meta">#<span class="hljs-meta-keyword">undef</span> C</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">write</span><span class="hljs-params">(Tp x)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span>) <span class="hljs-built_in">putchar</span>(<span class="hljs-string">'-'</span>) , x = -x;</span><br><span class="line">        <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">9</span>) write(x / <span class="hljs-number">10</span>);</span><br><span class="line">        <span class="hljs-built_in">putchar</span>(x % <span class="hljs-number">10</span> + <span class="hljs-string">'0'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> Tp <span class="hljs-title">max</span><span class="hljs-params">(Tp a, Tp b)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (a &gt; b) <span class="hljs-keyword">return</span> a;</span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> Tp <span class="hljs-title">min</span><span class="hljs-params">(Tp a, Tp b)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (a &lt; b) <span class="hljs-keyword">return</span> a;</span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(Tp &amp;a, Tp &amp;b)</span> </span>&#123;</span><br><span class="line">        Tp t = a;</span><br><span class="line">        a = b;</span><br><span class="line">        b = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> Tp&gt;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> Tp <span class="hljs-title">abs</span><span class="hljs-params">(Tp &amp;a)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (a &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> -a;</span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sp</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-built_in">putchar</span>(<span class="hljs-number">32</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">et</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-built_in">putchar</span>(<span class="hljs-number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> STman;</span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Edge</span> &#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> v, nx;</span><br><span class="line">&#125;e[MAXN];</span><br><span class="line"><span class="hljs-keyword">int</span> head[MAXN], ecnt, n, m, mtch[MAXN], ans[MAXN], x, y, tot;</span><br><span class="line"><span class="hljs-keyword">bool</span> vis[MAXN];</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> f, <span class="hljs-keyword">int</span> t)</span> </span>&#123;</span><br><span class="line">    e[++ecnt] = (Edge) &#123;t, head[f]&#125;;</span><br><span class="line">    head[f] = ecnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Hungary</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = head[k]; i; i = e[i].nx) &#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> to = e[i].v;</span><br><span class="line">        <span class="hljs-keyword">if</span> (!vis[to]) &#123;</span><br><span class="line">            vis[to] = <span class="hljs-number">1</span>;</span><br><span class="line">            <span class="hljs-keyword">if</span> (!mtch[to] || Hungary(mtch[to])) &#123;</span><br><span class="line">                mtch[to] = k;</span><br><span class="line">                ans[k] = to;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    read(n), read(m);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        read(x), read(y);</span><br><span class="line">        add(i, x);</span><br><span class="line">        add(i, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        <span class="hljs-built_in">memset</span>(vis, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(vis));</span><br><span class="line">        <span class="hljs-keyword">if</span> (Hungary(i)) &#123;</span><br><span class="line">            tot++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">else</span> <span class="hljs-keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    write(tot), et();</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= tot; i++) &#123;</span><br><span class="line">        write(ans[i]), et();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
         
-<span class="post-time">
-    最后更新时间：<time datetime="2018-12-03T13:05:46.990Z" itemprop="dateUpdated">2018-12-03 21:05:46</time>
-</span><br>
-
-
-        
-        作者：Steve_braveman 转载请注明出处
-        
-    </div>
-    
-    <footer>
-        <a href="http://yoursite.com">
-            <img src="/img/avatar.jpg" alt="Steve_braveman">
-            Steve_braveman
-        </a>
-    </footer>
-</blockquote>
-
-        
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分图/">二分图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最大匹配/">最大匹配</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/洛谷/">洛谷</a></li></ul>
-
-
-            
-
-
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/二分图/">二分图</a>, <a class="has-link-grey -link" href="/tags/最大匹配/">最大匹配</a>, <a class="has-link-grey -link" href="/tags/洛谷/">洛谷</a>
+                </div>
+            </div>
         </div>
+        
+        
+        
     </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/11/28/44/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">-网络流-最大流- [洛谷 P1343]地震逃生</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/11/08/42/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">-其它- Steve_braveman的专用namespace</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Valine Comments -->
-    <div class="comments vcomment" id="comments"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
-    <!-- Valine Comments script -->
-    <script>
-        var GUEST_INFO = ['nick','mail','link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
-          return GUEST_INFO.indexOf(item) > -1
-        });
-        new Valine({
-            el: '#comments',
-            notify: 'false' == 'true',
-            verify: 'false' == 'true',
-            appId: "ScgqWfpm056nb60SiohtcEzm-gzGzoHsz",
-            appKey: "lwQ7kydGLATAApXwBjMWkf0g",
-            avatar: "mm",
-            placeholder: "Deep Dark Fantasy",
-            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
-            pageSize: "7"
-        })
-    </script>
-    <!-- Valine Comments end -->
-
-
-
-
-
-
-
-</article>
-
-
-
 </div>
 
-        <footer class="footer">
-	<div class="top">
-		
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
 
 
-		<p>
-			
-				<span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
-			
-			<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-		</p>
-	</div>
-	
-	<div class="bottom">
-		<p><span>Steve_braveman &copy; 2018 - 2019</span>
-			<span>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/11/28/44/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">-网络流-最大流- [洛谷 P1343]地震逃生</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/11/08/42/">
+                <span class="level-item">-其它- Steve_braveman的专用namespace</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="valine-thread" class="content"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#valine-thread' ,
+        notify: false,
+        verify: false,
+        app_id: 'ScgqWfpm056nb60SiohtcEzm-gzGzoHsz',
+        app_key: 'lwQ7kydGLATAApXwBjMWkf0g',
+        placeholder: 'Deep Dark Fantasy'
+    });
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/img/avatar.jpg" alt="Steve_braveman">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Steve_braveman
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        技不如人，也绝不甘拜下风！
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>SD DY SLYZ</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        74
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        48
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/stevebraveman" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="http://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2313617280&amp;website=www.oicqzone.com">
+                
+                <i class="fab fa-qq"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/BSGS/" style="font-size: 10px;">BSGS</a> <a href="/tags/BZOJ/" style="font-size: 18.18px;">BZOJ</a> <a href="/tags/CodeVS/" style="font-size: 10px;">CodeVS</a> <a href="/tags/Codeforces/" style="font-size: 10px;">Codeforces</a> <a href="/tags/DFS/" style="font-size: 11.82px;">DFS</a> <a href="/tags/DP/" style="font-size: 13.64px;">DP</a> <a href="/tags/LCA/" style="font-size: 10.91px;">LCA</a> <a href="/tags/LCT/" style="font-size: 10px;">LCT</a> <a href="/tags/RMQ/" style="font-size: 10.91px;">RMQ</a> <a href="/tags/SPOJ/" style="font-size: 10px;">SPOJ</a> <a href="/tags/ST表/" style="font-size: 10.91px;">ST表</a> <a href="/tags/二分/" style="font-size: 11.82px;">二分</a> <a href="/tags/二分图/" style="font-size: 16.36px;">二分图</a> <a href="/tags/其它/" style="font-size: 14.55px;">其它</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/前缀和/" style="font-size: 10.91px;">前缀和</a> <a href="/tags/单调队列/" style="font-size: 10px;">单调队列</a> <a href="/tags/卷积/" style="font-size: 10px;">卷积</a> <a href="/tags/图论/" style="font-size: 17.27px;">图论</a> <a href="/tags/奇技淫巧/" style="font-size: 10.91px;">奇技淫巧</a> <a href="/tags/容斥/" style="font-size: 10px;">容斥</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/并查集/" style="font-size: 13.64px;">并查集</a> <a href="/tags/强连通分量/" style="font-size: 12.73px;">强连通分量</a> <a href="/tags/扩展欧几里得/" style="font-size: 10px;">扩展欧几里得</a> <a href="/tags/数论/" style="font-size: 19.09px;">数论</a> <a href="/tags/整体二分/" style="font-size: 10px;">整体二分</a> <a href="/tags/最大匹配/" style="font-size: 14.55px;">最大匹配</a> <a href="/tags/最大流/" style="font-size: 15.45px;">最大流</a> <a href="/tags/最小割/" style="font-size: 11.82px;">最小割</a> <a href="/tags/最小生成树/" style="font-size: 11.82px;">最小生成树</a> <a href="/tags/最短路/" style="font-size: 10.91px;">最短路</a> <a href="/tags/期望/" style="font-size: 10px;">期望</a> <a href="/tags/杜教筛/" style="font-size: 10px;">杜教筛</a> <a href="/tags/树状数组/" style="font-size: 10.91px;">树状数组</a> <a href="/tags/树链剖分/" style="font-size: 11.82px;">树链剖分</a> <a href="/tags/欧拉定理/" style="font-size: 10px;">欧拉定理</a> <a href="/tags/洛谷/" style="font-size: 20px;">洛谷</a> <a href="/tags/矩阵运算/" style="font-size: 10px;">矩阵运算</a> <a href="/tags/算法讲解/" style="font-size: 10px;">算法讲解</a> <a href="/tags/线段树/" style="font-size: 12.73px;">线段树</a> <a href="/tags/网络流/" style="font-size: 19.09px;">网络流</a> <a href="/tags/网络流24题/" style="font-size: 11.82px;">网络流24题</a> <a href="/tags/莫比乌斯反演/" style="font-size: 10px;">莫比乌斯反演</a> <a href="/tags/贪心/" style="font-size: 11.82px;">贪心</a> <a href="/tags/费用流/" style="font-size: 10px;">费用流</a> <a href="/tags/递推/" style="font-size: 13.64px;">递推</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">28</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">一月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">十二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">十一月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">28</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+	<div class="container">
+		<div class="level">
+			<div class="level-start has-text-centered-mobile">
+				<p class="is-size-7">
+				&copy; 2019 Steve_braveman&nbsp;
+				Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+						href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
 				
-				Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-			</span>
-		</p>
-		<p><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script>
+				</p>
+			</div>
+			<div class="level-end">
+			
+				<div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+				
+				
+				<p class="control">
+					<a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+						
+						<i class="fab fa-creative-commons"></i>
+						
+					</a>
+				</p>
+				
+				<p class="control">
+					<a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+						
+						<i class="fab fa-creative-commons-by"></i>
+						
+					</a>
+				</p>
+				
+				</div>
+			
+			</div>
+			<p><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script>
 			var now = new Date(); 
 			function createtime() { 
 				var grt= new Date("08/21/2018 15:00:00");//此处修改你的建站时间或者网站上线时间 
@@ -361,100 +626,144 @@
 				seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
 				snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
 				document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
-				document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+				document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
 			} 
 			setInterval("createtime()",250);
 		</script>
 		</p>
+
+		</div>
 	</div>
 </footer>
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
 
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
 
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
 
-</script>
+    
+    
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
-
-
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
 </script>
 
-<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
 <script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '你干什么去了？ ๑乛◡乛๑';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '你果然还是回来了o(*￣▽￣*)o';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
         }
     });
-})();
+});
 </script>
 
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
 
 
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+    <script type="text/javascript" src="/js/hitokoto.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":150,"height":350},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
-<head>
-	<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
-	<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-	<script type="text/javascript" src="/js/firework.js"></script>
-</head>
