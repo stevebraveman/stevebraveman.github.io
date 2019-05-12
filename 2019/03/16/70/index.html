@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="前言 总是有出题人喜欢把序列上用线段树解决的题目出到树上，让选手强行写个树链剖分或树分治或某种动态树数据结构。   这种行为已经很无趣了。   所以我们想让大家知道，不光可以放在静态树上，动态仙人掌也是可以的。">
+    <meta name="description" content="如果有个题目，要求你在数列上区间求和，支持修改。 那么这道题就是很简单的线段树板子题，对吧？ 但是，这个世界是残酷的。为了不让题目那么简单，邪恶的出题人会把序列上的转换到树上，使题目难度增加一倍甚至几倍。 这样一看，完了，线段树可处理不了树上的操作啊，顿时感到人生苦短，失去了活下去的勇气。 那么，一个神奇的而又强大的东西——树链剖分可以解决上述问题。">
 <meta name="keywords" content="树链剖分,算法讲解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="-树链剖分- 树链剖分详解">
 <meta property="og:url" content="http://yoursite.com/2019/03/16/70/index.html">
 <meta property="og:site_name" content="Steve_braveman">
-<meta property="og:description" content="前言 总是有出题人喜欢把序列上用线段树解决的题目出到树上，让选手强行写个树链剖分或树分治或某种动态树数据结构。   这种行为已经很无趣了。   所以我们想让大家知道，不光可以放在静态树上，动态仙人掌也是可以的。">
+<meta property="og:description" content="如果有个题目，要求你在数列上区间求和，支持修改。 那么这道题就是很简单的线段树板子题，对吧？ 但是，这个世界是残酷的。为了不让题目那么简单，邪恶的出题人会把序列上的转换到树上，使题目难度增加一倍甚至几倍。 这样一看，完了，线段树可处理不了树上的操作啊，顿时感到人生苦短，失去了活下去的勇气。 那么，一个神奇的而又强大的东西——树链剖分可以解决上述问题。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-12T10:51:44.546Z">
+<meta property="og:updated_time" content="2019-05-12T11:08:46.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="-树链剖分- 树链剖分详解">
-<meta name="twitter:description" content="前言 总是有出题人喜欢把序列上用线段树解决的题目出到树上，让选手强行写个树链剖分或树分治或某种动态树数据结构。   这种行为已经很无趣了。   所以我们想让大家知道，不光可以放在静态树上，动态仙人掌也是可以的。">
+<meta name="twitter:description" content="如果有个题目，要求你在数列上区间求和，支持修改。 那么这道题就是很简单的线段树板子题，对吧？ 但是，这个世界是残酷的。为了不让题目那么简单，邪恶的出题人会把序列上的转换到树上，使题目难度增加一倍甚至几倍。 这样一看，完了，线段树可处理不了树上的操作啊，顿时感到人生苦短，失去了活下去的勇气。 那么，一个神奇的而又强大的东西——树链剖分可以解决上述问题。">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -150,7 +150,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1716 个字)
+                    11 分钟 读完 (大约 1618 个字)
                 </span>
                 
                 
@@ -163,21 +163,12 @@
             
         </h1>
         <div class="content">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>总是有出题人喜欢把序列上用线段树解决的题目出到树上，让选手强行写个树链剖分或树分治或某种动态树数据结构。</p>
-</blockquote>
-<blockquote>
-<p>这种行为已经很无趣了。</p>
-</blockquote>
-<blockquote>
-<p>所以我们想让大家知道，不光可以放在静态树上，动态仙人掌也是可以的。</p>
-</blockquote>
-<a id="more"></a>
-<p>如果有个题目，要求你在数列上区间求和，支持修改。</p>
+            <p>如果有个题目，要求你在数列上区间求和，支持修改。</p>
 <p>那么这道题就是很简单的线段树板子题，对吧？</p>
 <p>但是，这个世界是残酷的。为了不让题目那么简单，邪恶的出题人会把序列上的转换到树上，使题目难度增加一倍甚至几倍。</p>
 <p>这样一看，完了，线段树可处理不了树上的操作啊<del>，顿时感到人生苦短，失去了活下去的勇气</del>。</p>
 <p>那么，一个神奇的而又强大的东西——树链剖分可以解决上述问题。</p>
+<a id="more"></a>
 <p><strong>前置知识</strong>：DFS序、线段树。</p>
 <p>啥，你不会线段树？序列上的问题都不会处理就想处理树上的问题？<del>你快醒醒！</del></p>
 <p><strong>变量的定义</strong>（当然这都是根据个人喜好来定义变量的名称，但作用都是一样的）：</p>
@@ -240,8 +231,7 @@
 <p><a href="https://www.luogu.org/problemnew/show/P2146" target="_blank" rel="noopener">[NOI2015]软件包管理器</a></p>
 <p><a href="https://www.luogu.org/problemnew/show/P2486" target="_blank" rel="noopener">[SDOI2011]染色</a></p>
 <p><a href="https://www.luogu.org/problemnew/show/P3178" target="_blank" rel="noopener">[HAOI2015]树上操作</a></p>
-<p>如果写得有问题可在下方评论回复QWQ</p>
-
+<h6 id="如果写得有问题可在下方评论回复QWQ"><a href="#如果写得有问题可在下方评论回复QWQ" class="headerlink" title="如果写得有问题可在下方评论回复QWQ"></a>如果写得有问题可在下方评论回复QWQ</h6>
         </div>
         
         <div class="level is-size-7 is-uppercase">
