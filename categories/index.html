@@ -8,7 +8,7 @@
 
 
     <meta name="description" content="Hs is VERY VEGETABLE!">
-<meta name="keywords" content="洛谷,DFS,CodeVS,奇技淫巧,BZOJ,图论,最小生成树,其它,递推,DP,队列,并查集,数论,二分,树状数组,线段树,最短路,贪心,单调队列,RMQ,ST表,矩阵运算,期望,欧拉定理,前缀和,强连通分量,差分,LCA,二分图,最大匹配,扩展欧几里得,BSGS,树链剖分,网络流,最小割,最大流,网络流24题,费用流,LCT,分块,Codeforces,算法讲解,卷积,容斥,莫比乌斯反演,SPOJ,杜教筛,整体二分,学习笔记,树套树,模拟退火">
+<meta name="keywords" content="洛谷,DFS,其它,奇技淫巧,CodeVS,递推,DP,队列,BZOJ,并查集,最小生成树,图论,数论,二分,线段树,树状数组,单调队列,贪心,最短路,RMQ,ST表,期望,前缀和,矩阵运算,欧拉定理,差分,LCA,网络流,最大流,强连通分量,二分图,最大匹配,树链剖分,最小割,扩展欧几里得,BSGS,网络流24题,LCT,费用流,分块,Codeforces,算法讲解,卷积,杜教筛,容斥,莫比乌斯反演,SPOJ,学习笔记,树套树,模拟退火,整体二分">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Steve_braveman">
 <meta property="og:url" content="http://yoursite.com/categories/index.html">
@@ -137,30 +137,18 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card widget">
-	<div style="height: 15px"></div>
-	<h4 class="ui top attached block header"><i class="ui quote left icon"></i>一言（ヒトコト）</h4>
-		<div class="card-content">
-		<script type="text/javascript">
-		$.get('https://v1.hitokoto.cn/?c=a', function (data) {
-			document.getElementById("hitokoto-content").innerHTML = data.hitokoto;
-			document.getElementById("hitokoto-from").innerHTML = '——' + data.from;
-			// $('#hitokoto-content').css('display', '').text();
-			// $('#hitokoto-from').css('display', '').text();
-		});
-
-		</script>	
-		<div>
-			<div style="font-size: 1em; line-height: 1.5em; display: none; " id="hitokoto-content"></div>
-			<div style="text-align: right; margin-top: 15px; font-size: 0.9em; color: #666; display: none; " id="hitokoto-from"></div>
-		</div>
-		<!-- <p><div class="ui centered inline loader" id="hitokoto-loader"></div></p> -->
-		<!-- <script type="text/javascript" src= "https://api.lwl12.com/hitokoto/v1?encoSde=realjson&charset=utf-8"></script> -->
-		<!-- </script> -->
-		<!-- <span id="lwlhitokoto"> -->
-			<!-- <script>lwlhitokoto().text</script> -->
-		<!-- </span> -->
-	</div>
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
 </div></div>
                 
 
@@ -268,6 +256,17 @@
     
     
         <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            <div class="card widget">
+	<div style="height: 17px"></div>
+	<script type="text/javascript" src="/js/hitokoto.js"></script>
+	<div style="text-align: center; margin-top: 15px; font-size: 1.5em; color: rgb(20, 109, 243);">一言（ヒトコト）</div>
+	<div class="card-content">
+		<div style="text-align: center; margin-top: 15px; font-size: 1em; color: rgb(82, 74, 74);" class="hitokoto"></div>
+		<div style="height: 17px"></div>
+		<div style="text-align: right;" class="from"></div>
+	</div>
+</div>
         
             <div class="card widget">
 	<div class="card-content">
@@ -402,6 +401,17 @@
 
 
 <div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        <div class="card widget">
+	<div style="height: 17px"></div>
+	<script type="text/javascript" src="/js/hitokoto.js"></script>
+	<div style="text-align: center; margin-top: 15px; font-size: 1.5em; color: rgb(20, 109, 243);">一言（ヒトコト）</div>
+	<div class="card-content">
+		<div style="text-align: center; margin-top: 15px; font-size: 1em; color: rgb(82, 74, 74);" class="hitokoto"></div>
+		<div style="height: 17px"></div>
+		<div style="text-align: right;" class="from"></div>
+	</div>
+</div>
     
         <div class="card widget">
 	<div class="card-content">
@@ -584,7 +594,7 @@
 			} 
 			setInterval("createtime()",250);
 			</script>
-		</p>
+			</p>
 		</div>
 	</div>
 </footer>
@@ -717,6 +727,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <link rel="stylesheet" href="/css/search.css">
 <link rel="stylesheet" href="/css/insight.css">
     
-    <script type="text/javascript" src="/js/hitokoto.js"></script>
+    
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":270,"height":630},"mobile":{"show":true},"react":{"opacity":1},"log":false,"tagMode":false});</script></body>
 </html>
