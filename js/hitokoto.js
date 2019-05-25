@@ -6,7 +6,8 @@ function update() {
     gethi.send();
     gethi.onreadystatechange = function () {
         if (gethi.readyState === 4 && gethi.status === 200) {
-            debugger;
+            // debugger;
+            // console.log(gethi);
             var hitokoto = document.getElementsByClassName('hitokoto');
             var from = document.getElementsByClassName('from');
             for (var i = 0; i < hitokoto.length; i++) {
