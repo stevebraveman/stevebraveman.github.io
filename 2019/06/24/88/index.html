@@ -2,24 +2,24 @@
 <html  lang="zh">
 <head>
     <meta charset="utf-8">
-<title>-奇技淫巧- C++ 读入输出优化 - Steve_braveman</title>
+<title>-数论-欧拉定理- 有关无理数取余的一些想法 - Steve_braveman</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
-    <meta name="description" content="一个小优化">
-<meta name="keywords" content="奇技淫巧">
+    <meta name="description" content="我们知道针对有理数取余我们可以用费马小定理（欧拉定理）或者是扩展欧几里得求逆元得到。 但是现在，我们也可以根据（扩展）欧拉定理来进行无理数取余。">
+<meta name="keywords" content="数论,欧拉定理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="-奇技淫巧- C++ 读入输出优化">
-<meta property="og:url" content="http://yoursite.com/2018/08/21/13/index.html">
+<meta property="og:title" content="-数论-欧拉定理- 有关无理数取余的一些想法">
+<meta property="og:url" content="http://yoursite.com/2019/06/24/88/index.html">
 <meta property="og:site_name" content="Steve_braveman">
-<meta property="og:description" content="一个小优化">
+<meta property="og:description" content="我们知道针对有理数取余我们可以用费马小定理（欧拉定理）或者是扩展欧几里得求逆元得到。 但是现在，我们也可以根据（扩展）欧拉定理来进行无理数取余。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/img/og_image.png">
-<meta property="og:updated_time" content="2019-05-25T03:22:25.197Z">
+<meta property="og:updated_time" content="2019-06-24T12:56:48.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="-奇技淫巧- C++ 读入输出优化">
-<meta name="twitter:description" content="一个小优化">
+<meta name="twitter:title" content="-数论-欧拉定理- 有关无理数取余的一些想法">
+<meta name="twitter:description" content="我们知道针对有理数取余我们可以用费马小定理（欧拉定理）或者是扩展欧几里得求逆元得到。 但是现在，我们也可以根据（扩展）欧拉定理来进行无理数取余。">
 <meta name="twitter:image" content="http://yoursite.com/img/og_image.png">
 
 
@@ -98,7 +98,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/img/icon.png" alt="-奇技淫巧- C++ 读入输出优化" height="28">
+                <img src="/img/icon.png" alt="-数论-欧拉定理- 有关无理数取余的一些想法" height="28">
             
             </a>
         </div>
@@ -148,13 +148,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-08-21T04:17:52.000Z">2018-08-21</time>
+                <time class="level-item has-text-grey" datetime="2019-06-24T03:12:52.000Z">2019-06-24</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 129 个字)
+                    1 分钟 读完 (大约 208 个字)
                 </span>
                 
                 
@@ -168,15 +168,18 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                -奇技淫巧- C++ 读入输出优化
+                -数论-欧拉定理- 有关无理数取余的一些想法
             
         </h1>
         <div class="content">
-            <p>有一种比<code>scanf</code>和<code>printf</code>更快的输入输出，那就是读入输出优化！<br><a id="more"></a><br>快读模板：<br><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">read</span><span class="hljs-params">(<span class="hljs-keyword">int</span> &amp;x)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> f=<span class="hljs-number">1</span>,x=<span class="hljs-number">0</span>;<span class="hljs-keyword">char</span> s=getchar();</span><br><span class="line">    <span class="hljs-keyword">while</span>(s&lt;<span class="hljs-string">'0'</span>||s&gt;<span class="hljs-string">'9'</span>)&#123;<span class="hljs-keyword">if</span>(s==<span class="hljs-string">'-'</span>)f=<span class="hljs-number">-1</span>;s=getchar();&#125;</span><br><span class="line">    <span class="hljs-keyword">while</span>(s&gt;=<span class="hljs-string">'0'</span>&amp;&amp;s&lt;=<span class="hljs-string">'9'</span>)&#123;x=x*<span class="hljs-number">10</span>+s-<span class="hljs-string">'0'</span>;s=getchar();&#125;</span><br><span class="line">    x*=f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>快速输出模板：</p>
-<figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">write</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(x&lt;<span class="hljs-number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="hljs-built_in">putchar</span>(<span class="hljs-string">'-'</span>);</span><br><span class="line">        x=-x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span>(x&gt;<span class="hljs-number">9</span>)</span><br><span class="line">        write(x/<span class="hljs-number">10</span>);</span><br><span class="line">    <span class="hljs-built_in">putchar</span>(x%<span class="hljs-number">10</span>+<span class="hljs-string">'0'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当输入输出的数据非常非常多时，就可用这个！</p>
-<p><del>当然如果你懒得手敲读入输出优化代码，还是用<code>scanf</code>和<code>printf</code>吧</del></p>
+            <p>我们知道针对有理数取余我们可以用费马小定理（欧拉定理）或者是扩展欧几里得求逆元得到。</p>
+<p>但是现在，我们也可以根据（扩展）欧拉定理来进行无理数取余。</p>
+<a id="more"></a>
+<p>因为 $a^b \equiv a^{b \% \varphi(p)} \pmod p,\gcd(a,p)=1$。</p>
+<p>所以可以把 $b$ 换为有理数，那么取余的对象就变成了根式。</p>
+<p>但是这并不对所有的数据都适用，因为要满足 $\gcd(\varphi(p),b)=1$ ，其中 $b$ 为所要求逆元的数。 </p>
+<p>尽管存在这个，但并没有说无理数取余是完全不可能，在特殊的数据下还是可以的，比如说 $\sqrt[3]{2} \equiv 3 \pmod 5$。</p>
+<p><del>看，证明什么的都没有，多简洁</del></p>
 
         </div>
         
@@ -184,7 +187,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/奇技淫巧/">奇技淫巧</a>
+                    <a class="has-link-grey -link" href="/tags/数论/">数论</a>, <a class="has-link-grey -link" href="/tags/欧拉定理/">欧拉定理</a>
                 </div>
             </div>
         </div>
@@ -201,17 +204,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/08/21/14/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">-奇技淫巧- C++ 手动开O2优化</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/08/21/12/">
-                <span class="level-item">-DFS- [CodeVS P3880]环素数</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/05/87/">
+                <span class="level-item">-树链剖分-线段树- [洛谷 P4116]Qtree3</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>

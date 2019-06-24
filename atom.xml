@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-05T06:18:57.354Z</updated>
+  <updated>2019-06-24T12:56:48.388Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>-数论-欧拉定理- 有关无理数取余的一些想法</title>
+    <link href="http://yoursite.com/2019/06/24/88/"/>
+    <id>http://yoursite.com/2019/06/24/88/</id>
+    <published>2019-06-24T03:12:52.000Z</published>
+    <updated>2019-06-24T12:56:48.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们知道针对有理数取余我们可以用费马小定理（欧拉定理）或者是扩展欧几里得求逆元得到。</p><p>但是现在，我们也可以根据（扩展）欧拉定理来进行无理数取余。</p><a id="more"></a><p>因为 $a^b \equiv a^{b \% \varphi(p)} \pmod p,\gcd(a,p)=1$。</p><p>所以可以把 $b$ 换为有理数，那么取余的对象就变成了根式。</p><p>但是这并不对所有的数据都适用，因为要满足 $\gcd(\varphi(p),b)=1$ ，其中 $b$ 为所要求逆元的数。 </p><p>尽管存在这个，但并没有说无理数取余是完全不可能，在特殊的数据下还是可以的，比如说 $\sqrt[3]{2} \equiv 3 \pmod 5$。</p><p><del>看，证明什么的都没有，多简洁</del></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们知道针对有理数取余我们可以用费马小定理（欧拉定理）或者是扩展欧几里得求逆元得到。&lt;/p&gt;
+&lt;p&gt;但是现在，我们也可以根据（扩展）欧拉定理来进行无理数取余。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="欧拉定理" scheme="http://yoursite.com/tags/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>-树链剖分-线段树- [洛谷 P4116]Qtree3</title>
@@ -162,9 +185,9 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
-    
       <category term="线段树" scheme="http://yoursite.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
     
   </entry>
   
@@ -210,11 +233,11 @@
     
       <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
-      <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
-    
       <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
+    
+      <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
     
   </entry>
   
@@ -483,28 +506,6 @@
       <category term="图论" scheme="http://yoursite.com/tags/%E5%9B%BE%E8%AE%BA/"/>
     
       <category term="最短路" scheme="http://yoursite.com/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>-二分- [洛谷 P3939]数颜色</title>
-    <link href="http://yoursite.com/2019/03/06/68/"/>
-    <id>http://yoursite.com/2019/03/06/68/</id>
-    <published>2019-03-06T11:09:38.000Z</published>
-    <updated>2019-05-25T03:22:25.315Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/P3939" target="_blank" rel="noopener">Link</a></p><a id="more"></a><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>先声明一下，以后的题解不再粘贴题面。</p><p>这道题我们可以用vector存下每种颜色所在的位置，然后再二分一下就可以了，甚至连离散化都不需要。</p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXN 300010</span></span><br><span class="line"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v[MAXN];</span><br><span class="line"><span class="hljs-keyword">int</span> n, m, op, l, r, x, a[MAXN];</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;a[i]);</span><br><span class="line">        v[a[i]].push_back(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">while</span> (m--) &#123;</span><br><span class="line">        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;op);</span><br><span class="line">        <span class="hljs-keyword">if</span> (op == <span class="hljs-number">1</span>) &#123;</span><br><span class="line">            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d%d"</span>, &amp;l, &amp;r, &amp;x);</span><br><span class="line">            <span class="hljs-keyword">int</span> pos = <span class="hljs-built_in">std</span>::upper_bound(v[x].begin(), v[x].end(), r) - <span class="hljs-built_in">std</span>::lower_bound(v[x].begin(), v[x].end(), l);</span><br><span class="line">            <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, pos);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span> (op == <span class="hljs-number">2</span>) &#123;</span><br><span class="line">            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;x);</span><br><span class="line">            <span class="hljs-keyword">int</span> ll = a[x], rr = a[x + <span class="hljs-number">1</span>];</span><br><span class="line">            <span class="hljs-built_in">std</span>::swap(a[x], a[x + <span class="hljs-number">1</span>]);</span><br><span class="line">            <span class="hljs-keyword">if</span> (a[x] == a[x + <span class="hljs-number">1</span>]) <span class="hljs-keyword">continue</span>;</span><br><span class="line">            <span class="hljs-keyword">int</span> pos = <span class="hljs-built_in">std</span>::lower_bound(v[ll].begin(), v[ll].end(), x) - v[ll].begin();</span><br><span class="line">            <span class="hljs-keyword">int</span> _pos = <span class="hljs-built_in">std</span>::lower_bound(v[rr].begin(), v[rr].end(), x + <span class="hljs-number">1</span>) - v[rr].begin();</span><br><span class="line">            v[ll][pos] = x + <span class="hljs-number">1</span>;</span><br><span class="line">            v[rr][_pos] = x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.luogu.org/problemnew/show/P3939&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Link&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
-    
-      <category term="二分" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86/"/>
     
   </entry>
   
