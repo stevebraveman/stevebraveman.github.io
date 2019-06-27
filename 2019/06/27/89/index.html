@@ -2,24 +2,24 @@
 <html  lang="zh">
 <head>
     <meta charset="utf-8">
-<title>-数论-二分- [洛谷 P2759]奇怪的函数 - Steve_braveman</title>
+<title>-数论-逆元- [洛谷 P4881]hby与tkw的基情 - Steve_braveman</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 
 
-    <meta name="description" content="数论推理题">
-<meta name="keywords" content="数论,二分">
+    <meta name="description" content="题目描述Link Solution先把题目转换为人话： 给定一个数字 $n$，求： $$\sum^{\lfloor \frac{n+1}{2} \rfloor}_{i=1}(2 \times i-1) \times 26 ^ i​$$ 对于求等差数列平方和等比数列的积的前 $n​$ 项和我们可以用错位相减法。 设 $k=\lfloor \frac{n+1}{2} \rfloor, S_k=\sum">
+<meta name="keywords" content="洛谷,数论,逆元">
 <meta property="og:type" content="article">
-<meta property="og:title" content="-数论-二分- [洛谷 P2759]奇怪的函数">
-<meta property="og:url" content="http://yoursite.com/2018/08/22/23/index.html">
+<meta property="og:title" content="-数论-逆元- [洛谷 P4881]hby与tkw的基情">
+<meta property="og:url" content="http://yoursite.com/2019/06/27/89/index.html">
 <meta property="og:site_name" content="Steve_braveman">
-<meta property="og:description" content="数论推理题">
+<meta property="og:description" content="题目描述Link Solution先把题目转换为人话： 给定一个数字 $n$，求： $$\sum^{\lfloor \frac{n+1}{2} \rfloor}_{i=1}(2 \times i-1) \times 26 ^ i​$$ 对于求等差数列平方和等比数列的积的前 $n​$ 项和我们可以用错位相减法。 设 $k=\lfloor \frac{n+1}{2} \rfloor, S_k=\sum">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/img/og_image.png">
-<meta property="og:updated_time" content="2019-05-25T03:22:25.234Z">
+<meta property="og:updated_time" content="2019-06-27T11:39:10.465Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="-数论-二分- [洛谷 P2759]奇怪的函数">
-<meta name="twitter:description" content="数论推理题">
+<meta name="twitter:title" content="-数论-逆元- [洛谷 P4881]hby与tkw的基情">
+<meta name="twitter:description" content="题目描述Link Solution先把题目转换为人话： 给定一个数字 $n$，求： $$\sum^{\lfloor \frac{n+1}{2} \rfloor}_{i=1}(2 \times i-1) \times 26 ^ i​$$ 对于求等差数列平方和等比数列的积的前 $n​$ 项和我们可以用错位相减法。 设 $k=\lfloor \frac{n+1}{2} \rfloor, S_k=\sum">
 <meta name="twitter:image" content="http://yoursite.com/img/og_image.png">
 
 
@@ -98,7 +98,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/img/icon.png" alt="-数论-二分- [洛谷 P2759]奇怪的函数" height="28">
+                <img src="/img/icon.png" alt="-数论-逆元- [洛谷 P4881]hby与tkw的基情" height="28">
             
             </a>
         </div>
@@ -148,13 +148,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-08-22T09:58:31.000Z">2018-08-22</time>
+                <time class="level-item has-text-grey" datetime="2019-06-27T09:38:35.000Z">2019-06-27</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 260 个字)
+                    2 分钟 读完 (大约 247 个字)
                 </span>
                 
                 
@@ -168,22 +168,21 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                -数论-二分- [洛谷 P2759]奇怪的函数
+                -数论-逆元- [洛谷 P4881]hby与tkw的基情
             
         </h1>
         <div class="content">
-            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>使得 $x^x$ 达到或超过 $n$ 位数字的最小正整数 $x$ 是多少？<br><a id="more"></a></p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>一个正整数 $n$</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>使得 $x^x$ 达到 $n$ 位数字的最小正整数 $x$</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><p>11</p>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><p>10</p>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>n&lt;=2000000000</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>直接暴力枚举当然不可取，不仅会TLE而且还会精度爆炸，所以我们要做一些优化</p>
-<p>显而易见，$x^x$的位数是$\log_{10}{x^x}$，也就是$n=\log_{10}{x^x}$。</p>
-<p>而且我们还知道$\log_{a}{b^m}=m\log_{a}{b}$；</p>
-<p>所以$\log_{10}{x^x}=x\log_{10}{x}$。</p>
-<p>因为n&lt;=20000000000，所以我们要用二分。</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX 100000000</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> lg(x) (x)*(log10((x)))<span class="hljs-comment">//因为以10为底的对数都简写作lg，所以我就用lg表示了，而且使用define时千万不要吝惜括号！！(重要)</span></span></span><br><span class="line"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> n,p,m,l=<span class="hljs-number">1</span>,h=<span class="hljs-number">20</span>*MAX;</span><br><span class="line">    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%lld"</span>,&amp;n);</span><br><span class="line">    <span class="hljs-keyword">while</span>(l&lt;=h) &#123;</span><br><span class="line">        m=(l+h)/<span class="hljs-number">2</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span>(n&lt;=(lg(m)+<span class="hljs-number">1</span>)) &#123;</span><br><span class="line">            p=m;</span><br><span class="line">            h=m<span class="hljs-number">-1</span>;</span><br><span class="line">        &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            l=m+<span class="hljs-number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-built_in">cout</span>&lt;&lt;p&lt;&lt;<span class="hljs-built_in">endl</span>;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/P4881" target="_blank" rel="noopener">Link</a></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>先把题目转换为人话：</p>
+<p>给定一个数字 $n$，求：</p>
+<p>$$\sum^{\lfloor \frac{n+1}{2} \rfloor}_{i=1}(2 \times i-1) \times 26 ^ i​$$</p>
+<p>对于求等差数列平方和等比数列的积的前 $n​$ 项和我们可以用<strong>错位相减法</strong>。</p>
+<p>设 $k=\lfloor \frac{n+1}{2} \rfloor, S_k=\sum^{\lfloor \frac{n+1}{2} \rfloor}_{i=1}(2 \times i-1) \times 26 ^ i​$。</p>
+<p>则：$26 \times S_k=\sum^{\lfloor \frac{n+1}{2} \rfloor}_{i=1}(2 \times i-1) \times 26 ^ {i+1}​$</p>
+<p>所以：</p>
+<p>$$\begin{align}25 \times S_k &amp;= 26 \times S_k-S_k \\ &amp;= \sum^{\lfloor \frac{n+1}{2} \rfloor}<em>{i=1}(2 \times i-1) \times 26 ^ {i+1}-\sum^{k}</em>{i=1}(2 \times i-1) \times 26 ^ i \\ &amp;= (2\times k-1)\times 26^k -\frac{2 \times 26 \times(26^k-1)}{25}-26 \end{align}$$</p>
+<p>再用快速幂和逆元随便瞎搞搞就可以了。</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MOD 1000000007</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="hljs-keyword">int</span> T;</span><br><span class="line">ll n;</span><br><span class="line"><span class="hljs-function">ll <span class="hljs-title">qpow</span><span class="hljs-params">(ll a, ll b, ll p)</span> </span>&#123;</span><br><span class="line">    ll res = <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-keyword">while</span> (b) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>) res = (res * a) % p;</span><br><span class="line">        b &gt;&gt;= <span class="hljs-number">1</span>;</span><br><span class="line">        a = (a * a) % p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> res % p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="hljs-keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%lld"</span>, &amp;n);</span><br><span class="line">        n = (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;</span><br><span class="line">        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%lld\n"</span>, (((<span class="hljs-number">2</span> * n - <span class="hljs-number">1</span>) * qpow(<span class="hljs-number">26</span>, n + <span class="hljs-number">1</span>, MOD) % MOD - <span class="hljs-number">26</span> * (qpow(<span class="hljs-number">26</span>, n, MOD) - <span class="hljs-number">1</span>) % MOD * qpow(<span class="hljs-number">25</span>, MOD - <span class="hljs-number">2</span>, MOD) * <span class="hljs-number">2</span> % MOD + <span class="hljs-number">26</span> + MOD) % MOD) * qpow(<span class="hljs-number">25</span>, MOD - <span class="hljs-number">2</span>, MOD) % MOD);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -191,7 +190,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/二分/">二分</a>, <a class="has-link-grey -link" href="/tags/数论/">数论</a>
+                    <a class="has-link-grey -link" href="/tags/数论/">数论</a>, <a class="has-link-grey -link" href="/tags/洛谷/">洛谷</a>, <a class="has-link-grey -link" href="/tags/逆元/">逆元</a>
                 </div>
             </div>
         </div>
@@ -208,17 +207,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/08/24/24/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">-线段树- [洛谷 P3353]在你窗外闪耀的星星</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2018/08/22/22/">
-                <span class="level-item">-图论-并查集- [洛谷 P1536]村村通</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/24/88/">
+                <span class="level-item">-数论-欧拉定理- 有关无理数取余的一些想法</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
