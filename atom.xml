@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-27T11:42:44.241Z</updated>
+  <updated>2019-06-30T00:14:26.776Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>-贪心- [CF484A]Bits</title>
+    <link href="http://yoursite.com/2019/06/30/90/"/>
+    <id>http://yoursite.com/2019/06/30/90/</id>
+    <published>2019-06-30T00:06:06.000Z</published>
+    <updated>2019-06-30T00:14:26.776Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/CF484A" target="_blank" rel="noopener">Link</a></p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>别以为这是个A题就很简单，我差点被坑了。。。。</p><p>这题就是每一位贪心的放 $1$，如果超过 $r$ 了就 <code>break</code> 。</p><p>话说一开始我还想用二分来着，后来发现答案并不单调。</p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXN 100010</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="hljs-keyword">int</span> T;</span><br><span class="line">ll l, r, ans;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="hljs-keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%I64d%I64d"</span>, &amp;l, &amp;r);</span><br><span class="line">        ans = l;</span><br><span class="line">        <span class="hljs-keyword">for</span> (ll i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">62</span>; i++) &#123;</span><br><span class="line">            ll m = <span class="hljs-number">1L</span>L &lt;&lt; i;</span><br><span class="line">            ans |= m;</span><br><span class="line">            <span class="hljs-keyword">if</span> (ans &gt; r) &#123;</span><br><span class="line">                ans ^= m;</span><br><span class="line">                <span class="hljs-keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%I64d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.luogu.org/problemnew/show/CF484A&quot; target=
+      
+    
+    </summary>
+    
+    
+      <category term="贪心" scheme="http://yoursite.com/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+      <category term="Codeforces" scheme="http://yoursite.com/tags/Codeforces/"/>
+    
+  </entry>
   
   <entry>
     <title>-数论-逆元- [洛谷 P4881]hby与tkw的基情</title>
@@ -105,9 +130,9 @@
     
       <category term="图论" scheme="http://yoursite.com/tags/%E5%9B%BE%E8%AE%BA/"/>
     
-      <category term="Codeforces" scheme="http://yoursite.com/tags/Codeforces/"/>
-    
       <category term="拓扑排序" scheme="http://yoursite.com/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="Codeforces" scheme="http://yoursite.com/tags/Codeforces/"/>
     
   </entry>
   
@@ -209,9 +234,9 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
-    
       <category term="线段树" scheme="http://yoursite.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
     
       <category term="逆元" scheme="http://yoursite.com/tags/%E9%80%86%E5%85%83/"/>
     
@@ -259,11 +284,11 @@
     
       <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
-      <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
-    
       <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
+    
+      <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
     
   </entry>
   
@@ -482,32 +507,6 @@
       <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
     
       <category term="卷积" scheme="http://yoursite.com/tags/%E5%8D%B7%E7%A7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>-树链剖分- 树链剖分详解</title>
-    <link href="http://yoursite.com/2019/03/16/70/"/>
-    <id>http://yoursite.com/2019/03/16/70/</id>
-    <published>2019-03-16T00:02:38.000Z</published>
-    <updated>2019-05-25T03:22:25.318Z</updated>
-    
-    <content type="html"><![CDATA[<p>如果有个题目，要求你在数列上区间求和，支持修改。</p><p>那么这道题就是很简单的线段树板子题，对吧？</p><p>但是，这个世界是残酷的。为了不让题目那么简单，邪恶的出题人会把序列上的转换到树上，使题目难度增加一倍甚至几倍。</p><p>这样一看，完了，线段树可处理不了树上的操作啊<del>，顿时感到人生苦短，失去了活下去的勇气</del>。</p><p>那么，一个神奇的而又强大的东西——树链剖分可以解决上述问题。</p><a id="more"></a><p><strong>前置知识</strong>：DFS序、线段树。</p><p>啥，你不会线段树？序列上的问题都不会处理就想处理树上的问题？<del>你快醒醒！</del></p><p><strong>变量的定义</strong>（当然这都是根据个人喜好来定义变量的名称，但作用都是一样的）：</p><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> dep[MAXN]; <span class="hljs-comment">// 每个节点的深度</span></span><br><span class="line"><span class="hljs-keyword">int</span> si[MAXN]; <span class="hljs-comment">// 每个节点的子树大小</span></span><br><span class="line"><span class="hljs-keyword">int</span> w[MAXN]; <span class="hljs-comment">// 每个节点的权值</span></span><br><span class="line"><span class="hljs-keyword">int</span> fa[MAXN]; <span class="hljs-comment">// 每个节点的父亲</span></span><br><span class="line"><span class="hljs-keyword">int</span> top[MAXN]; <span class="hljs-comment">// 每个节点所属的链的顶端节点</span></span><br><span class="line"><span class="hljs-keyword">int</span> son[MAXN]; <span class="hljs-comment">// 每个节点的重儿子</span></span><br><span class="line"><span class="hljs-keyword">int</span> id[MAXN]; <span class="hljs-comment">// 每个节点的标号</span></span><br></pre></td></tr></table></figure><p><strong>下面进入正题</strong>：</p><p>让我们先来看这幅图：</p><p><img src="/img/slpf1.png" alt=""></p><p>显然这是一棵树。</p><p>那么我们该如何处理这棵树使它能够转换为序列上的问题呢。</p><p>我们可以把这棵树剖分一下，剖分成一些不同的链，分为重链和轻链。</p><p>什么是重链？就是把重儿子连在一起形成的链。</p><p>所以轻链也就是把轻儿子连在一起形成的链。</p><p>那什么又是重儿子呢？就是在一个节点的所有儿子中，子树最大的那个。当然，可能会出现具有相同大小子树的情况，我们只需要任选一个就行了。</p><p>轻儿子就是就是一个节点除重儿子外的所有儿子</p><p>还是这棵树：</p><p><img src="/img/slpf2.png" alt=""></p><p>上图已经用红线标出了所有重链，红色正方形的节点是重儿子，为了方便处理，我们把根节点也算作重儿子。</p><p>现在问题来了，该如何求出重儿子、轻儿子、重链、轻链呢？</p><p>下面放程序：</p><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> f, <span class="hljs-keyword">int</span> deep)</span> </span>&#123;</span><br><span class="line">    dep[u] = deep; <span class="hljs-comment">//记录深度</span></span><br><span class="line">    fa[u] = f; <span class="hljs-comment">//记录父节点</span></span><br><span class="line">    si[u] = <span class="hljs-number">1</span>; <span class="hljs-comment">//子树初始化</span></span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = head[u]; i; i = e[i].nx) &#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> to = e[i].v;</span><br><span class="line">        <span class="hljs-keyword">if</span> (to == f) <span class="hljs-keyword">continue</span>;</span><br><span class="line">        dfs1(to, u, deep + <span class="hljs-number">1</span>);</span><br><span class="line">        si[u] += si[to]; <span class="hljs-comment">//求出这个节点子树的大小</span></span><br><span class="line">        <span class="hljs-keyword">if</span> (si[to] &gt; si[son[u]]) son[u] = to; <span class="hljs-comment">//更新重儿子</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>是不是很巧妙？<del>好像不是</del>一个dfs就解决完轻重儿子的问题，下面再来个dfs来解决轻重链的问题：</p><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u, <span class="hljs-keyword">int</span> topf)</span> </span>&#123;</span><br><span class="line">    id[u] = ++cnt; <span class="hljs-comment">//处理DFS序</span></span><br><span class="line">    wt[cnt] = w[u];</span><br><span class="line">    top[u] = topf;</span><br><span class="line">    <span class="hljs-keyword">if</span> (!son[u]) <span class="hljs-keyword">return</span>;</span><br><span class="line">    dfs2(son[u], topf); <span class="hljs-comment">// 顺着重儿子找重链</span></span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = head[u]; i; i = e[i].nx) &#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> to = e[i].v;</span><br><span class="line">        <span class="hljs-keyword">if</span> (fa[u] == to || to == son[u]) <span class="hljs-keyword">continue</span>;</span><br><span class="line">        dfs2(to, to); <span class="hljs-comment">// 顺着轻儿子找轻链</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>更为巧妙的是，上面这个程序保证每条链内的标号是连续的</p><p><del>至此，树链剖分结束</del></p><p>等一下，已经把这棵树处理完了，该如何用树链剖分解决树上的操作呢。</p><p>处理树上的操作分为三个问题：</p><p><strong><em>1.单点的操作</em></strong></p><p>直接线段树单点修改就行了。</p><p><strong><em>2.子树的操作</em></strong></p><p>让我们回忆一下DFS序的过程：每次都是搜到底再回溯。</p><p>所以我们可以得出一条结论：在子树中，每个节点的标号是连续的。</p><p>然后用线段区间修改就行了</p><p><strong><em>3.路径上的操作</em></strong></p><p><strong>这才是重点所在，树链剖分就是擅长处理这种操作！</strong></p><p>我们既然已经划分出轻重链了，那么我们现在同等对待他们。</p><p>先给出程序：</p><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">while</span> (top[x] != top[y]) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (dep[top[x]] &lt; dep[top[y]]) swap(x, y);</span><br><span class="line">        <span class="hljs-comment">// 操作</span></span><br><span class="line">        x = fa[top[x]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span> (dep[x] &gt; dep[y]) swap(x, y);</span><br><span class="line">    <span class="hljs-comment">// 操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>别看这程序短小，但这是树链剖分的精华所在！<del>浓缩的都是精华</del></p><p><em>下面开始解读程序</em></p><p><code>while (top[x] != top[y])</code>这句是什么意思呢？</p><p>如果这两个点不在一条链上，那就不断跳，知道跳到同一条链上为止。</p><p><code>if (dep[top[x]] &lt; dep[top[y]]) swap(x, y);</code>这又是什么意思呢？</p><p>还是这张图：</p><p><img src="/img/slpf2.png" alt=""></p><p>如果我们要处理从节点6到节点5的操作，会发现节点5所在链的顶端正好与节点6所在链的中间相连。</p><p>如果我们不加上面这句话，很可能就会跳到其它无关紧要的节点上，并且陷入死循环。</p><p><code>if (dep[x] &gt; dep[y]) swap(x, y);</code> 这句话就是为了处理当x,y跳到了同一条链上的时候该如何处理（也就是求出两点的LCA）。</p><p>于是我们也可以上述程序写出求LCA的程序：</p><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">int</span> <span class="hljs-title">LCA</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">while</span> (top[x] != top[y]) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (dep[top[x]] &lt; dep[top[y]]) swap(x, y);</span><br><span class="line">        x = fa[top[x]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">if</span> (dep[x] &gt; dep[y]) swap(x, y);</span><br><span class="line">    <span class="hljs-keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>最后，说一些关于树链剖分时间复杂度的问题。</p><p>树链剖分的复杂度真的很优秀，查询一次最坏复杂度是 $\log n$，而大多数情况下跑不满。同机房的Juan_feng对树链剖分的时间复杂度做出了证明：</p><blockquote><p>任何一个点到根节点至多经过$\log$条轻边。</p></blockquote><blockquote><p>因为每个点如果经过一条轻边走向他的父亲，那么他的父亲的siz就至少是这个节点的2倍，所以最多经过log条轻边</p></blockquote><p>终于，树链剖分完毕！</p><p>下面是几道例题：</p><p><a href="https://www.luogu.org/problemnew/show/P2146" target="_blank" rel="noopener">[NOI2015]软件包管理器</a></p><p><a href="https://www.luogu.org/problemnew/show/P2486" target="_blank" rel="noopener">[SDOI2011]染色</a></p><p><a href="https://www.luogu.org/problemnew/show/P3178" target="_blank" rel="noopener">[HAOI2015]树上操作</a></p><h6 id="如果写得有问题可在下方评论回复QWQ"><a href="#如果写得有问题可在下方评论回复QWQ" class="headerlink" title="如果写得有问题可在下方评论回复QWQ"></a>如果写得有问题可在下方评论回复QWQ</h6>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如果有个题目，要求你在数列上区间求和，支持修改。&lt;/p&gt;
-&lt;p&gt;那么这道题就是很简单的线段树板子题，对吧？&lt;/p&gt;
-&lt;p&gt;但是，这个世界是残酷的。为了不让题目那么简单，邪恶的出题人会把序列上的转换到树上，使题目难度增加一倍甚至几倍。&lt;/p&gt;
-&lt;p&gt;这样一看，完了，线段树可处理不了树上的操作啊&lt;del&gt;，顿时感到人生苦短，失去了活下去的勇气&lt;/del&gt;。&lt;/p&gt;
-&lt;p&gt;那么，一个神奇的而又强大的东西——树链剖分可以解决上述问题。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="树链剖分" scheme="http://yoursite.com/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
-    
-      <category term="算法讲解" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3/"/>
     
   </entry>
   
