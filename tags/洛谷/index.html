@@ -157,6 +157,53 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-03T01:14:06.000Z">2019-07-03</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 370 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/07/03/91/">-矩阵乘法-分块- [洛谷 P5110]块速递推</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/P5110" target="_blank" rel="noopener">Link</a></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>看着如此庞大的数据范围，$O(n \log n)$ 显然过不去。</p>
+<p>所以做这题之前可以先去做一下<a href="https://loj.ac/problem/162" target="_blank" rel="noopener">快速幂 2</a>，学习一下光速幂是如何写的。</p>
+<p>矩乘部分很简单，剩下的就是卡常了。</p>
+<p>卡常技巧1：把 <code>long long</code> 换成 <code>int</code>。</p>
+<p>卡常技巧2：循环展开</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MOD 1000000007</span></span><br><span class="line"><span class="hljs-keyword">namespace</span> Mker &#123;</span><br><span class="line">    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> SA, SB, SC;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%llu%llu%llu"</span>, &amp;SA, &amp;SB, &amp;SC);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">rand</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        SA ^= SA &lt;&lt; <span class="hljs-number">32</span>, SA ^= SA &gt;&gt; <span class="hljs-number">13</span>, SA ^= SA &lt;&lt; <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> t = SA;</span><br><span class="line">        SA = SB, SB = SC, SC ^= t ^ SA; <span class="hljs-keyword">return</span> SC;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Mat</span>&#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> a[<span class="hljs-number">2</span>][<span class="hljs-number">2</span>];</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-built_in">memset</span>(a, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(a));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = a[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = a[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] =a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;</span><br><span class="line">        a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = a[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-keyword">inline</span> Mat <span class="hljs-keyword">operator</span> * (Mat a, Mat b) &#123;</span><br><span class="line">    Mat c;</span><br><span class="line">    c.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = c.a[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = c.a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = c.a[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;</span><br><span class="line">    c.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = (c.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] + <span class="hljs-number">1L</span>L * a.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] * b.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] + <span class="hljs-number">1L</span>L * a.a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] * b.a[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]) % MOD;</span><br><span class="line">    c.a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = (c.a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] + <span class="hljs-number">1L</span>L * a.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] * b.a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] + <span class="hljs-number">1L</span>L * a.a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] * b.a[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>]) % MOD;</span><br><span class="line">    c.a[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = (c.a[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] + <span class="hljs-number">1L</span>L * a.a[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] * b.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] + <span class="hljs-number">1L</span>L * a.a[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] * b.a[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>]) % MOD;</span><br><span class="line">    c.a[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = (c.a[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] + <span class="hljs-number">1L</span>L * a.a[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] * b.a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] + <span class="hljs-number">1L</span>L * a.a[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] * b.a[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>]) % MOD;</span><br><span class="line">    <span class="hljs-keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">inline</span> Mat <span class="hljs-title">qpow</span><span class="hljs-params">(Mat a, ull n)</span> </span>&#123;</span><br><span class="line">    Mat b;</span><br><span class="line">    b.init();</span><br><span class="line">    <span class="hljs-keyword">while</span> (n) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (n &amp; <span class="hljs-number">1</span>) b = b * a;</span><br><span class="line">        n &gt;&gt;= <span class="hljs-number">1</span>;</span><br><span class="line">        a = a * a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line">ull sq;</span><br><span class="line">Mat x1[<span class="hljs-number">50000</span>], x2[<span class="hljs-number">50000</span>], g;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">int</span> t;</span><br><span class="line">    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;t);</span><br><span class="line">    Mker::init();</span><br><span class="line">    <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;</span><br><span class="line">    Mat f, a, q;</span><br><span class="line">    a.clear(), q.clear();</span><br><span class="line">    a.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">233</span>, a.a[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">666</span>;</span><br><span class="line">    a.a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;</span><br><span class="line">    x1[<span class="hljs-number">0</span>].init(), x2[<span class="hljs-number">0</span>].init();</span><br><span class="line">    sq = <span class="hljs-built_in">sqrt</span>(MOD - <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>;</span><br><span class="line">    a.a[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;</span><br><span class="line">    g = qpow(a, sq);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= sq + <span class="hljs-number">1</span>; i++) &#123;</span><br><span class="line">        x1[i] = x1[i - <span class="hljs-number">1</span>] * a;</span><br><span class="line">        x2[i] = x2[i - <span class="hljs-number">1</span>] * g;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">while</span> (t--) &#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> k = (Mker::rand() - <span class="hljs-number">1</span>) % <span class="hljs-number">1000000006</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span> (k &lt;= <span class="hljs-number">1</span>) ans ^= k;</span><br><span class="line">        q = x1[k % sq] * x2[k / sq];</span><br><span class="line">        ans ^= q.a[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-06-27T09:38:35.000Z">2019-06-27</time>
                 
                 
@@ -583,54 +630,6 @@
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-23T13:47:47.000Z">2019-04-23</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 420 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/23/76/">-网络流-费用流- [洛谷 P4329][COCI2006-2007#1] Bond</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/P4329" target="_blank" rel="noopener">Link</a></p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/04/23/76/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -699,7 +698,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        89
+                        90
                     </p>
                 </div>
             </div>
@@ -709,7 +708,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        53
+                        54
                     </p>
                 </div>
             </div>
@@ -756,7 +755,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/BSGS/" style="font-size: 10px;">BSGS</a> <a href="/tags/BZOJ/" style="font-size: 16.36px;">BZOJ</a> <a href="/tags/CodeVS/" style="font-size: 10px;">CodeVS</a> <a href="/tags/Codeforces/" style="font-size: 11.82px;">Codeforces</a> <a href="/tags/DFS/" style="font-size: 11.82px;">DFS</a> <a href="/tags/DP/" style="font-size: 13.64px;">DP</a> <a href="/tags/LCA/" style="font-size: 10.91px;">LCA</a> <a href="/tags/LCT/" style="font-size: 10px;">LCT</a> <a href="/tags/RMQ/" style="font-size: 10.91px;">RMQ</a> <a href="/tags/SPOJ/" style="font-size: 10px;">SPOJ</a> <a href="/tags/ST表/" style="font-size: 10.91px;">ST表</a> <a href="/tags/二分/" style="font-size: 11.82px;">二分</a> <a href="/tags/二分图/" style="font-size: 17.27px;">二分图</a> <a href="/tags/其它/" style="font-size: 14.55px;">其它</a> <a href="/tags/分块/" style="font-size: 10px;">分块</a> <a href="/tags/前缀和/" style="font-size: 10.91px;">前缀和</a> <a href="/tags/单调队列/" style="font-size: 10px;">单调队列</a> <a href="/tags/卷积/" style="font-size: 10px;">卷积</a> <a href="/tags/图论/" style="font-size: 16.36px;">图论</a> <a href="/tags/奇技淫巧/" style="font-size: 10.91px;">奇技淫巧</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/容斥/" style="font-size: 10px;">容斥</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/并查集/" style="font-size: 13.64px;">并查集</a> <a href="/tags/强连通分量/" style="font-size: 13.64px;">强连通分量</a> <a href="/tags/扩展欧几里得/" style="font-size: 10px;">扩展欧几里得</a> <a href="/tags/拓扑排序/" style="font-size: 10px;">拓扑排序</a> <a href="/tags/数论/" style="font-size: 18.18px;">数论</a> <a href="/tags/整体二分/" style="font-size: 10px;">整体二分</a> <a href="/tags/最大匹配/" style="font-size: 15.45px;">最大匹配</a> <a href="/tags/最大流/" style="font-size: 16.36px;">最大流</a> <a href="/tags/最小割/" style="font-size: 11.82px;">最小割</a> <a href="/tags/最小生成树/" style="font-size: 11.82px;">最小生成树</a> <a href="/tags/最短路/" style="font-size: 10.91px;">最短路</a> <a href="/tags/期望/" style="font-size: 10px;">期望</a> <a href="/tags/杜教筛/" style="font-size: 10px;">杜教筛</a> <a href="/tags/树套树/" style="font-size: 10px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 10.91px;">树状数组</a> <a href="/tags/树链剖分/" style="font-size: 12.73px;">树链剖分</a> <a href="/tags/模拟退火/" style="font-size: 10px;">模拟退火</a> <a href="/tags/欧拉定理/" style="font-size: 10.91px;">欧拉定理</a> <a href="/tags/洛谷/" style="font-size: 20px;">洛谷</a> <a href="/tags/矩阵运算/" style="font-size: 10px;">矩阵运算</a> <a href="/tags/算法讲解/" style="font-size: 10px;">算法讲解</a> <a href="/tags/线段树/" style="font-size: 14.55px;">线段树</a> <a href="/tags/网络流/" style="font-size: 19.09px;">网络流</a> <a href="/tags/网络流24题/" style="font-size: 15.45px;">网络流24题</a> <a href="/tags/莫比乌斯反演/" style="font-size: 10px;">莫比乌斯反演</a> <a href="/tags/贪心/" style="font-size: 12.73px;">贪心</a> <a href="/tags/费用流/" style="font-size: 12.73px;">费用流</a> <a href="/tags/逆元/" style="font-size: 10.91px;">逆元</a> <a href="/tags/递推/" style="font-size: 13.64px;">递推</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a>
+        <a href="/tags/BSGS/" style="font-size: 10px;">BSGS</a> <a href="/tags/BZOJ/" style="font-size: 16.36px;">BZOJ</a> <a href="/tags/CodeVS/" style="font-size: 10px;">CodeVS</a> <a href="/tags/Codeforces/" style="font-size: 11.82px;">Codeforces</a> <a href="/tags/DFS/" style="font-size: 11.82px;">DFS</a> <a href="/tags/DP/" style="font-size: 13.64px;">DP</a> <a href="/tags/LCA/" style="font-size: 10.91px;">LCA</a> <a href="/tags/LCT/" style="font-size: 10px;">LCT</a> <a href="/tags/RMQ/" style="font-size: 10.91px;">RMQ</a> <a href="/tags/SPOJ/" style="font-size: 10px;">SPOJ</a> <a href="/tags/ST表/" style="font-size: 10.91px;">ST表</a> <a href="/tags/二分/" style="font-size: 11.82px;">二分</a> <a href="/tags/二分图/" style="font-size: 17.27px;">二分图</a> <a href="/tags/其它/" style="font-size: 14.55px;">其它</a> <a href="/tags/分块/" style="font-size: 10.91px;">分块</a> <a href="/tags/前缀和/" style="font-size: 10.91px;">前缀和</a> <a href="/tags/单调队列/" style="font-size: 10px;">单调队列</a> <a href="/tags/卷积/" style="font-size: 10px;">卷积</a> <a href="/tags/图论/" style="font-size: 16.36px;">图论</a> <a href="/tags/奇技淫巧/" style="font-size: 10.91px;">奇技淫巧</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/容斥/" style="font-size: 10px;">容斥</a> <a href="/tags/差分/" style="font-size: 10px;">差分</a> <a href="/tags/并查集/" style="font-size: 13.64px;">并查集</a> <a href="/tags/强连通分量/" style="font-size: 13.64px;">强连通分量</a> <a href="/tags/扩展欧几里得/" style="font-size: 10px;">扩展欧几里得</a> <a href="/tags/拓扑排序/" style="font-size: 10px;">拓扑排序</a> <a href="/tags/数论/" style="font-size: 18.18px;">数论</a> <a href="/tags/整体二分/" style="font-size: 10px;">整体二分</a> <a href="/tags/最大匹配/" style="font-size: 15.45px;">最大匹配</a> <a href="/tags/最大流/" style="font-size: 16.36px;">最大流</a> <a href="/tags/最小割/" style="font-size: 11.82px;">最小割</a> <a href="/tags/最小生成树/" style="font-size: 11.82px;">最小生成树</a> <a href="/tags/最短路/" style="font-size: 10.91px;">最短路</a> <a href="/tags/期望/" style="font-size: 10px;">期望</a> <a href="/tags/杜教筛/" style="font-size: 10px;">杜教筛</a> <a href="/tags/树套树/" style="font-size: 10px;">树套树</a> <a href="/tags/树状数组/" style="font-size: 10.91px;">树状数组</a> <a href="/tags/树链剖分/" style="font-size: 12.73px;">树链剖分</a> <a href="/tags/模拟退火/" style="font-size: 10px;">模拟退火</a> <a href="/tags/欧拉定理/" style="font-size: 10.91px;">欧拉定理</a> <a href="/tags/洛谷/" style="font-size: 20px;">洛谷</a> <a href="/tags/矩阵乘法/" style="font-size: 10px;">矩阵乘法</a> <a href="/tags/矩阵运算/" style="font-size: 10px;">矩阵运算</a> <a href="/tags/算法讲解/" style="font-size: 10px;">算法讲解</a> <a href="/tags/线段树/" style="font-size: 14.55px;">线段树</a> <a href="/tags/网络流/" style="font-size: 19.09px;">网络流</a> <a href="/tags/网络流24题/" style="font-size: 15.45px;">网络流24题</a> <a href="/tags/莫比乌斯反演/" style="font-size: 10px;">莫比乌斯反演</a> <a href="/tags/贪心/" style="font-size: 12.73px;">贪心</a> <a href="/tags/费用流/" style="font-size: 12.73px;">费用流</a> <a href="/tags/逆元/" style="font-size: 10.91px;">逆元</a> <a href="/tags/递推/" style="font-size: 13.64px;">递推</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a>
     </div>
 </div>
 
@@ -782,6 +781,17 @@
 			归档
 		</h3>
 		<ul class="menu-list">
+		
+		<li>
+			<a class="level is-marginless" href="/archives/2019/07/">
+				<span class="level-start">
+					<span class="level-item">七月 2019</span>
+				</span>
+				<span class="level-end">
+					<span class="level-item tag">1</span>
+				</span>
+			</a>
+		</li>
 		
 		<li>
 			<a class="level is-marginless" href="/archives/2019/06/">
@@ -938,6 +948,17 @@
 			归档
 		</h3>
 		<ul class="menu-list">
+		
+		<li>
+			<a class="level is-marginless" href="/archives/2019/07/">
+				<span class="level-start">
+					<span class="level-item">七月 2019</span>
+				</span>
+				<span class="level-end">
+					<span class="level-item tag">1</span>
+				</span>
+			</a>
+		</li>
 		
 		<li>
 			<a class="level is-marginless" href="/archives/2019/06/">
