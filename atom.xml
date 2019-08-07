@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-07-15T13:30:42.315Z</updated>
+  <updated>2019-08-07T01:31:30.763Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>-主席树-树链剖分-LCA- [洛谷 P2633]Count on a tree</title>
+    <link href="http://yoursite.com/2019/08/07/93/"/>
+    <id>http://yoursite.com/2019/08/07/93/</id>
+    <published>2019-08-07T01:17:11.000Z</published>
+    <updated>2019-08-07T01:31:30.763Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problem/P2633" target="_blank" rel="noopener">Link</a></p><a id="more"></a><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>为了应对这种强制在线求第K大的情况，我不得不去学了一个主席树。。。</p><p><del>真是恶！</del></p><p>在进行<code>DFS</code>的时候，每递归到一个节点都在主席树上插入一下。</p><p>最后再进行树上差分就可以了。</p><p>这道题我调了两天，最后才发现竟然是求<code>LCA</code>时将<code>fa[top[x]]</code>写成了<code>fa[x]</code>；</p><p><img src="/img/pt.png" alt=""></p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">// #pragma comment(linker, &quot;/STACK:1024000000,1024000000&quot;) </span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#define OK puts(&quot;OK&quot;)</span><br><span class="line">#define MAXN 400010</span><br><span class="line">#define re register</span><br><span class="line">bool p1;</span><br><span class="line">int a[MAXN * 20], b[MAXN], f[MAXN], ls[MAXN * 20], rs[MAXN * 20], tot = 0, rt[MAXN], lans;</span><br><span class="line">int siz[MAXN], id[MAXN], son[MAXN], fa[MAXN], dep[MAXN], tim, top[MAXN], len;</span><br><span class="line">int head[MAXN], ecnt;</span><br><span class="line">int _t = 0;</span><br><span class="line">template &lt;typename T&gt;</span><br><span class="line">inline void read(T &amp;x) &#123;</span><br><span class="line">    T f = 1;</span><br><span class="line">    x = 0;</span><br><span class="line">    char c = getchar();</span><br><span class="line">    while (c &gt; &apos;9&apos; || c &lt; &apos;0&apos;) &#123;if (c == &apos;-&apos;) f = -1; c = getchar();&#125;</span><br><span class="line">    while (c &gt;= &apos;0&apos; &amp;&amp; c &lt;= &apos;9&apos;) &#123;x = x * 10 + c - &apos;0&apos;; c = getchar();&#125;</span><br><span class="line">    x *= f;</span><br><span class="line">&#125;</span><br><span class="line">struct Edge &#123;</span><br><span class="line">    int v, nx;</span><br><span class="line">&#125;e[MAXN &lt;&lt; 2];</span><br><span class="line">inline void add(int f, int t) &#123;</span><br><span class="line">    e[++ecnt] = (Edge) &#123;t, head[f]&#125;;</span><br><span class="line">    head[f] = ecnt;</span><br><span class="line">&#125;</span><br><span class="line">void insert(int l, int r, int x, int &amp;y, int p) &#123;</span><br><span class="line">    y = ++tot;</span><br><span class="line">    a[y] = a[x] + 1;</span><br><span class="line">    if (l == r) return;</span><br><span class="line">    int m = (l + r) &gt;&gt; 1;</span><br><span class="line">    if (p &lt;= m) rs[y] = rs[x], insert(l, m, ls[x], ls[y], p);</span><br><span class="line">    else ls[y] = ls[x], insert(m + 1, r, rs[x], rs[y], p);</span><br><span class="line">&#125;</span><br><span class="line">void dfs(int ft, int u, int d) &#123;</span><br><span class="line">    dep[u] = d;</span><br><span class="line">    fa[u] = ft;</span><br><span class="line">    siz[u] = 1;</span><br><span class="line">    insert(1, len, rt[ft], rt[u], b[u]);</span><br><span class="line">    // printf(&quot;%d %d %d %d %d\n&quot;, ft, u, b[u], d, rt[u]);</span><br><span class="line">    for (re int i = head[u]; i; i = e[i].nx) &#123;</span><br><span class="line">        int to = e[i].v;</span><br><span class="line">        if (to == ft) continue;</span><br><span class="line">        dfs(u, to, d + 1);</span><br><span class="line">        siz[u] += siz[to];</span><br><span class="line">        if (siz[son[u]] &lt; siz[to]) son[u] = to;</span><br><span class="line">        // printf(&quot;%d\n&quot;, u);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">void dfs2(int u, int topf) &#123;</span><br><span class="line">    top[u] = topf;</span><br><span class="line">    if (!son[u]) return;</span><br><span class="line">    dfs2(son[u], topf);</span><br><span class="line">    for (re int i = head[u]; i; i = e[i].nx) &#123;</span><br><span class="line">        int to = e[i].v;</span><br><span class="line">        if (to == fa[u] || to == son[u]) continue;</span><br><span class="line">        dfs2(to, to);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">inline int LCA(int x, int y) &#123;</span><br><span class="line">    while (top[x] != top[y]) &#123;</span><br><span class="line">        if (dep[top[x]] &lt; dep[top[y]]) std::swap(x, y);</span><br><span class="line">        x = fa[top[x]];</span><br><span class="line">    &#125;</span><br><span class="line">    if (dep[x] &gt; dep[y]) std::swap(x, y);</span><br><span class="line">    return x;</span><br><span class="line">&#125;</span><br><span class="line">int ask(int l, int r, int x, int y, int la, int fala, int k) &#123;</span><br><span class="line">    if (l == r) return l;</span><br><span class="line">    int m = (l + r) &gt;&gt; 1;</span><br><span class="line">    int p = a[ls[y]] + a[ls[x]] - a[ls[la]] - a[ls[fala]];</span><br><span class="line">    if (p &gt;= k) return ask(l, m, ls[x], ls[y], ls[la], ls[fala], k);</span><br><span class="line">    else return ask(m + 1, r, rs[x], rs[y], rs[la], rs[fala], k - p);</span><br><span class="line">&#125;</span><br><span class="line">int n, m, l, r, k, x, y;</span><br><span class="line">int main() &#123;</span><br><span class="line">    // freopen(&quot;data.in&quot;, &quot;r&quot;, stdin);</span><br><span class="line">    // freopen(&quot;data.out&quot;, &quot;w&quot;, stdout);</span><br><span class="line">    read(n), read(m);</span><br><span class="line">    for (re int i = 1; i &lt;= n; i++) &#123;</span><br><span class="line">        read(b[i]);</span><br><span class="line">        f[i] = b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    std::sort(f + 1, f + 1 + n);</span><br><span class="line">    len = std::unique(f + 1, f + 1 + n) - f - 1;</span><br><span class="line">    for (re int i = 1; i &lt;= n; i++) &#123;</span><br><span class="line">        b[i] = std::lower_bound(f + 1, f + 1 + len, b[i]) - f;</span><br><span class="line">    &#125;</span><br><span class="line">    for (re int i = 1; i &lt; n; i++) &#123;</span><br><span class="line">        read(x), read(y);</span><br><span class="line">        add(x, y);</span><br><span class="line">        add(y, x);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(0, 1, 1);</span><br><span class="line">    dfs2(1, 1);</span><br><span class="line">    for (re int i = 1; i &lt;= m; i++) &#123;</span><br><span class="line">        read(l), read(r), read(k);</span><br><span class="line">        l = lans ^ l;</span><br><span class="line">        int lc = LCA(l, r);</span><br><span class="line">        printf(&quot;%d\n&quot;, lans = f[ask(1, len, rt[l], rt[r], rt[lc], rt[fa[lc]], k)]);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.luogu.org/problem/P2633&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Link&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="LCA" scheme="http://yoursite.com/tags/LCA/"/>
+    
+      <category term="树链剖分" scheme="http://yoursite.com/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
+    
+      <category term="主席树" scheme="http://yoursite.com/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>-多项式-NTT/FFT- 多项式板子合集</title>
@@ -220,11 +246,11 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
+      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+    
       <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
-    
-      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
       <category term="网络流24题" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
@@ -248,13 +274,13 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
-    
-      <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
-    
       <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
       <category term="最大匹配" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/"/>
+    
+      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+    
+      <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
     
       <category term="网络流24题" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
@@ -278,9 +304,9 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
-    
       <category term="线段树" scheme="http://yoursite.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
     
       <category term="逆元" scheme="http://yoursite.com/tags/%E9%80%86%E5%85%83/"/>
     
@@ -326,11 +352,11 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
+      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+    
       <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
-    
-      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
       <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
     
@@ -480,30 +506,6 @@
       <category term="树状数组" scheme="http://yoursite.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
     
       <category term="整体二分" scheme="http://yoursite.com/tags/%E6%95%B4%E4%BD%93%E4%BA%8C%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>-DP-贪心- [洛谷 5275]思路题(ak)</title>
-    <link href="http://yoursite.com/2019/04/02/73/"/>
-    <id>http://yoursite.com/2019/04/02/73/</id>
-    <published>2019-04-02T09:47:08.000Z</published>
-    <updated>2019-05-25T03:22:25.331Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/P5275" target="_blank" rel="noopener">Link</a></p><a id="more"></a><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>这道题的做法就是先按照a的大小排序，然后将此题转换为LIS问题，得用 $O(n \log n)​$ 的算法</p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAXN 100010</span></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">num</span> &#123;</span></span><br><span class="line">    <span class="hljs-keyword">int</span> a, b, id;</span><br><span class="line">&#125;a[MAXN];</span><br><span class="line"><span class="hljs-keyword">int</span> n, d[MAXN], g[MAXN], top, k[MAXN], len;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(num a, num b)</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> a.b &gt; b.b || ((a.b == b.b) &amp;&amp; a.a &lt; b.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;a[i].a);</span><br><span class="line">        a[i].id = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;a[i].b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-built_in">std</span>::sort(a + <span class="hljs-number">1</span>, a + <span class="hljs-number">1</span> + n, cmp);</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (a[i].a &gt;= d[top]) d[++top] = a[i].a, g[a[i].id] = top;</span><br><span class="line">        <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> j = <span class="hljs-built_in">std</span>::upper_bound(d + <span class="hljs-number">1</span>, d + <span class="hljs-number">1</span> + top, a[i].a) - d;</span><br><span class="line">            d[j] = a[i].a;</span><br><span class="line">            g[a[i].id] = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, top);</span><br><span class="line">    len = top;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n; i &gt;= <span class="hljs-number">1</span>; i--) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (g[a[i].id] == len)&#123;</span><br><span class="line">            k[len--] = a[i].id;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span> (len &lt; <span class="hljs-number">1</span>) &#123;</span><br><span class="line">            <span class="hljs-keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= top; i++) &#123;</span><br><span class="line">        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, k[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.luogu.org/problemnew/show/P5275&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Link&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
-    
-      <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
-    
-      <category term="贪心" scheme="http://yoursite.com/tags/%E8%B4%AA%E5%BF%83/"/>
     
   </entry>
   
