@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-09T07:13:58.558Z</updated>
+  <updated>2019-08-14T00:09:53.395Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>-数论- [CF1200C]Round Corridor</title>
+    <link href="http://yoursite.com/2019/08/14/94/"/>
+    <id>http://yoursite.com/2019/08/14/94/</id>
+    <published>2019-08-13T23:55:37.000Z</published>
+    <updated>2019-08-14T00:09:53.395Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="http://codeforces.com/problemset/problem/1200/C" target="_blank" rel="noopener">Link</a></p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>通过观察，我们可以发现，如果两个位置之间有完整的墙挡住时，那么这两个位置就不能互相到达。</p><p><del>再观察，</del>我们又可以发现，这个东西和最大公约数有关。</p><p>因此我们可以设 $g=\gcd(n,m)$，把一号区域分成大小为 $\frac{n}{g}$ 的块，把二号区域分成大小为 $\frac{m}{g}$ 的块，每层区域块的个数都是 $g$。</p><p>然后判断这两个位置所在块的编号是否相同就行了。</p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line">ll n, m, a, b, g, f[<span class="number">3</span>];</span><br><span class="line"><span class="keyword">int</span> x, y, q;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">gcd</span><span class="params">(T a, T b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> gcd(b, a % b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%I64d%I64d%d"</span>, &amp;n, &amp;m, &amp;q);</span><br><span class="line">    g = gcd(n, m);</span><br><span class="line">    f[<span class="number">1</span>] = n / g;</span><br><span class="line">    f[<span class="number">2</span>] = m / g;</span><br><span class="line">    <span class="keyword">while</span> (q--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%I64d%d%I64d"</span>, &amp;x, &amp;a, &amp;y, &amp;b);</span><br><span class="line">        <span class="keyword">if</span> ((a / f[x] + ((a % f[x]) != <span class="number">0</span>)) != (b / f[y] + ((b % f[y]) != <span class="number">0</span>))) <span class="built_in">puts</span>(<span class="string">"NO"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"YES"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://codeforces.com/problemset/problem/1200/C&quot; targ
+      
+    
+    </summary>
+    
+    
+      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="Codeforces" scheme="http://yoursite.com/tags/Codeforces/"/>
+    
+  </entry>
   
   <entry>
     <title>-主席树-树链剖分-LCA- [洛谷 P2633]Count on a tree</title>
@@ -244,11 +269,11 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
-    
       <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
+    
+      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
       <category term="网络流24题" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
@@ -272,13 +297,13 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
-    
-      <category term="最大匹配" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/"/>
-    
       <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
+    
+      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+    
+      <category term="最大匹配" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/"/>
     
       <category term="网络流24题" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
@@ -350,13 +375,13 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
-    
       <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
     
       <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
+    
+      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
   </entry>
   
@@ -479,31 +504,6 @@
       <category term="莫比乌斯反演" scheme="http://yoursite.com/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/"/>
     
       <category term="SPOJ" scheme="http://yoursite.com/tags/SPOJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>-整体二分-树状数组- [洛谷 P2617]Dynamic Rankings</title>
-    <link href="http://yoursite.com/2019/04/15/74/"/>
-    <id>http://yoursite.com/2019/04/15/74/</id>
-    <published>2019-04-15T08:59:17.000Z</published>
-    <updated>2019-08-08T10:46:44.141Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/P2617" target="_blank" rel="noopener">Link</a></p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>这题我们用整体二分。</p><a id="more"></a><p>为什么不用主席树套树状数组呢？<del>最主要的原因就是我不会。</del>因为主席树再套一个树状数组空间开销有些大，故不用主席树套树状数组<del>虽然我写的整体二分空间占用也小不到那里去</del></p><p>我们只需要把修改操作拆成删除、赋值两个操作就可以了，剩下的就是普通的整体二分查第K大了。</p><p>而且别忘了用树状数组维护修改操作。</p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 200010</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 1000000000</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">rec</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> op, x, y, z;</span><br><span class="line">&#125; q[MAXN &lt;&lt; <span class="number">2</span>], lq[MAXN &lt;&lt; <span class="number">2</span>], rq[MAXN &lt;&lt; <span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> n, m, t, c[MAXN], ans[MAXN], id, a[MAXN];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (; x; x -= x &amp; -x) y += c[x];</span><br><span class="line">    <span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (; x &lt;= n; x += x &amp; -x) c[x] += y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> lval, <span class="keyword">int</span> rval, <span class="keyword">int</span> st, <span class="keyword">int</span> ed)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (st &gt; ed) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (lval == rval) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = st; i &lt;= ed; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (q[i].op &gt; <span class="number">0</span>) ans[q[i].op] = lval;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (lval + rval) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> lt = <span class="number">0</span>, rt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = st; i &lt;= ed; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (q[i].op == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (q[i].y &lt;= mid) change(q[i].x, <span class="number">1</span>), lq[++lt] = q[i];</span><br><span class="line">            <span class="keyword">else</span> rq[++rt] = q[i];</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">if</span> (q[i].op == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (q[i].y &lt;= mid) change(q[i].x, <span class="number">-1</span>), lq[++lt] = q[i];</span><br><span class="line">            <span class="keyword">else</span> rq[++rt] = q[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (q[i].op &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> cnt = ask(q[i].y) - ask(q[i].x - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (cnt &gt;= q[i].z) lq[++lt] = q[i];</span><br><span class="line">            <span class="keyword">else</span> q[i].z -= cnt, rq[++rt] = q[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = ed; i &gt;= st; i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (q[i].op == <span class="number">0</span> &amp;&amp; q[i].y &lt;= mid) change(q[i].x, <span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">if</span> (q[i].op == <span class="number">-1</span> &amp;&amp; q[i].y &lt;= mid) change(q[i].x, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= lt; i++) q[st + i - <span class="number">1</span>] = lq[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= rt; i++) q[st + lt + i - <span class="number">1</span>] = rq[i];</span><br><span class="line">    solve(lval, mid, st, st + lt - <span class="number">1</span>);</span><br><span class="line">    solve(mid + <span class="number">1</span>, rval, st + lt, ed);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> l, r, k;</span><br><span class="line"><span class="keyword">char</span> op[<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;val);</span><br><span class="line">        a[i] = val;</span><br><span class="line">        q[++t].op = <span class="number">0</span>, q[t].x = i, q[t].y = val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s%d%d"</span>, op, &amp;l, &amp;r);</span><br><span class="line">        <span class="keyword">if</span> (op[<span class="number">0</span>] == <span class="string">'Q'</span>) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;k);</span><br><span class="line">            q[++t].op = ++id, q[t].x = l, q[t].y = r, q[t].z = k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            q[++t].op = <span class="number">-1</span>, q[t].x = l, q[t].y = a[l];</span><br><span class="line">            q[++t].op = <span class="number">0</span>, q[t].x = l, q[t].y = r;</span><br><span class="line">            a[l] = r;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    solve(-INF, INF, <span class="number">1</span>, t);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= id; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.luogu.org/problemnew/show/P2617&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Link&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;这题我们用整体二分。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
-    
-      <category term="树状数组" scheme="http://yoursite.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
-    
-      <category term="整体二分" scheme="http://yoursite.com/tags/%E6%95%B4%E4%BD%93%E4%BA%8C%E5%88%86/"/>
     
   </entry>
   
