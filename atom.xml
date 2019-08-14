@@ -379,9 +379,9 @@
     
       <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
     
-      <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
-    
       <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+    
+      <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
     
   </entry>
   
