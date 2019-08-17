@@ -5,9 +5,9 @@
   <subtitle>技不如人，也绝不甘拜下风！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-08-17T08:08:33.422Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="https://stevebraveman.github.io/"/>
+  <updated>2019-08-17T08:13:30.178Z</updated>
+  <id>https://stevebraveman.github.io/</id>
   
   <author>
     <name>RiverFun</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>-学习笔记-虚树- 虚树学习笔记</title>
-    <link href="http://yoursite.com/2019/08/17/95/"/>
-    <id>http://yoursite.com/2019/08/17/95/</id>
+    <link href="https://stevebraveman.github.io/2019/08/17/95/"/>
+    <id>https://stevebraveman.github.io/2019/08/17/95/</id>
     <published>2019-08-17T06:19:41.000Z</published>
-    <updated>2019-08-17T08:08:33.422Z</updated>
+    <updated>2019-08-17T08:13:30.178Z</updated>
     
-    <content type="html"><![CDATA[<p><del>今天是个好日子！</del></p><p>最近学了<del>非常酷炫的</del>虚树，感觉这个算法挺实用的。</p><p>虚树的做法就是把有用的点及其它们的<code>LCA</code>拎出来，无关的点给丢掉，这样就大大优化了树形dp的复杂度。</p><p>设有效节点为 $k​$ 个，则建虚树的时间复杂度为 $O(k \log n)​$，在虚树上进行树形dp的时间复杂度为  $O(k)​$。</p><p>下面的代码展示了如何建虚树：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!top) &#123;</span><br><span class="line">        st[++top] = x;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> lca = LCA(st[top], x);</span><br><span class="line">    <span class="keyword">if</span> (lca == st[top]) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">while</span> (top &amp;&amp; id[st[top - <span class="number">1</span>]] &gt;= id[lca]) &#123;</span><br><span class="line">        v[st[top - <span class="number">1</span>]].push_back(st[top]);</span><br><span class="line">        top--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (lca != st[top]) &#123;</span><br><span class="line">        v[lca].push_back(st[top]);</span><br><span class="line">        st[top] = lca;</span><br><span class="line">    &#125;</span><br><span class="line">    st[++top] = x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面的代码展示了如何用栈来维护这些点。</p><p>然后就是一道例题：</p><p><a href="https://www.luogu.org/problem/P2495" target="_blank" rel="noopener">[SDOI2011]消耗战</a>： </p><p>这题数据范围较大，但是k较小，$O(nm)$ 的DP肯定过不去，所以考虑使用虚树优化，将复杂度降低为 $O(k)​$。</p><p><del>原谅我写这么简短的学习笔记</del></p>]]></content>
+    <content type="html"><![CDATA[<p><del>今天是个好日子！</del></p><p>最近学了<del>非常酷炫的</del>虚树，感觉这个算法挺实用的。</p><p>虚树的做法就是把有用的点及其它们的<code>LCA</code>拎出来，无关的点给丢掉，这样就大大优化了树形dp的复杂度。</p><p>设有效节点为 $k$ 个，则建虚树的时间复杂度为 $O(k \log n)$，在虚树上进行树形dp的时间复杂度为  $O(k)​$。</p><p>下面的代码展示了如何建虚树：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!top) &#123;</span><br><span class="line">        st[++top] = x;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> lca = LCA(st[top], x);</span><br><span class="line">    <span class="keyword">if</span> (lca == st[top]) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">while</span> (top &amp;&amp; id[st[top - <span class="number">1</span>]] &gt;= id[lca]) &#123;</span><br><span class="line">        v[st[top - <span class="number">1</span>]].push_back(st[top]);</span><br><span class="line">        top--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (lca != st[top]) &#123;</span><br><span class="line">        v[lca].push_back(st[top]);</span><br><span class="line">        st[top] = lca;</span><br><span class="line">    &#125;</span><br><span class="line">    st[++top] = x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面的代码展示了如何用栈来维护这些点。</p><p>然后就是一道例题：</p><p><a href="https://www.luogu.org/problem/P2495" target="_blank" rel="noopener">[SDOI2011]消耗战</a>： </p><p>这题数据范围较大，但是k较小，$O(nm)$ 的DP肯定过不去，所以考虑使用虚树优化，将复杂度降低为 $O(k)​$。</p><p><del>原谅我写这么简短的学习笔记</del></p>]]></content>
     
     <summary type="html">
     
@@ -38,16 +38,16 @@
     </summary>
     
     
-      <category term="学习笔记" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="https://stevebraveman.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="虚树" scheme="http://yoursite.com/tags/%E8%99%9A%E6%A0%91/"/>
+      <category term="虚树" scheme="https://stevebraveman.github.io/tags/%E8%99%9A%E6%A0%91/"/>
     
   </entry>
   
   <entry>
     <title>-数论- [CF1200C]Round Corridor</title>
-    <link href="http://yoursite.com/2019/08/14/94/"/>
-    <id>http://yoursite.com/2019/08/14/94/</id>
+    <link href="https://stevebraveman.github.io/2019/08/14/94/"/>
+    <id>https://stevebraveman.github.io/2019/08/14/94/</id>
     <published>2019-08-13T23:55:37.000Z</published>
     <updated>2019-08-14T00:09:53.395Z</updated>
     
@@ -63,16 +63,16 @@
     </summary>
     
     
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
+      <category term="数论" scheme="https://stevebraveman.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
     
-      <category term="Codeforces" scheme="http://yoursite.com/tags/Codeforces/"/>
+      <category term="Codeforces" scheme="https://stevebraveman.github.io/tags/Codeforces/"/>
     
   </entry>
   
   <entry>
     <title>-主席树-树链剖分-LCA- [洛谷 P2633]Count on a tree</title>
-    <link href="http://yoursite.com/2019/08/07/93/"/>
-    <id>http://yoursite.com/2019/08/07/93/</id>
+    <link href="https://stevebraveman.github.io/2019/08/07/93/"/>
+    <id>https://stevebraveman.github.io/2019/08/07/93/</id>
     <published>2019-08-07T01:17:11.000Z</published>
     <updated>2019-08-09T07:13:58.558Z</updated>
     
@@ -85,20 +85,20 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="LCA" scheme="http://yoursite.com/tags/LCA/"/>
+      <category term="LCA" scheme="https://stevebraveman.github.io/tags/LCA/"/>
     
-      <category term="树链剖分" scheme="http://yoursite.com/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
+      <category term="树链剖分" scheme="https://stevebraveman.github.io/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
     
-      <category term="主席树" scheme="http://yoursite.com/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
+      <category term="主席树" scheme="https://stevebraveman.github.io/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/"/>
     
   </entry>
   
   <entry>
     <title>-多项式-NTT/FFT- 多项式板子合集</title>
-    <link href="http://yoursite.com/2019/07/10/92/"/>
-    <id>http://yoursite.com/2019/07/10/92/</id>
+    <link href="https://stevebraveman.github.io/2019/07/10/92/"/>
+    <id>https://stevebraveman.github.io/2019/07/10/92/</id>
     <published>2019-07-10T11:01:15.000Z</published>
     <updated>2019-08-08T10:42:46.859Z</updated>
     
@@ -112,16 +112,16 @@
     </summary>
     
     
-      <category term="多项式" scheme="http://yoursite.com/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/"/>
+      <category term="多项式" scheme="https://stevebraveman.github.io/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/"/>
     
-      <category term="NTT/FFT" scheme="http://yoursite.com/tags/NTT-FFT/"/>
+      <category term="NTT/FFT" scheme="https://stevebraveman.github.io/tags/NTT-FFT/"/>
     
   </entry>
   
   <entry>
     <title>-矩阵运算-矩阵乘法-分块- [洛谷 P5110]块速递推</title>
-    <link href="http://yoursite.com/2019/07/03/91/"/>
-    <id>http://yoursite.com/2019/07/03/91/</id>
+    <link href="https://stevebraveman.github.io/2019/07/03/91/"/>
+    <id>https://stevebraveman.github.io/2019/07/03/91/</id>
     <published>2019-07-03T01:14:06.000Z</published>
     <updated>2019-08-08T10:42:46.075Z</updated>
     
@@ -134,18 +134,18 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="分块" scheme="http://yoursite.com/tags/%E5%88%86%E5%9D%97/"/>
+      <category term="分块" scheme="https://stevebraveman.github.io/tags/%E5%88%86%E5%9D%97/"/>
     
-      <category term="矩阵乘法" scheme="http://yoursite.com/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/"/>
+      <category term="矩阵乘法" scheme="https://stevebraveman.github.io/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>-贪心- [CF484A]Bits</title>
-    <link href="http://yoursite.com/2019/06/30/90/"/>
-    <id>http://yoursite.com/2019/06/30/90/</id>
+    <link href="https://stevebraveman.github.io/2019/06/30/90/"/>
+    <id>https://stevebraveman.github.io/2019/06/30/90/</id>
     <published>2019-06-30T00:06:06.000Z</published>
     <updated>2019-08-08T10:42:44.908Z</updated>
     
@@ -158,14 +158,14 @@
     </summary>
     
     
-      <category term="贪心" scheme="http://yoursite.com/tags/%E8%B4%AA%E5%BF%83/"/>
+      <category term="贪心" scheme="https://stevebraveman.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
     
   </entry>
   
   <entry>
     <title>-数论-逆元- [洛谷 P4881]hby与tkw的基情</title>
-    <link href="http://yoursite.com/2019/06/27/89/"/>
-    <id>http://yoursite.com/2019/06/27/89/</id>
+    <link href="https://stevebraveman.github.io/2019/06/27/89/"/>
+    <id>https://stevebraveman.github.io/2019/06/27/89/</id>
     <published>2019-06-27T09:38:35.000Z</published>
     <updated>2019-08-08T10:42:43.016Z</updated>
     
@@ -178,18 +178,18 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
+      <category term="数论" scheme="https://stevebraveman.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
     
-      <category term="逆元" scheme="http://yoursite.com/tags/%E9%80%86%E5%85%83/"/>
+      <category term="逆元" scheme="https://stevebraveman.github.io/tags/%E9%80%86%E5%85%83/"/>
     
   </entry>
   
   <entry>
     <title>-数论-欧拉定理- 有关无理数取余的一些想法</title>
-    <link href="http://yoursite.com/2019/06/24/88/"/>
-    <id>http://yoursite.com/2019/06/24/88/</id>
+    <link href="https://stevebraveman.github.io/2019/06/24/88/"/>
+    <id>https://stevebraveman.github.io/2019/06/24/88/</id>
     <published>2019-06-24T03:12:52.000Z</published>
     <updated>2019-08-08T10:42:32.676Z</updated>
     
@@ -203,16 +203,16 @@
     </summary>
     
     
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
+      <category term="数论" scheme="https://stevebraveman.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
     
-      <category term="欧拉定理" scheme="http://yoursite.com/tags/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/"/>
+      <category term="欧拉定理" scheme="https://stevebraveman.github.io/tags/%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>-树链剖分-线段树- [洛谷 P4116]Qtree3</title>
-    <link href="http://yoursite.com/2019/06/05/87/"/>
-    <id>http://yoursite.com/2019/06/05/87/</id>
+    <link href="https://stevebraveman.github.io/2019/06/05/87/"/>
+    <id>https://stevebraveman.github.io/2019/06/05/87/</id>
     <published>2019-06-05T06:07:59.000Z</published>
     <updated>2019-08-08T10:43:03.414Z</updated>
     
@@ -225,18 +225,18 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="线段树" scheme="http://yoursite.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+      <category term="线段树" scheme="https://stevebraveman.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
-      <category term="树链剖分" scheme="http://yoursite.com/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
+      <category term="树链剖分" scheme="https://stevebraveman.github.io/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/"/>
     
   </entry>
   
   <entry>
     <title>-图论-拓扑排序- [CF1131D]Gourmet choice</title>
-    <link href="http://yoursite.com/2019/05/26/86/"/>
-    <id>http://yoursite.com/2019/05/26/86/</id>
+    <link href="https://stevebraveman.github.io/2019/05/26/86/"/>
+    <id>https://stevebraveman.github.io/2019/05/26/86/</id>
     <published>2019-05-26T09:27:30.000Z</published>
     <updated>2019-08-08T10:43:22.382Z</updated>
     
@@ -249,22 +249,22 @@
     </summary>
     
     
-      <category term="图论" scheme="http://yoursite.com/tags/%E5%9B%BE%E8%AE%BA/"/>
+      <category term="图论" scheme="https://stevebraveman.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     
-      <category term="Codeforces" scheme="http://yoursite.com/tags/Codeforces/"/>
+      <category term="Codeforces" scheme="https://stevebraveman.github.io/tags/Codeforces/"/>
     
-      <category term="拓扑排序" scheme="http://yoursite.com/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
+      <category term="拓扑排序" scheme="https://stevebraveman.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>-网络流- 对于网络流24题的题解索引</title>
-    <link href="http://yoursite.com/2019/05/24/85/"/>
-    <id>http://yoursite.com/2019/05/24/85/</id>
+    <link href="https://stevebraveman.github.io/2019/05/24/85/"/>
+    <id>https://stevebraveman.github.io/2019/05/24/85/</id>
     <published>2019-05-24T11:25:01.000Z</published>
-    <updated>2019-08-08T10:43:36.876Z</updated>
+    <updated>2019-08-17T08:13:49.241Z</updated>
     
-    <content type="html"><![CDATA[<p>这是所有的网络流24题，其中标记了我完成的和我没有完成的题</p><a id="more"></a><p>（PS:点击题解中的对勾可以传送到相应题的题解）</p><div class="table-container"><table><thead><tr><th style="text-align:center">题目</th><th style="text-align:center">AC</th><th style="text-align:center">题解</th></tr></thead><tbody><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2756" target="_blank" rel="noopener">飞行员配对方案问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/01/22/59/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2763" target="_blank" rel="noopener">试题库问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2764" target="_blank" rel="noopener">最小路径覆盖问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/01/22/60/"><i class="fa fa-check" aria-hidden="true"></i>&lt;/a&gt;</a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2754" target="_blank" rel="noopener">[CTSC1999]家园</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P1251" target="_blank" rel="noopener">餐巾计划问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2761" target="_blank" rel="noopener">软件补丁问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2762" target="_blank" rel="noopener">太空飞行计划问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2765" target="_blank" rel="noopener">魔术球问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2766" target="_blank" rel="noopener">最长不下降子序列问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2770" target="_blank" rel="noopener">航空路线问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2774" target="_blank" rel="noopener">方格取数问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/03/05/65/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2775" target="_blank" rel="noopener">机器人路径规划问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P3254" target="_blank" rel="noopener">圆桌问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/05/24/84/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P3355" target="_blank" rel="noopener">骑士共存问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/05/24/83/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P3356" target="_blank" rel="noopener">火星探险问题 </a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/05/09/79/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P3357" target="_blank" rel="noopener">最长k可重线段集问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P3358" target="_blank" rel="noopener">最长k可重区间集问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4009" target="_blank" rel="noopener">汽车加油行驶问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4011" target="_blank" rel="noopener">孤岛营救问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4012" target="_blank" rel="noopener">深海机器人问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4013" target="_blank" rel="noopener">数字梯形问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4014" target="_blank" rel="noopener">分配问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4015" target="_blank" rel="noopener">运输问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4016" target="_blank" rel="noopener">负载平衡问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td></tr></tbody></table></div>]]></content>
+    <content type="html"><![CDATA[<p>这是所有的网络流24题，其中标记了我完成的和我没有完成的题</p><a id="more"></a><p>（PS:点击题解中的对勾可以传送到相应题的题解）</p><div class="table-container"><table><thead><tr><th style="text-align:center">题目</th><th style="text-align:center">AC</th><th style="text-align:center">题解</th></tr></thead><tbody><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2756" target="_blank" rel="noopener">飞行员配对方案问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/01/22/59/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2763" target="_blank" rel="noopener">试题库问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2764" target="_blank" rel="noopener">最小路径覆盖问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/01/22/60/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2754" target="_blank" rel="noopener">[CTSC1999]家园</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P1251" target="_blank" rel="noopener">餐巾计划问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2761" target="_blank" rel="noopener">软件补丁问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2762" target="_blank" rel="noopener">太空飞行计划问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2765" target="_blank" rel="noopener">魔术球问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2766" target="_blank" rel="noopener">最长不下降子序列问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2770" target="_blank" rel="noopener">航空路线问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2774" target="_blank" rel="noopener">方格取数问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/03/05/65/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P2775" target="_blank" rel="noopener">机器人路径规划问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P3254" target="_blank" rel="noopener">圆桌问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/05/24/84/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P3355" target="_blank" rel="noopener">骑士共存问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/05/24/83/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P3356" target="_blank" rel="noopener">火星探险问题 </a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"><a href="/2019/05/09/79/"><i class="fa fa-check" aria-hidden="true"></i></a></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P3357" target="_blank" rel="noopener">最长k可重线段集问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P3358" target="_blank" rel="noopener">最长k可重区间集问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4009" target="_blank" rel="noopener">汽车加油行驶问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4011" target="_blank" rel="noopener">孤岛营救问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4012" target="_blank" rel="noopener">深海机器人问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4013" target="_blank" rel="noopener">数字梯形问题</a></td><td style="text-align:center"></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4014" target="_blank" rel="noopener">分配问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4015" target="_blank" rel="noopener">运输问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td><td style="text-align:center"></td></tr><tr><td style="text-align:center"><a href="https://www.luogu.org/problemnew/show/P4016" target="_blank" rel="noopener">负载平衡问题</a></td><td style="text-align:center"><i class="fa fa-check" aria-hidden="true"></i></td></tr></tbody></table></div>]]></content>
     
     <summary type="html">
     
@@ -273,16 +273,16 @@
     </summary>
     
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="网络流24题" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
+      <category term="网络流24题" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>-网络流-最大流-二分图- [洛谷 PP3254][网络流24题]圆桌问题</title>
-    <link href="http://yoursite.com/2019/05/24/84/"/>
-    <id>http://yoursite.com/2019/05/24/84/</id>
+    <link href="https://stevebraveman.github.io/2019/05/24/84/"/>
+    <id>https://stevebraveman.github.io/2019/05/24/84/</id>
     <published>2019-05-24T11:09:55.000Z</published>
     <updated>2019-08-08T10:43:48.546Z</updated>
     
@@ -295,22 +295,22 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="最大流" scheme="https://stevebraveman.github.io/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
     
-      <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
+      <category term="二分图" scheme="https://stevebraveman.github.io/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
-      <category term="网络流24题" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
+      <category term="网络流24题" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>-网络流-二分图-最大流-最大匹配- [洛谷 P3355][网络流24题]骑士共存问题</title>
-    <link href="http://yoursite.com/2019/05/24/83/"/>
-    <id>http://yoursite.com/2019/05/24/83/</id>
+    <link href="https://stevebraveman.github.io/2019/05/24/83/"/>
+    <id>https://stevebraveman.github.io/2019/05/24/83/</id>
     <published>2019-05-24T10:59:50.000Z</published>
     <updated>2019-08-08T10:44:05.242Z</updated>
     
@@ -323,24 +323,24 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="最大匹配" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/"/>
+      <category term="最大流" scheme="https://stevebraveman.github.io/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="二分图" scheme="https://stevebraveman.github.io/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
-      <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
+      <category term="最大匹配" scheme="https://stevebraveman.github.io/tags/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/"/>
     
-      <category term="网络流24题" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
+      <category term="网络流24题" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>-数论-线段树-逆元- [洛谷 P5142]区间方差</title>
-    <link href="http://yoursite.com/2019/05/24/82/"/>
-    <id>http://yoursite.com/2019/05/24/82/</id>
+    <link href="https://stevebraveman.github.io/2019/05/24/82/"/>
+    <id>https://stevebraveman.github.io/2019/05/24/82/</id>
     <published>2019-05-24T09:36:07.000Z</published>
     <updated>2019-08-08T10:44:19.916Z</updated>
     
@@ -353,20 +353,20 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
+      <category term="数论" scheme="https://stevebraveman.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
     
-      <category term="线段树" scheme="http://yoursite.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+      <category term="线段树" scheme="https://stevebraveman.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
-      <category term="逆元" scheme="http://yoursite.com/tags/%E9%80%86%E5%85%83/"/>
+      <category term="逆元" scheme="https://stevebraveman.github.io/tags/%E9%80%86%E5%85%83/"/>
     
   </entry>
   
   <entry>
     <title>-模拟退火- [洛谷 P3936]Coloring</title>
-    <link href="http://yoursite.com/2019/05/21/81/"/>
-    <id>http://yoursite.com/2019/05/21/81/</id>
+    <link href="https://stevebraveman.github.io/2019/05/21/81/"/>
+    <id>https://stevebraveman.github.io/2019/05/21/81/</id>
     <published>2019-05-21T07:23:57.000Z</published>
     <updated>2019-08-08T10:44:42.262Z</updated>
     
@@ -379,16 +379,16 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="模拟退火" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/"/>
+      <category term="模拟退火" scheme="https://stevebraveman.github.io/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/"/>
     
   </entry>
   
   <entry>
     <title>-网络流-最大流-二分图-强连通分量- [洛谷 P3731][HAOI2017]新型城市化</title>
-    <link href="http://yoursite.com/2019/05/13/80/"/>
-    <id>http://yoursite.com/2019/05/13/80/</id>
+    <link href="https://stevebraveman.github.io/2019/05/13/80/"/>
+    <id>https://stevebraveman.github.io/2019/05/13/80/</id>
     <published>2019-05-13T10:53:20.000Z</published>
     <updated>2019-08-08T10:44:58.460Z</updated>
     
@@ -401,22 +401,22 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="最大流" scheme="https://stevebraveman.github.io/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
     
-      <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
+      <category term="强连通分量" scheme="https://stevebraveman.github.io/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
     
-      <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
+      <category term="二分图" scheme="https://stevebraveman.github.io/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>-网络流-费用流- [洛谷 P3356][网络流24题]火星探险问题</title>
-    <link href="http://yoursite.com/2019/05/09/79/"/>
-    <id>http://yoursite.com/2019/05/09/79/</id>
+    <link href="https://stevebraveman.github.io/2019/05/09/79/"/>
+    <id>https://stevebraveman.github.io/2019/05/09/79/</id>
     <published>2019-05-09T09:46:05.000Z</published>
     <updated>2019-08-08T10:45:32.242Z</updated>
     
@@ -429,20 +429,20 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="网络流24题" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
+      <category term="网络流24题" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
-      <category term="费用流" scheme="http://yoursite.com/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/"/>
+      <category term="费用流" scheme="https://stevebraveman.github.io/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/"/>
     
   </entry>
   
   <entry>
     <title>-网络流-费用流- [洛谷 P3965][TJOI2013]循环格</title>
-    <link href="http://yoursite.com/2019/04/29/78/"/>
-    <id>http://yoursite.com/2019/04/29/78/</id>
+    <link href="https://stevebraveman.github.io/2019/04/29/78/"/>
+    <id>https://stevebraveman.github.io/2019/04/29/78/</id>
     <published>2019-04-29T08:34:23.000Z</published>
     <updated>2019-08-08T10:45:49.451Z</updated>
     
@@ -455,18 +455,18 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="费用流" scheme="http://yoursite.com/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/"/>
+      <category term="费用流" scheme="https://stevebraveman.github.io/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/"/>
     
   </entry>
   
   <entry>
     <title>-学习笔记-树套树- 树套树学习笔记</title>
-    <link href="http://yoursite.com/2019/04/24/77/"/>
-    <id>http://yoursite.com/2019/04/24/77/</id>
+    <link href="https://stevebraveman.github.io/2019/04/24/77/"/>
+    <id>https://stevebraveman.github.io/2019/04/24/77/</id>
     <published>2019-04-24T00:35:32.000Z</published>
     <updated>2019-08-08T10:46:16.276Z</updated>
     
@@ -479,16 +479,16 @@
     </summary>
     
     
-      <category term="学习笔记" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="https://stevebraveman.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="树套树" scheme="http://yoursite.com/tags/%E6%A0%91%E5%A5%97%E6%A0%91/"/>
+      <category term="树套树" scheme="https://stevebraveman.github.io/tags/%E6%A0%91%E5%A5%97%E6%A0%91/"/>
     
   </entry>
   
   <entry>
     <title>-网络流-费用流- [洛谷 P4329][COCI2006-2007#1] Bond</title>
-    <link href="http://yoursite.com/2019/04/23/76/"/>
-    <id>http://yoursite.com/2019/04/23/76/</id>
+    <link href="https://stevebraveman.github.io/2019/04/23/76/"/>
+    <id>https://stevebraveman.github.io/2019/04/23/76/</id>
     <published>2019-04-23T13:47:47.000Z</published>
     <updated>2019-08-08T10:46:25.361Z</updated>
     
@@ -501,11 +501,11 @@
     </summary>
     
     
-      <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
+      <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
-      <category term="费用流" scheme="http://yoursite.com/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/"/>
+      <category term="费用流" scheme="https://stevebraveman.github.io/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/"/>
     
   </entry>
   
