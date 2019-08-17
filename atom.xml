@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-14T00:09:53.395Z</updated>
+  <updated>2019-08-17T08:08:33.422Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>-学习笔记-虚树- 虚树学习笔记</title>
+    <link href="http://yoursite.com/2019/08/17/95/"/>
+    <id>http://yoursite.com/2019/08/17/95/</id>
+    <published>2019-08-17T06:19:41.000Z</published>
+    <updated>2019-08-17T08:08:33.422Z</updated>
+    
+    <content type="html"><![CDATA[<p><del>今天是个好日子！</del></p><p>最近学了<del>非常酷炫的</del>虚树，感觉这个算法挺实用的。</p><p>虚树的做法就是把有用的点及其它们的<code>LCA</code>拎出来，无关的点给丢掉，这样就大大优化了树形dp的复杂度。</p><p>设有效节点为 $k​$ 个，则建虚树的时间复杂度为 $O(k \log n)​$，在虚树上进行树形dp的时间复杂度为  $O(k)​$。</p><p>下面的代码展示了如何建虚树：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!top) &#123;</span><br><span class="line">        st[++top] = x;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> lca = LCA(st[top], x);</span><br><span class="line">    <span class="keyword">if</span> (lca == st[top]) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">while</span> (top &amp;&amp; id[st[top - <span class="number">1</span>]] &gt;= id[lca]) &#123;</span><br><span class="line">        v[st[top - <span class="number">1</span>]].push_back(st[top]);</span><br><span class="line">        top--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (lca != st[top]) &#123;</span><br><span class="line">        v[lca].push_back(st[top]);</span><br><span class="line">        st[top] = lca;</span><br><span class="line">    &#125;</span><br><span class="line">    st[++top] = x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面的代码展示了如何用栈来维护这些点。</p><p>然后就是一道例题：</p><p><a href="https://www.luogu.org/problem/P2495" target="_blank" rel="noopener">[SDOI2011]消耗战</a>： </p><p>这题数据范围较大，但是k较小，$O(nm)$ 的DP肯定过不去，所以考虑使用虚树优化，将复杂度降低为 $O(k)​$。</p><p><del>原谅我写这么简短的学习笔记</del></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;del&gt;今天是个好日子！&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;最近学了&lt;del&gt;非常酷炫的&lt;/del&gt;虚树，感觉这个算法挺实用的。&lt;/p&gt;
+&lt;p&gt;虚树的做法就是把有用的点及其它们的&lt;code&gt;LCA&lt;/code&gt;拎出来，无关的点给丢掉，这样就大大优化了树形dp的复杂度。&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="学习笔记" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="虚树" scheme="http://yoursite.com/tags/%E8%99%9A%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>-数论- [CF1200C]Round Corridor</title>
@@ -269,11 +297,11 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
+      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+    
       <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
-    
-      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
       <category term="网络流24题" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
@@ -297,13 +325,13 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
-    
-      <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
-    
       <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
       <category term="最大匹配" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/"/>
+    
+      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+    
+      <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
     
       <category term="网络流24题" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
@@ -375,11 +403,11 @@
     
       <category term="洛谷" scheme="http://yoursite.com/tags/%E6%B4%9B%E8%B0%B7/"/>
     
+      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+    
       <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="最大流" scheme="http://yoursite.com/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
-    
-      <category term="二分图" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
       <category term="强连通分量" scheme="http://yoursite.com/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
     
@@ -478,32 +506,6 @@
       <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="费用流" scheme="http://yoursite.com/tags/%E8%B4%B9%E7%94%A8%E6%B5%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>-数论-莫比乌斯反演-容斥- [SP26017]GCDMAT - GCD OF MATRIX</title>
-    <link href="http://yoursite.com/2019/04/18/75/"/>
-    <id>http://yoursite.com/2019/04/18/75/</id>
-    <published>2019-04-18T00:20:07.000Z</published>
-    <updated>2019-08-08T10:46:35.472Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://www.luogu.org/problemnew/show/SP26017" target="_blank" rel="noopener">Link</a></p><a id="more"></a><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>其实如果这道题没有容斥的操作就是这样：</p><script type="math/tex; mode=display">\sum_{i = 1}^n \sum_{j = 1}^m \gcd(i, j)</script><p>然后我们可以推一下：</p><script type="math/tex; mode=display">\sum_{i = 1}^n \sum_{j = 1}^m \gcd(i, j)​</script><script type="math/tex; mode=display">\sum_{d = 1}^n \sum_{i = 1}^n \sum_{j = 1}^m [\gcd(i, j) == d]</script><script type="math/tex; mode=display">\sum_{d = 1}^n \sum_{i = 1}^{\lfloor \frac{n}{d} \rfloor} \sum_{j = 1}^{\lfloor \frac{m}{d} \rfloor} [\gcd(i ,j) == 1] ​</script><script type="math/tex; mode=display">\sum_{d = 1}^n \sum_{i = 1}^{\lfloor \frac{n}{d} \rfloor} \sum_{j = 1}^{\lfloor \frac{m}{d} \rfloor} \sum_{d | \gcd(i, j)} \mu(d)​</script><script type="math/tex; mode=display">\sum_{d = 1}^n \sum_{a = 1}^n \mu(a) {\lfloor \frac{n}{ad} \rfloor}{\lfloor \frac{m}{ad} \rfloor}​</script><p>设 $T=ad​$</p><script type="math/tex; mode=display">\sum_{T = 1}^n  {\lfloor \frac{n}{T} \rfloor}{\lfloor \frac{m}{T} \rfloor} \sum_{d | T} d \mu({\lfloor \frac{T}{d} \rfloor})​</script><p>因为 $\sum_{d | T} d \mu({\lfloor \frac{T}{d} \rfloor})​$ 这部分是狄利克雷卷积的形式，而 $id * \mu = \varphi​$</p><p>所以线性筛一遍欧拉函数再用整除分块就行了。</p><p>最后再用容斥<del>瞎搞搞</del>就可以了。</p><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 500010</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 1000000007</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="keyword">int</span> p[MAXN + <span class="number">10</span>], tot, phi[MAXN + <span class="number">10</span>], T, g[MAXN + <span class="number">10</span>], answ;</span><br><span class="line"><span class="keyword">bool</span> chk[MAXN + <span class="number">10</span>];</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line"><span class="function">Tp <span class="title">min</span><span class="params">(Tp a, Tp b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a &lt; b) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tp&gt;</span><br><span class="line"><span class="function">Tp <span class="title">max</span><span class="params">(Tp a, Tp b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a &gt; b) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sieve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    phi[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    chk[<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= MAXN; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!chk[i]) &#123;</span><br><span class="line">            p[++tot] = i;</span><br><span class="line">            phi[i] = i - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot &amp;&amp; i * p[j] &lt;= MAXN; j++) &#123;</span><br><span class="line">            chk[i * p[j]] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (!(i % p[j])) &#123;</span><br><span class="line">                phi[i * p[j]] = phi[i] * p[j];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            phi[i * p[j]] = phi[i] * phi[p[j]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= MAXN; i++) &#123;</span><br><span class="line">        g[i] = (g[i - <span class="number">1</span>] + phi[i]) % MOD;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = min(x, y);</span><br><span class="line">    <span class="keyword">int</span> m = max(x, y);</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">1</span>, r; l &lt;= n; l = r + <span class="number">1</span>) &#123;</span><br><span class="line">        r = min(n / (n / l), m / (m / l));</span><br><span class="line">        ans += (((n / l) % MOD * (m / l) % MOD) % MOD) * ((g[r] - g[l - <span class="number">1</span>] + MOD) % MOD) % MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (ans % MOD);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> a, b, c, d, n, m;</span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    sieve();</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;T);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld%lld"</span>, &amp;a, &amp;b, &amp;c, &amp;d);</span><br><span class="line">        answ = (sum(c, d) + sum(a - <span class="number">1</span>, b - <span class="number">1</span>) - sum(c, b - <span class="number">1</span>) - sum(d, a - <span class="number">1</span>) + <span class="number">2</span> * MOD) % MOD;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, answ % MOD);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.luogu.org/problemnew/show/SP26017&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Link&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
-    
-      <category term="容斥" scheme="http://yoursite.com/tags/%E5%AE%B9%E6%96%A5/"/>
-    
-      <category term="莫比乌斯反演" scheme="http://yoursite.com/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/"/>
-    
-      <category term="SPOJ" scheme="http://yoursite.com/tags/SPOJ/"/>
     
   </entry>
   
