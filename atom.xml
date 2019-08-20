@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://stevebraveman.github.io/"/>
-  <updated>2019-08-20T14:04:21.842Z</updated>
+  <updated>2019-08-20T23:48:10.597Z</updated>
   <id>https://stevebraveman.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://stevebraveman.github.io/2019/08/20/96/"/>
     <id>https://stevebraveman.github.io/2019/08/20/96/</id>
     <published>2019-08-20T12:13:29.000Z</published>
-    <updated>2019-08-20T14:04:21.842Z</updated>
+    <updated>2019-08-20T23:48:10.597Z</updated>
     
-    <content type="html"><![CDATA[<p>莫比乌斯反演是一种非常实用<del>而且装逼</del>的算法，它以容斥为基础，来解决一些复杂的数学问题。</p><p>先给出莫比乌斯反演的公式：</p><p>设定义在自然数集合中的两个函数 $F(x)$ 和 $f(x)$，若这两个函数满足条件：</p><script type="math/tex; mode=display">F(n)=\sum_{d|n}f(d)</script><p>那么则会有：</p><p>$f(n)=\sum_{d|n}\mu(d)F(\frac{n}{d})$</p><p>其中 $\mu$ 为莫比乌斯函数，可以在我的<a href="/2019/03/18/71/">这篇文章</a>中了解关于莫比乌斯函数的知识。</p><p>下面我们来证明这个公式。</p><p>首先需要了解狄利克雷卷积的一些性质（注：以下出现的函数都是定义在自然数集合上的）：</p><p>设 $*$ 为狄利克雷卷积。</p><p>若有两个函数 $f$ 和 $g$，且 $f=g$，那么就有：$f<em>h=g</em>h$，其中，$h$ 为另一个函数。</p><p>对于三个函数 $f$、$g$、$h$，则会有 $f * (g * h) = (f * g) * h$。</p><p>以上就是需要了解的知识。</p><p>$\because F(n)=\sum_{d|n}f(d)​$</p><p>$\therefore F=f*I$（$I$ 为不变函数，此函数的值恒为 $1$）</p><p>$\therefore F * \mu = f * I * \mu$</p><p>$\because I * \mu = \epsilon​$（$\epsilon​$ 为原函数，$\epsilon(n) = [n = 1]​$）</p><p>$\therefore F * \mu = f * \epsilon$</p><p>又 $\because f * \epsilon = f$</p><p>$\therefore F*\mu=f​$</p><p>$\therefore f(n)=\sum_{d|n}\mu(d) F(\frac{n}{d})$</p><p>Q.E.D</p><p>对于一些莫比乌斯反演的题，千万别忘了一个重要的东西：</p><script type="math/tex; mode=display">\mu * I=\epsilon</script><p>这个等式在推柿子中很有用，所以一定要记住。<del>我就是因为忘了这个所以有好长一段时间不理解大多数式子是怎么推出来的</del></p><p>举个例子：</p><p>求： </p><script type="math/tex; mode=display">\sum_{i=1}^n \sum_{j=1}^m [\gcd(i,j)=1]​</script><p>那么这个柿子就可以这么推：</p><script type="math/tex; mode=display">\begin{align}\sum_{i=1}^n \sum_{j=1}^m [\gcd(i,j)=1] &= \sum_{i=1}^n \sum_{j=1}^m \epsilon(\gcd(i,j)) \\\\ &= \sum_{i=1}^n \sum_{j=1}^m \mu*I \\\\ &= \sum_{i=1}^n \sum_{j=1}^m \sum_{d|\gcd(i,j)}\mu(d) \\\\ &= \sum_{i=1}^n \sum_{j=1}^m \sum_{d|i} \sum_{d|j} \mu(d) \\\\\ &=\sum_{d=1}^n \mu(d) \sum_{i=1}^n \sum_{d|i} \sum_{j=1}^n \sum_{d|j} 1 \\\\ &= \sum_{d=1} \mu(d) \lfloor \frac{n}{d} \rfloor \lfloor \frac{m}{d} \rfloor \end{align}</script><p>接下来是一些关于莫比乌斯反演的练习题：</p><p><a href="https://www.luogu.org/problem/P3327" target="_blank" rel="noopener">[SDOI2015]约数个数和</a></p><p><a href="https://www.luogu.org/problem/P3455" target="_blank" rel="noopener">[POI2007]ZAP-Queries</a></p><p><a href="https://www.luogu.org/problem/P2257" target="_blank" rel="noopener">YY的GCD</a></p><p>如果有什么讲解错误，请在下面的评论中指出<del>（毕竟百密一疏）</del></p>]]></content>
+    <content type="html"><![CDATA[<p>莫比乌斯反演是一种非常实用<del>而且装逼</del>的算法，它以容斥为基础，来解决一些复杂的数学问题。</p><p>先给出莫比乌斯反演的公式：</p><p>设定义在自然数集合中的两个函数 $F(x)$ 和 $f(x)$，若这两个函数满足条件：</p><script type="math/tex; mode=display">F(n)=\sum_{d|n}f(d)</script><p>那么则会有：</p><p>$f(n)=\sum_{d|n}\mu(d)F(\frac{n}{d})$</p><p>其中 $\mu$ 为莫比乌斯函数，可以在我的<a href="/2019/03/18/71/">这篇文章</a>中了解关于莫比乌斯函数的知识。</p><p>下面我们来证明这个公式。</p><p>首先需要了解狄利克雷卷积的一些性质（注：以下出现的函数都是定义在自然数集合上的）：</p><p>设 $*$ 为狄利克雷卷积。</p><p>若有两个函数 $f$ 和 $g$，且 $f=g$，那么就有：$f * h=g * h$，其中，$h​$ 为另一个函数。</p><p>对于三个函数 $f​$、$g​$、$h​$，则会有 $f * (g * h) = (f * g) * h​$。</p><p>以上就是需要了解的知识。</p><p>$\because F(n)=\sum_{d|n}f(d)​$</p><p>$\therefore F=f*I$（$I$ 为不变函数，此函数的值恒为 $1$）</p><p>$\therefore F * \mu = f * I * \mu$</p><p>$\because I * \mu = \epsilon​$（$\epsilon​$ 为原函数，$\epsilon(n) = [n = 1]​$）</p><p>$\therefore F * \mu = f * \epsilon$</p><p>又 $\because f * \epsilon = f$</p><p>$\therefore F*\mu=f​$</p><p>$\therefore f(n)=\sum_{d|n}\mu(d) F(\frac{n}{d})$</p><p>Q.E.D</p><p>对于一些莫比乌斯反演的题，千万别忘了一个重要的东西：</p><script type="math/tex; mode=display">\mu * I=\epsilon</script><p>这个等式在推柿子中很有用，所以一定要记住。<del>我就是因为忘了这个所以有好长一段时间不理解大多数式子是怎么推出来的</del></p><p>举个例子：</p><p>求： </p><script type="math/tex; mode=display">\sum_{i=1}^n \sum_{j=1}^m [\gcd(i,j)=1]​</script><p>那么这个柿子就可以这么推：</p><script type="math/tex; mode=display">\begin{align}\sum_{i=1}^n \sum_{j=1}^m [\gcd(i,j)=1] &= \sum_{i=1}^n \sum_{j=1}^m \epsilon(\gcd(i,j)) \\\\ &= \sum_{i=1}^n \sum_{j=1}^m \mu*I \\\\ &= \sum_{i=1}^n \sum_{j=1}^m \sum_{d|\gcd(i,j)}\mu(d) \\\\ &= \sum_{i=1}^n \sum_{j=1}^m \sum_{d|i} \sum_{d|j} \mu(d) \\\\\ &=\sum_{d=1}^n \mu(d) \sum_{i=1}^n \sum_{d|i} \sum_{j=1}^n \sum_{d|j} 1 \\\\ &= \sum_{d=1} \mu(d) \lfloor \frac{n}{d} \rfloor \lfloor \frac{m}{d} \rfloor \end{align}</script><p>接下来是一些关于莫比乌斯反演的练习题：</p><p><a href="https://www.luogu.org/problem/P3327" target="_blank" rel="noopener">[SDOI2015]约数个数和</a></p><p><a href="https://www.luogu.org/problem/P3455" target="_blank" rel="noopener">[POI2007]ZAP-Queries</a></p><p><a href="https://www.luogu.org/problem/P2257" target="_blank" rel="noopener">YY的GCD</a></p><p>如果有什么讲解错误，请在下面的评论中指出<del>（毕竟百密一疏）</del></p>]]></content>
     
     <summary type="html">
     
@@ -325,11 +325,11 @@
     
       <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
+      <category term="二分图" scheme="https://stevebraveman.github.io/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+    
       <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
     
       <category term="最大流" scheme="https://stevebraveman.github.io/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
-    
-      <category term="二分图" scheme="https://stevebraveman.github.io/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
       <category term="网络流24题" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
@@ -353,13 +353,13 @@
     
       <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
-    
-      <category term="最大流" scheme="https://stevebraveman.github.io/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
-    
       <category term="二分图" scheme="https://stevebraveman.github.io/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
       <category term="最大匹配" scheme="https://stevebraveman.github.io/tags/%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/"/>
+    
+      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+    
+      <category term="最大流" scheme="https://stevebraveman.github.io/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
     
       <category term="网络流24题" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%8124%E9%A2%98/"/>
     
@@ -431,13 +431,13 @@
     
       <category term="洛谷" scheme="https://stevebraveman.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
-      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
-    
-      <category term="最大流" scheme="https://stevebraveman.github.io/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
+      <category term="二分图" scheme="https://stevebraveman.github.io/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
     
       <category term="强连通分量" scheme="https://stevebraveman.github.io/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/"/>
     
-      <category term="二分图" scheme="https://stevebraveman.github.io/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+      <category term="网络流" scheme="https://stevebraveman.github.io/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+    
+      <category term="最大流" scheme="https://stevebraveman.github.io/tags/%E6%9C%80%E5%A4%A7%E6%B5%81/"/>
     
   </entry>
   
